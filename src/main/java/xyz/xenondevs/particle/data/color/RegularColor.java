@@ -53,7 +53,7 @@ public class RegularColor extends ParticleColor {
      *               particle should have.
      */
     public RegularColor(ParticleEffect effect, Color color) {
-        super(effect, color.getRed(), color.getBlue(), color.getGreen());
+        super(effect, color.getRed(), color.getGreen(), color.getBlue());
     }
 
     /**
