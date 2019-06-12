@@ -176,7 +176,6 @@ public enum ParticleEffect {
      * <li>  The velocity of this particle can be set. The amount has to be 0</li>
      * <li> This particle needs a block texture in order to work.</li></ul></li>
      * </ul>
-     * </ul>
      */
     BLOCK_DUST(version -> version < 8 ? "NONE" : (version < 13 ? "BLOCK_DUST" : "falling_dust"), DIRECTIONAL, REQUIRES_BLOCK),
     /**
