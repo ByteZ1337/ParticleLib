@@ -33,7 +33,7 @@ Parameter explanation:
 1. The location at which the particle should be displayed.
 2. The velocity at which the particle will fly off.
 3. The speed of the particle.
-4. The amount of particles. <b>This parameter is has to be 0 or it won't have the defined velocity.</b>
+4. The amount of particles. <b>This parameter has to be 0 or it won't have the defined velocity.</b>
 5. Since our particle doesn't need any extra data, the ParticleData is set to ``null`` 
 6. The players that will see the particle.
 
