@@ -5,7 +5,7 @@ JavaDoc: http://xenondevs.xyz/particledoc/
 
 ## How to use this library
 
-It's really simple. You just have to choose the particle you want to display and then use the display method.
+Choose the particle you want to display and then use the display method.
 
 <b>Example:</b>
 ```java
