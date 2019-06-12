@@ -77,7 +77,7 @@ public class ParticleConstants {
      */
     private static final Class BLOCK_CLASS;
     /**
-     * Represents the IBLockData interace.
+     * Represents the IBLockData interface.
      */
     private static final Class BLOCK_DATA_INTERFACE;
     /**
