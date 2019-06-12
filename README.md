@@ -48,7 +48,7 @@ Special:
 
 <b>Example:</b>
 ```java
-ParticleEffect.SPELL_MOB.display(player.getLocation(), new RegularColor(ParticleEffect.SPELL_MOB, new Color(52, 152, 219)));
+ParticleEffect.SPELL_MOB.display(player.getLocation(), new RegularColor(new Color(52, 152, 219)));
 ```
 Parameter explanation:
 1. The location at which the particle should be displayed.
@@ -62,7 +62,7 @@ is set with a implementation of the ParticleTexture class.
 
 <b>Block Example:</b>
 ```java
-ParticleEffect.FALLING_DUST.display(player.getLocation(), 5, 0, 5, 1f, 5, new BlockTexture(ParticleEffect.FALLING_DUST, Material.REDSTONE_BLOCK), Bukkit.getOnlinePlayers());
+ParticleEffect.FALLING_DUST.display(player.getLocation(), 5, 0, 5, 1f, 5, new BlockTexture(Material.REDSTONE_BLOCK), Bukkit.getOnlinePlayers());
 ```
 Parameter explanation:
 1. The location at which the particle should be displayed.
@@ -76,7 +76,7 @@ Parameter explanation:
 
 <b>Item Example:</b>
 ```java
-ParticleEffect.ITEM_CRACK.display(player.getLocation(), 5, 0, 5, 1f, 5, new ItemTexture(ParticleEffect.ITEM_CRACK, new ItemStack(Material.DIAMOND_SWORD)), Bukkit.getOnlinePlayers());
+ParticleEffect.ITEM_CRACK.display(player.getLocation(), 5, 0, 5, 1f, 5, new ItemTexture(new ItemStack(Material.DIAMOND_SWORD)), Bukkit.getOnlinePlayers());
 ```
 Parameter explanation:
 1. The location at which the particle should be displayed.
