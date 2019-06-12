@@ -59,14 +59,11 @@ public abstract class ParticleColor extends ParticleData {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect the {@link ParticleEffect}
-     *               that should be displayed.
      * @param red    the red value of the color.
      * @param green  the green value of the color.
      * @param blue   the blue value of the color.
      */
-    ParticleColor(ParticleEffect effect, int red, int green, int blue) {
-        super(effect);
+    ParticleColor(int red, int green, int blue) {
         this.red = red;
         this.green = green;
         this.blue = blue;

@@ -44,14 +44,25 @@ public class NoteColor extends ParticleColor {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param note   the note that should be
-     *               displayed.
+     * @param note the note that should be
+     *             displayed.
      */
     public NoteColor(int note) {
-        super(ParticleEffect.NOTE, MathUtils.getMaxOrMin(note, 24, 0), 0, 0);
+        super(MathUtils.getMaxOrMin(note, 24, 0), 0, 0);
+        setEffect(ParticleEffect.NOTE);
     }
 
     /**
+     * Sets the {@link ParticleEffect}.
+     *
+     * @param effect the {@link ParticleEffect}
+     *               that should be displayed.
+     */
+    @Override
+    public void setEffect(ParticleEffect effect) {
+        super.setEffect(ParticleEffect.NOTE);
+    }
+/**
      * Returns 0 because the offsetY isn't
      * used by the color of notes.
      *

@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>xyz.xenondevs</groupId>
-    <artifactId>particleLib</artifactId>
+    <artifactId>particle</artifactId>
     <version>1.0</version>
     <build>
         <plugins>
@@ -16,8 +16,6 @@
         </plugins>
     </build>
     <dependencies>
-        <!--Spigot API-->
-        <!--You only need one of the two, don't put both. Spigot is recommended.-->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>

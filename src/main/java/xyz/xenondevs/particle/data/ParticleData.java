@@ -43,16 +43,15 @@ public abstract class ParticleData {
      * {@link ParticleData} instance is
      * assigned to.
      */
-    private final ParticleEffect effect;
+    private ParticleEffect effect;
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Sets the {@link ParticleEffect}.
      *
      * @param effect the {@link ParticleEffect}
      *               that should be displayed.
      */
-    protected ParticleData(ParticleEffect effect) {
+    public void setEffect(ParticleEffect effect) {
         this.effect = effect;
     }
 

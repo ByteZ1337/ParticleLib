@@ -28,7 +28,6 @@ package xyz.xenondevs.particle.data.texture;
 
 import org.bukkit.Material;
 import xyz.xenondevs.particle.ParticleConstants;
-import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
@@ -50,25 +49,21 @@ public class BlockTexture extends ParticleTexture {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect   the {@link ParticleEffect}
-     *                 that should be displayed.
      * @param material the {@link Material} the particle should display.
      */
-    public BlockTexture(ParticleEffect effect, Material material) {
-        super(effect, material, (byte) 0);
+    public BlockTexture(Material material) {
+        super( material, (byte) 0);
     }
 
     /**
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect   the {@link ParticleEffect}
-     *                 that should be displayed.
      * @param material the {@link Material} the particle should display.
      * @param data     the damage value that should influence the texture.
      */
-    public BlockTexture(ParticleEffect effect, Material material, byte data) {
-        super(effect, material, data);
+    public BlockTexture(Material material, byte data) {
+        super(material, data);
     }
 
     /**

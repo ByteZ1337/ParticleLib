@@ -47,27 +47,23 @@ public class RegularColor extends ParticleColor {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect the {@link ParticleEffect}
-     *               that should be displayed.
      * @param color  the {@link Color} the
      *               particle should have.
      */
-    public RegularColor(ParticleEffect effect, Color color) {
-        super(effect, color.getRed(), color.getGreen(), color.getBlue());
+    public RegularColor(Color color) {
+        super(color.getRed(), color.getGreen(), color.getBlue());
     }
 
     /**
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect the {@link ParticleEffect}
-     *               that should be displayed.
      * @param red    the red value of the color.
      * @param green  the green value of the color.
      * @param blue   the blue value of the color.
      */
-    public RegularColor(ParticleEffect effect, int red, int green, int blue) {
-        super(effect, MathUtils.getMaxOrMin(red, 255, 0), MathUtils.getMaxOrMin(green, 255, 0), MathUtils.getMaxOrMin(blue, 255, 0));
+    public RegularColor(int red, int green, int blue) {
+        super(MathUtils.getMaxOrMin(red, 255, 0), MathUtils.getMaxOrMin(green, 255, 0), MathUtils.getMaxOrMin(blue, 255, 0));
     }
 
     /**

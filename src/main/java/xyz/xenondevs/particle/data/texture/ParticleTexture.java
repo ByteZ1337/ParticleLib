@@ -57,13 +57,10 @@ public class ParticleTexture extends ParticleData {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param effect   the {@link ParticleEffect}
-     *                 that should be displayed.
      * @param material the {@link Material} the particle should display.
      * @param data     the damage value that should influence the texture.
      */
-    ParticleTexture(ParticleEffect effect, Material material, byte data) {
-        super(effect);
+    ParticleTexture(Material material, byte data) {
         this.material = material;
         this.data = data;
     }

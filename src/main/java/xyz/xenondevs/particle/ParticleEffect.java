@@ -1449,17 +1449,10 @@ public enum ParticleEffect {
      *                 be displayed.
      * @param data     the {@link ParticleData} the particle
      *                 should have.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
      */
-    public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data, Collection<? extends Player> players) {
-        if (!isCorrectData(data))
-            return;
-        ParticlePacket packet = new ParticlePacket(this, offsetX, offsetY, offsetZ, speed, amount, data);
-        Object nmsPacket = packet.createPacket(location);
-        players.forEach(player -> ReflectionUtils.sendPacket(player, nmsPacket));
+    public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data) {
+        display(location, offsetX, offsetY, offsetZ, speed, amount, data, Bukkit.getOnlinePlayers());
     }
-
 
     /**
      * Displays the current {@link ParticleEffect}.
@@ -1475,8 +1468,16 @@ public enum ParticleEffect {
      *                 be displayed.
      * @param data     the {@link ParticleData} the particle
      *                 should have.
+     * @param players  a {@link Collection} of players that
+     *                 should receive the particle packet.
      */
-    public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data) {
-        display(location, offsetX, offsetY, offsetZ, speed, amount, data, Bukkit.getOnlinePlayers());
+    public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data, Collection<? extends Player> players) {
+        if (!isCorrectData(data))
+            return;
+        data.setEffect(this);
+        ParticlePacket packet = new ParticlePacket(this, offsetX, offsetY, offsetZ, speed, amount, data);
+        Object nmsPacket = packet.createPacket(location);
+        players.forEach(player -> ReflectionUtils.sendPacket(player, nmsPacket));
     }
+
 }
