@@ -44,7 +44,8 @@ import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static xyz.xenondevs.particle.ParticleConstants.*;
+import static xyz.xenondevs.particle.ParticleConstants.getParticleTypeRegistry;
+import static xyz.xenondevs.particle.ParticleConstants.getRegistryGetMethod;
 import static xyz.xenondevs.particle.PropertyType.*;
 
 /**
@@ -1225,12 +1226,12 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location  the {@link Location} at which
-     *                  the particle should be displayed.
-     * @param color     the {@link ParticleColor} the particle
-     *                  should have.
-     * @param filter a {@link Predicate} to filter out
-     *                  specific {@link Player Players}.
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
+     * @param color    the {@link ParticleColor} the particle
+     *                 should have.
+     * @param filter   a {@link Predicate} to filter out
+     *                 specific {@link Player Players}.
      */
     public void display(Location location, ParticleColor color, Predicate filter) {
         display(location, 0f, 0f, 0f, 1f, 0, color, filter);
@@ -1277,10 +1278,10 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location  the {@link Location} at which
-     *                  the particle should be displayed.
-     * @param filter a {@link Predicate} to filter out
-     *                  specific {@link Player Players}.
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
+     * @param filter   a {@link Predicate} to filter out
+     *                 specific {@link Player Players}.
      */
     public void display(Location location, Predicate filter) {
         display(location, 0f, 0f, 0f, 0f, 1, null, filter);
