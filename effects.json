@@ -1,0 +1,313 @@
+{
+  "BARRIER": {
+    "name": "BARRIER",
+    "properties": []
+  },
+  "BLOCK_CRACK": {
+    "name": "BLOCK_CRACK",
+    "properties": [
+      "REQUIRES_BLOCK"
+    ]
+  },
+  "BLOCK_DUST": {
+    "name": "BLOCK_DUST",
+    "properties": [
+      "DIRECTIONAL",
+      "REQUIRES_BLOCK"
+    ]
+  },
+  "BUBBLE_COLUMN_UP": {
+    "name": "BUBBLE_COLUMN_UP",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "BUBBLE_POP": {
+    "name": "BUBBLE_POP",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "CAMPFIRE_COSY_SMOKE": {
+    "name": "CAMPFIRE_COSY_SMOKE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "CAMPFIRE_SIGNAL_SMOKE": {
+    "name": "CAMPFIRE_SIGNAL_SMOKE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "CLOUD": {
+    "name": "CLOUD",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "COMPOSTER": {
+    "name": "COMPOSTER",
+    "properties": []
+  },
+  "CRIT": {
+    "name": "CRIT",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "CRIT_MAGIC": {
+    "name": "CRIT_MAGIC",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "CURRENT_DOWN": {
+    "name": "CURRENT_DOWN",
+    "properties": []
+  },
+  "DAMAGE_INDICATOR": {
+    "name": "DAMAGE_INDICATOR",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "DOLPHIN": {
+    "name": "DOLPHIN",
+    "properties": []
+  },
+  "DRAGON_BREATH": {
+    "name": "DRAGON_BREATH",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "DRIP_LAVA": {
+    "name": "DRIP_LAVA",
+    "properties": []
+  },
+  "DRIP_WATER": {
+    "name": "DRIP_WATER",
+    "properties": []
+  },
+  "ENCHANTMENT_TABLE": {
+    "name": "ENCHANTMENT_TABLE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "END_ROD": {
+    "name": "END_ROD",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "EXPLOSION_HUGE": {
+    "name": "EXPLOSION_HUGE",
+    "properties": []
+  },
+  "EXPLOSION_LARGE": {
+    "name": "EXPLOSION_LARGE",
+    "properties": []
+  },
+  "EXPLOSION_NORMAL": {
+    "name": "EXPLOSION_NORMAL",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "FALLING_DUST": {
+    "name": "FALLING_DUST",
+    "properties": [
+      "REQUIRES_BLOCK"
+    ]
+  },
+  "FIREWORKS_SPARK": {
+    "name": "FIREWORKS_SPARK",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "FLAME": {
+    "name": "FLAME",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "FOOTSTEP": {
+    "name": "FOOTSTEP",
+    "properties": []
+  },
+  "HEART": {
+    "name": "HEART",
+    "properties": []
+  },
+  "ITEM_CRACK": {
+    "name": "ITEM_CRACK",
+    "properties": [
+      "DIRECTIONAL",
+      "REQUIRES_ITEM"
+    ]
+  },
+  "LAVA": {
+    "name": "LAVA",
+    "properties": []
+  },
+  "MOB_APPEARANCE": {
+    "name": "MOB_APPEARANCE",
+    "properties": []
+  },
+  "NAUTILUS": {
+    "name": "NAUTILUS",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "NOTE": {
+    "name": "NOTE",
+    "properties": [
+      "COLORABLE"
+    ]
+  },
+  "PORTAL": {
+    "name": "PORTAL",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "REDSTONE": {
+    "name": "REDSTONE",
+    "properties": [
+      "COLORABLE"
+    ]
+  },
+  "SLIME": {
+    "name": "SLIME",
+    "properties": []
+  },
+  "SMOKE_LARGE": {
+    "name": "SMOKE_LARGE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SMOKE_NORMAL": {
+    "name": "SMOKE_NORMAL",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SNEEZE": {
+    "name": "SNEEZE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SNOWBALL": {
+    "name": "SNOWBALL",
+    "properties": []
+  },
+  "SNOW_SHOVEL": {
+    "name": "SNOW_SHOVEL",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SPELL": {
+    "name": "SPELL",
+    "properties": []
+  },
+  "SPELL_INSTANT": {
+    "name": "SPELL_INSTANT",
+    "properties": []
+  },
+  "SPELL_MOB": {
+    "name": "SPELL_MOB",
+    "properties": [
+      "COLORABLE"
+    ]
+  },
+  "SPELL_MOB_AMBIENT": {
+    "name": "SPELL_MOB_AMBIENT",
+    "properties": [
+      "COLORABLE"
+    ]
+  },
+  "SPELL_WITCH": {
+    "name": "SPELL_WITCH",
+    "properties": []
+  },
+  "SPIT": {
+    "name": "SPIT",
+    "properties": []
+  },
+  "SQUID_INK": {
+    "name": "SQUID_INK",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SUSPENDED": {
+    "name": "SUSPENDED",
+    "properties": [
+      "REQUIRES_WATER"
+    ]
+  },
+  "SUSPENDED_DEPTH": {
+    "name": "SUSPENDED_DEPTH",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "SWEEP_ATTACK": {
+    "name": "SWEEP_ATTACK",
+    "properties": [
+      "RESIZEABLE"
+    ]
+  },
+  "TOTEM": {
+    "name": "TOTEM",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "TOWN_AURA": {
+    "name": "TOWN_AURA",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "VILLAGER_ANGRY": {
+    "name": "VILLAGER_ANGRY",
+    "properties": []
+  },
+  "VILLAGER_HAPPY": {
+    "name": "VILLAGER_HAPPY",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "WATER_BUBBLE": {
+    "name": "WATER_BUBBLE",
+    "properties": [
+      "DIRECTIONAL",
+      "REQUIRES_WATER"
+    ]
+  },
+  "WATER_DROP": {
+    "name": "WATER_DROP",
+    "properties": []
+  },
+  "WATER_SPLASH": {
+    "name": "WATER_SPLASH",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  },
+  "WATER_WAKE": {
+    "name": "WATER_WAKE",
+    "properties": [
+      "DIRECTIONAL"
+    ]
+  }
+}
