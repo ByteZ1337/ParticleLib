@@ -63,6 +63,11 @@ public class NoteColor extends ParticleColor {
         super.setEffect(ParticleEffect.NOTE);
     }
 
+    /**
+     * Gets the red value of the color.
+     *
+     * @return the red value.
+     */
     @Override
     public float getRed() {
         return super.getRed() / 24f;
