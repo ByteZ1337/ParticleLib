@@ -62,7 +62,13 @@ public class NoteColor extends ParticleColor {
     public void setEffect(ParticleEffect effect) {
         super.setEffect(ParticleEffect.NOTE);
     }
-/**
+
+    @Override
+    public float getRed() {
+        return super.getRed() / 24f;
+    }
+
+    /**
      * Returns 0 because the offsetY isn't
      * used by the color of notes.
      *
