@@ -53,7 +53,6 @@ ParticleEffect.SPELL_MOB.display(player.getLocation(), new RegularColor(new Colo
 Parameter explanation:
 1. The location at which the particle should be displayed.
 2. A new RegularColor object to specify the color the particle will have.
-3. The players that will see the particle.
 
 ### Texture Particles
 
