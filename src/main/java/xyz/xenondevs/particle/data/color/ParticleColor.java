@@ -26,7 +26,6 @@
 
 package xyz.xenondevs.particle.data.color;
 
-import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 
@@ -59,9 +58,9 @@ public abstract class ParticleColor extends ParticleData {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param red    the red value of the color.
-     * @param green  the green value of the color.
-     * @param blue   the blue value of the color.
+     * @param red   the red value of the color.
+     * @param green the green value of the color.
+     * @param blue  the blue value of the color.
      */
     ParticleColor(int red, int green, int blue) {
         this.red = red;

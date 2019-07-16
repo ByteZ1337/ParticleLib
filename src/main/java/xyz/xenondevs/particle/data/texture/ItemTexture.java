@@ -28,7 +28,6 @@ package xyz.xenondevs.particle.data.texture;
 
 import org.bukkit.inventory.ItemStack;
 import xyz.xenondevs.particle.ParticleConstants;
-import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.ReflectionUtils;

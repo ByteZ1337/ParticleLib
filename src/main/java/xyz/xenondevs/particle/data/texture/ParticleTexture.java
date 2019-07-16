@@ -27,7 +27,6 @@
 package xyz.xenondevs.particle.data.texture;
 
 import org.bukkit.Material;
-import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 

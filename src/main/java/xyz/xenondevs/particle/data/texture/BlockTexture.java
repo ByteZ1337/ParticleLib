@@ -52,7 +52,7 @@ public class BlockTexture extends ParticleTexture {
      * @param material the {@link Material} the particle should display.
      */
     public BlockTexture(Material material) {
-        super( material, (byte) 0);
+        super(material, (byte) 0);
     }
 
     /**

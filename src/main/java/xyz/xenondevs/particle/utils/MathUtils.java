@@ -26,6 +26,10 @@
 
 package xyz.xenondevs.particle.utils;
 
+import xyz.xenondevs.particle.data.ParticleData;
+
+import java.util.Random;
+
 /**
  * Utility for Maths
  *
@@ -33,6 +37,30 @@ package xyz.xenondevs.particle.utils;
  * @since 14.09.2018
  */
 public class MathUtils {
+
+    /**
+     * A easy to access {@link Random}
+     * implementation for random number
+     * generation. This specific field
+     * is mostly used by the random
+     * methods of the {@link ParticleData}
+     * types.
+     */
+    public static final Random RANDOM = new Random();
+
+    /**
+     * Generates a random {@link Integer}.
+     *
+     * @param minimum the minimum value of the generated value.
+     * @param maximum the maximum value of the generated value.
+     * @return a randomly generated {@link Integer} in the defined range.
+     * @see #RANDOM
+     */
+    public static int generateRandomInteger(int minimum, int maximum) {
+        return minimum + (int) (RANDOM.nextDouble() * ((maximum - minimum) + 1));
+    }
+
+
     /**
      * Checks if a specific value is between
      * two other values. If the first value

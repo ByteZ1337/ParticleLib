@@ -36,6 +36,7 @@ import xyz.xenondevs.particle.utils.MathUtils;
  * class that supports note colors.
  *
  * @author ByteZ
+ * @see ParticleEffect#NOTE
  * @since 10.06.2019
  */
 public class NoteColor extends ParticleColor {
@@ -109,4 +110,17 @@ public class NoteColor extends ParticleColor {
     public Object toNMSData() {
         return null;
     }
+
+    /**
+     * Generates a random {@link NoteColor}
+     * instance to support rainbow trails,
+     * cloaks and other effects that can be
+     * constructed using the note particle.
+     *
+     * @return a random {@link NoteColor} instance.
+     */
+    public static NoteColor random() {
+        return new NoteColor(MathUtils.generateRandomInteger(0, 24));
+    }
+
 }

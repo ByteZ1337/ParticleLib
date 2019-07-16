@@ -47,8 +47,8 @@ public class RegularColor extends ParticleColor {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param color  the {@link Color} the
-     *               particle should have.
+     * @param color the {@link Color} the
+     *              particle should have.
      */
     public RegularColor(Color color) {
         super(color.getRed(), color.getGreen(), color.getBlue());
@@ -58,9 +58,9 @@ public class RegularColor extends ParticleColor {
      * Initializes a new {@link ParticleData}
      * Object.
      *
-     * @param red    the red value of the color.
-     * @param green  the green value of the color.
-     * @param blue   the blue value of the color.
+     * @param red   the red value of the color.
+     * @param green the green value of the color.
+     * @param blue  the blue value of the color.
      */
     public RegularColor(int red, int green, int blue) {
         super(MathUtils.getMaxOrMin(red, 255, 0), MathUtils.getMaxOrMin(green, 255, 0), MathUtils.getMaxOrMin(blue, 255, 0));
@@ -116,4 +116,48 @@ public class RegularColor extends ParticleColor {
             return null;
         }
     }
+
+    /**
+     * Generates a random {@link RegularColor}
+     * instance with a high saturation. If you
+     * want a completely random {@link Color}
+     * use {@link #random(boolean)} with false
+     * as the highSaturarion parameter.
+     *
+     * @return a randomly generated {@link RegularColor} instance.
+     */
+    public static RegularColor random() {
+        return random(true);
+    }
+
+    /**
+     * Generates a random {@link RegularColor}
+     * instance. If the highSaturation parameter
+     * is set to true, a random hue from the HSV
+     * spectrum will be used. Otherwise 3 random
+     * integers ranging from 0 to 255 for the RGB
+     * values will be generated.
+     *
+     * @param highSaturation determines if the colors should have a high saturation.
+     * @return a randomly generated {@link RegularColor} instance.
+     */
+    public static RegularColor random(boolean highSaturation) {
+        if (highSaturation)
+            return fromHSVHue(MathUtils.generateRandomInteger(0, 360));
+        else
+            return new RegularColor(new Color(MathUtils.RANDOM.nextInt(256), MathUtils.RANDOM.nextInt(256), MathUtils.RANDOM.nextInt(256)));
+    }
+
+    /**
+     * Constructs a {@link RegularColor} using the
+     * HSV color spectrum.
+     *
+     * @param hue the hue the the specific color has.
+     * @return a {@link RegularColor} instance with the given HSV value as its {@link Color}.
+     * @see Color#HSBtoRGB(float, float, float)
+     */
+    public static RegularColor fromHSVHue(int hue) {
+        return new RegularColor(new Color(Color.HSBtoRGB(hue / 360f, 1f, 1f)));
+    }
+
 }
