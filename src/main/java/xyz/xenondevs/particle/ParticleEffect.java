@@ -39,6 +39,7 @@ import xyz.xenondevs.particle.data.texture.BlockTexture;
 import xyz.xenondevs.particle.data.texture.ItemTexture;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
+import java.awt.*;
 import java.util.*;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
@@ -1228,6 +1229,20 @@ public enum ParticleEffect {
      *
      * @param location the {@link Location} at which
      *                 the particle should be displayed.
+     * @param color    the {@link Color} the particle
+     *                 should have.
+     * @param players  a list of players that should receive
+     *                 the particle packet.
+     */
+    public void display(Location location, Color color, Player... players) {
+        display(location, new RegularColor(color), players);
+    }
+
+    /**
+     * Displays the current {@link ParticleEffect}.
+     *
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
      * @param color    the {@link ParticleColor} the particle
      *                 should have.
      * @param filter   a {@link Predicate} to filter out
@@ -1235,6 +1250,20 @@ public enum ParticleEffect {
      */
     public void display(Location location, ParticleColor color, Predicate filter) {
         display(location, 0f, 0f, 0f, 1f, 0, color, filter);
+    }
+
+    /**
+     * Displays the current {@link ParticleEffect}.
+     *
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
+     * @param color    the {@link Color} the particle
+     *                 should have.
+     * @param filter   a {@link Predicate} to filter out
+     *                 specific {@link Player Players}.
+     */
+    public void display(Location location, Color color, Predicate filter) {
+        display(location, new RegularColor(color), filter);
     }
 
     /**
@@ -1256,11 +1285,37 @@ public enum ParticleEffect {
      *
      * @param location the {@link Location} at which
      *                 the particle should be displayed.
+     * @param color    the {@link Color} the particle
+     *                 should have.
+     * @param players  a {@link Collection} of players that
+     *                 should receive the particle packet.
+     */
+    public void display(Location location, Color color, Collection<? extends Player> players) {
+        display(location, new RegularColor(color), players);
+    }
+
+    /**
+     * Displays the current {@link ParticleEffect}.
+     *
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
      * @param color    the {@link ParticleColor} the particle
      *                 should have.
      */
     public void display(Location location, ParticleColor color) {
         display(location, 0f, 0f, 0f, 1f, 0, color);
+    }
+
+    /**
+     * Displays the current {@link ParticleEffect}.
+     *
+     * @param location the {@link Location} at which
+     *                 the particle should be displayed.
+     * @param color    the {@link Color} the particle
+     *                 should have.
+     */
+    public void display(Location location, Color color) {
+        display(location, new RegularColor(color));
     }
 
     /**
