@@ -375,7 +375,7 @@ public class ReflectionUtils {
         if (key == null)
             return null;
         try {
-            return ParticleConstants.getMinecraftKeyConstructor().newInstance(key);
+            return ParticleConstants.MINECRAFT_KEY_CONSTRUCTOR.newInstance(key);
         } catch (Exception ex) {
             return null;
         }
@@ -388,10 +388,10 @@ public class ReflectionUtils {
      * @return the EntityPlayer instance of the defined CraftPlayer or {@code null} if either the given parameter is invalid or an error occurs.
      */
     public static Object getPlayerHandle(Player player) {
-        if (player == null || player.getClass() != ParticleConstants.getCraftPlayerClass())
+        if (player == null || player.getClass() != ParticleConstants.CRAFT_PLAYER_CLASS)
             return null;
         try {
-            return ParticleConstants.getCraftPlayerGetHandleMethod().invoke(player);
+            return ParticleConstants.CRAFT_PLAYER_GET_HANDLE_METHOD.invoke(player);
         } catch (Exception ex) {
             return null;
         }
@@ -405,7 +405,7 @@ public class ReflectionUtils {
      */
     public static Object getPlayerConnection(Player target) {
         try {
-            return readField(ParticleConstants.getEntityPlayerPlayerConnectionField(), getPlayerHandle(target));
+            return readField(ParticleConstants.ENTITY_PLAYER_PLAYER_CONNECTION_FIELD, getPlayerHandle(target));
         } catch (Exception ex) {
             return null;
         }
@@ -419,7 +419,7 @@ public class ReflectionUtils {
      */
     public static void sendPacket(Player player, Object packet) {
         try {
-            ParticleConstants.getPlayerConnectionSendPacketMethod().invoke(getPlayerConnection(player), packet);
+            ParticleConstants.PLAYER_CONNECTION_SEND_PACKET_METHOD.invoke(getPlayerConnection(player), packet);
         } catch (Exception ignored) {
         }
     }

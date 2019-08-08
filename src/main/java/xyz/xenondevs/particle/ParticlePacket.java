@@ -38,7 +38,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 import java.lang.reflect.Constructor;
 
-import static xyz.xenondevs.particle.ParticleConstants.getPacketPlayOutWorldParticlesConstructor;
+import static xyz.xenondevs.particle.ParticleConstants.PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR;
 import static xyz.xenondevs.particle.ParticleEffect.NOTE;
 import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
 
@@ -282,7 +282,7 @@ public class ParticlePacket {
         try {
             ParticleData data = getParticleData();
             ParticleEffect effect = getParticle();
-            Constructor packetConstructor = getPacketPlayOutWorldParticlesConstructor();
+            Constructor packetConstructor = PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR;
             int version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;
@@ -352,7 +352,7 @@ public class ParticlePacket {
      * @return A PacketPlayOutWorldParticles instance with the given data or {@code null} if an error occurs.
      */
     private Object createPacket(Object param, float locationX, float locationY, float locationZ, float offsetX, float offsetY, float offsetZ, float speed, int amount, int[] data) {
-        Constructor packetConstructor = getPacketPlayOutWorldParticlesConstructor();
+        Constructor packetConstructor = PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR;
         try {
             return ReflectionUtils.MINECRAFT_VERSION < 13
                     ? packetConstructor.newInstance(param, true, locationX, locationY, locationZ, offsetX, offsetY, offsetZ, speed, amount, data)

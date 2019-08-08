@@ -111,7 +111,7 @@ public class RegularColor extends ParticleColor {
         if (getEffect() != ParticleEffect.REDSTONE || ReflectionUtils.MINECRAFT_VERSION < 13)
             return new int[0];
         try {
-            return ParticleConstants.getParticleParamRedstoneConstructor().newInstance(getRed(), getGreen(), getBlue(), 1f);
+            return ParticleConstants.PARTICLE_PARAM_REDSTONE_CONSTRUCTOR.newInstance(getRed(), getGreen(), getBlue(), 1f);
         } catch (Exception ex) {
             return null;
         }

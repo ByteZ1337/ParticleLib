@@ -86,7 +86,7 @@ public class BlockTexture extends ParticleTexture {
         if (block == null)
             return null;
         try {
-            return ParticleConstants.getParticleParamBlockConstructor().newInstance(getEffect().getNMSObject(), block);
+            return ParticleConstants.PARTICLE_PARAM_BLOCK_CONSTRUCTOR.newInstance(getEffect().getNMSObject(), block);
         } catch (Exception ex) {
             return null;
         }
@@ -103,11 +103,11 @@ public class BlockTexture extends ParticleTexture {
      */
     public Object getBlockData(Material material) {
         try {
-            Field blockField = ReflectionUtils.getFieldOrNull(ParticleConstants.getBlocksClass(), material.name(), false);
+            Field blockField = ReflectionUtils.getFieldOrNull(ParticleConstants.BLOCKS_CLASS, material.name(), false);
             if (blockField == null)
                 return null;
             Object block = ReflectionUtils.readField(blockField, null);
-            return ParticleConstants.getBlockGetBlockDataMethod().invoke(block);
+            return ParticleConstants.BLOCK_GET_BLOCK_DATA_METHOD.invoke(block);
         } catch (Exception ex) {
             return null;
         }

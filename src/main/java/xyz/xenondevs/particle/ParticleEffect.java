@@ -45,8 +45,7 @@ import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static xyz.xenondevs.particle.ParticleConstants.getParticleTypeRegistry;
-import static xyz.xenondevs.particle.ParticleConstants.getRegistryGetMethod;
+import static xyz.xenondevs.particle.ParticleConstants.*;
 import static xyz.xenondevs.particle.PropertyType.*;
 
 /**
@@ -1201,9 +1200,9 @@ public enum ParticleEffect {
         if (fieldName.equals("NONE"))
             return null;
         if (ReflectionUtils.MINECRAFT_VERSION < 13)
-            return Arrays.stream(ParticleConstants.getParticleEnum().getEnumConstants()).filter(effect -> effect.toString().equals(fieldName)).findFirst().orElse(null);
+            return Arrays.stream(ParticleConstants.PARTICLE_ENUM.getEnumConstants()).filter(effect -> effect.toString().equals(fieldName)).findFirst().orElse(null);
         else try {
-            return getRegistryGetMethod().invoke(getParticleTypeRegistry(), ReflectionUtils.getMinecraftKey(fieldName));
+            return REGISTRY_GET_METHOD.invoke(PARTICLE_TYPE_REGISTRY, ReflectionUtils.getMinecraftKey(fieldName));
         } catch (Exception ignored) {
         }
         return null;

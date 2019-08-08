@@ -78,7 +78,7 @@ public class ItemTexture extends ParticleTexture {
             return super.toNMSData();
         else {
             try {
-                return ParticleConstants.getParticleParamItemConstructor().newInstance(getEffect().getNMSObject(), toNMSItemStack(getItemStack()));
+                return ParticleConstants.PARTICLE_PARAM_ITEM_CONSTRUCTOR.newInstance(getEffect().getNMSObject(), toNMSItemStack(getItemStack()));
             } catch (Exception ex) {
                 return null;
             }
@@ -106,7 +106,7 @@ public class ItemTexture extends ParticleTexture {
         if (itemStack == null)
             return null;
         try {
-            return ParticleConstants.getCraftItemStackAsNmsCopyMethod().invoke(null, itemStack);
+            return ParticleConstants.CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD.invoke(null, itemStack);
         } catch (Exception ex) {
             return null;
         }
