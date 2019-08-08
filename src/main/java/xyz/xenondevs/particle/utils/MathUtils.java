@@ -64,11 +64,11 @@ public class MathUtils {
     /**
      * Checks if a specific value is between
      * two other values. If the first value
-     * is greater than the max value, the max
-     * value is returned. If the given value
-     * is lesser than the min value. the min
-     * value is returned. Otherwise the given
-     * value is returned.
+     * is greater than the maximum value,
+     * the maximum value is returned. If the
+     * given value is less than the minimum
+     * value. the minimum value is returned.
+     * Otherwise the given value is returned.
      *
      * @param value the value which should be checked.
      * @param max   the maximum value.
