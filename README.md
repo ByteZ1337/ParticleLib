@@ -6,8 +6,6 @@
 # ParticleLib
 A spigot library to support all particles from 1.8 to 1.14
 
-JavaDoc: http://xenondevs.xyz/particledoc/
-
 ## How to use this library
 
 Choose the particle you want to display and then use the display method.
