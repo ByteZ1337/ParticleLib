@@ -1,3 +1,8 @@
+[![GitHub issues](https://img.shields.io/github/issues/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/issues)
+[![GitHub stars](https://img.shields.io/github/stars/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/stargazers)
+[![GitHub license](https://img.shields.io/github/license/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ByteZ1337/ParticleLib?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FByteZ1337%2FParticleLib)
+
 # ParticleLib
 A spigot library to support all particles from 1.8 to 1.14
 
