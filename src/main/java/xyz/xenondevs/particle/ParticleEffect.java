@@ -400,6 +400,12 @@ public enum ParticleEffect {
      */
     DRIP_WATER(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_water")),
     /**
+     * Since a 1.15 spigot hasn't been
+     * released yet there is no
+     * documentation for this particle.
+     */
+    DRIPPING_HONEY(version -> version < 15 ? "NONE" : "dripping_honey"),
+    /**
      * In the base game this particle
      * is displayed by bookshelves near
      * an enchanting table.
@@ -500,6 +506,18 @@ public enum ParticleEffect {
      */
     FALLING_DUST(version -> version < 10 ? "NONE" : (version < 13 ? "FALLING_DUST" : "falling_dust"), REQUIRES_BLOCK),
     /**
+     * Since a 1.15 spigot hasn't been
+     * released yet there is no
+     * documentation for this particle.
+     */
+    FALLING_HONEY(version -> version < 15 ? "NONE" : "falling_honey"),
+    /**
+     * Since a 1.15 spigot hasn't been
+     * released yet there is no
+     * documentation for this particle.
+     */
+    FALLING_NECTAR(version -> version < 15 ? "NONE" : "falling_nectar"),
+    /**
      * In the base game this particle
      * is displayed when a firework is
      * launched.
@@ -584,6 +602,12 @@ public enum ParticleEffect {
      * </ul>
      */
     ITEM_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "ITEM_CRACK" : "item"), DIRECTIONAL, REQUIRES_ITEM),
+    /**
+     * Since a 1.15 spigot hasn't been
+     * released yet there is no
+     * documentation for this particle.
+     */
+    LANDING_HONEY(version -> version < 15 ? "NONE" : "landing_honey"),
     /**
      * In the base game this particle
      * is randomly displayed by lava.
@@ -1151,7 +1175,7 @@ public enum ParticleEffect {
      * @return {@code true} if the current {@link ParticleEffect} instance supports the given {@link PropertyType}.
      */
     public boolean hasProperty(PropertyType propertyType) {
-        return propertyType != null && Arrays.stream(properties).anyMatch(property -> property.equals(propertyType));
+        return propertyType != null && Arrays.asList(properties).contains(propertyType);
     }
 
     /**
