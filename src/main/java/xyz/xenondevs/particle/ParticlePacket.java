@@ -356,7 +356,9 @@ public class ParticlePacket {
         try {
             return ReflectionUtils.MINECRAFT_VERSION < 13
                     ? packetConstructor.newInstance(param, true, locationX, locationY, locationZ, offsetX, offsetY, offsetZ, speed, amount, data)
-                    : packetConstructor.newInstance(param, true, locationX, locationY, locationZ, offsetX, offsetY, offsetZ, speed, amount);
+                    : (ReflectionUtils.MINECRAFT_VERSION < 15
+                    ? packetConstructor.newInstance(param, true, locationX, locationY, locationZ, offsetX, offsetY, offsetZ, speed, amount)
+                    : packetConstructor.newInstance(param, true, (double) locationX, (double) locationY, (double) locationZ, offsetX, offsetY, offsetZ, speed, amount));
         } catch (Exception ex) {
             return null;
         }

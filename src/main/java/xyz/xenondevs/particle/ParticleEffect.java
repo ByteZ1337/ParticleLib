@@ -71,17 +71,21 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #DRAGON_BREATH}</li>
  * <li>{@link #DRIP_LAVA}</li>
  * <li>{@link #DRIP_WATER}</li>
+ * <li>{@link #DRIPPING_HONEY}</li>
  * <li>{@link #ENCHANTMENT_TABLE}</li>
  * <li>{@link #END_ROD}</li>
  * <li>{@link #EXPLOSION_HUGE}</li>
  * <li>{@link #EXPLOSION_LARGE}</li>
  * <li>{@link #EXPLOSION_NORMAL}</li>
  * <li>{@link #FALLING_DUST}</li>
+ * <li>{@link #FALLING_HONEY}</li>
+ * <li>{@link #FALLING_NECTAR}</li>
  * <li>{@link #FIREWORKS_SPARK}</li>
  * <li>{@link #FLAME}</li>
  * <li>{@link #FOOTSTEP}</li>
  * <li>{@link #HEART}</li>
  * <li>{@link #ITEM_CRACK}</li>
+ * <li>{@link #LANDING_HONEY}</li>
  * <li>{@link #LAVA}</li>
  * <li>{@link #MOB_APPEARANCE}</li>
  * <li>{@link #NAUTILUS}</li>
@@ -400,9 +404,21 @@ public enum ParticleEffect {
      */
     DRIP_WATER(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_water")),
     /**
-     * Since a 1.15 spigot hasn't been
-     * released yet there is no
-     * documentation for this particle.
+     * In the base game this particle
+     * is displayed by beehives filled
+     * with honey. As opposed to the
+     * {@link #FALLING_HONEY} particles,
+     * this particle floats in the air
+     * before falling to the ground.
+     * <p>
+     * The particle is displayed clientside
+     * so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <li>Appearance: A rectangular honey drop.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: Spawns a {@link #LANDING_HONEY} particle after landing on a block.</li>
+     * </ul>
      */
     DRIPPING_HONEY(version -> version < 15 ? "NONE" : "dripping_honey"),
     /**
@@ -506,15 +522,35 @@ public enum ParticleEffect {
      */
     FALLING_DUST(version -> version < 10 ? "NONE" : (version < 13 ? "FALLING_DUST" : "falling_dust"), REQUIRES_BLOCK),
     /**
-     * Since a 1.15 spigot hasn't been
-     * released yet there is no
-     * documentation for this particle.
+     * In the base game this particle is
+     * displayed below beehives filled
+     * with honey. As opposed to the
+     * {@link #DRIPPING_HONEY} particles,
+     * this particle falls instantly.
+     * <p>
+     * The particle is displayed clientside
+     * so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <li>Appearance: A rectangular honey drop.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: Spawns a {@link #LANDING_HONEY} after landing on a block.</li>
+     * </ul>
      */
     FALLING_HONEY(version -> version < 15 ? "NONE" : "falling_honey"),
     /**
-     * Since a 1.15 spigot hasn't been
-     * released yet there is no
-     * documentation for this particle.
+     * In the base game this particle is
+     * displayed by bees that have pollen
+     * and are on their way to the beehive.
+     * <p>
+     * The particle originates from the
+     * nms EntityBee class.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: White square.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * </ul>
      */
     FALLING_NECTAR(version -> version < 15 ? "NONE" : "falling_nectar"),
     /**
@@ -603,9 +639,19 @@ public enum ParticleEffect {
      */
     ITEM_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "ITEM_CRACK" : "item"), DIRECTIONAL, REQUIRES_ITEM),
     /**
-     * Since a 1.15 spigot hasn't been
-     * released yet there is no
-     * documentation for this particle.
+     * In the base game this particle
+     * is displayed after a Falling or
+     * Dripping Honey particle reaches
+     * a block.
+     * <p>
+     * The particle is displayed clientside
+     * so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Honey colored lines.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * </ul>
      */
     LANDING_HONEY(version -> version < 15 ? "NONE" : "landing_honey"),
     /**

@@ -67,7 +67,7 @@ public class ReflectionUtils {
         NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft.server." + version;
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         String packageVersion = serverPath.substring(serverPath.lastIndexOf(".") + 2);
-        MINECRAFT_VERSION = Integer.valueOf(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
+        MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
     }
 
     /**
