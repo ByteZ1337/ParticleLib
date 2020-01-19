@@ -651,6 +651,7 @@ public enum ParticleEffect {
      * <ul>
      * <li>Appearance: Honey colored lines.</li>
      * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: This Particles stays on the ground and doesn't instantly despawn.</li>
      * </ul>
      */
     LANDING_HONEY(version -> version < 15 ? "NONE" : "landing_honey"),
