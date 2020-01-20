@@ -90,6 +90,10 @@
     "name": "DRIP_WATER",
     "properties": []
   },
+  "DRIPPING_HONEY": {
+    "name": "DRIPPING_HONEY",
+    "properties": []
+  },
   "ENCHANTMENT_TABLE": {
     "name": "ENCHANTMENT_TABLE",
     "properties": [
@@ -122,6 +126,14 @@
       "REQUIRES_BLOCK"
     ]
   },
+  "FALLING_HONEY": {
+    "name": "FALLING_HONEY",
+    "properties": []
+  },
+  "FALLING_NECTAR": {
+    "name": "FALLING_NECTAR",
+    "properties": []
+  },
   "FIREWORKS_SPARK": {
     "name": "FIREWORKS_SPARK",
     "properties": [
@@ -148,6 +160,10 @@
       "DIRECTIONAL",
       "REQUIRES_ITEM"
     ]
+  },
+  "LANDING_HONEY": {
+    "name": "LANDING_HONEY",
+    "properties": []
   },
   "LAVA": {
     "name": "LAVA",
