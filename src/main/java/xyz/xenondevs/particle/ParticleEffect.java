@@ -45,7 +45,8 @@ import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static xyz.xenondevs.particle.ParticleConstants.*;
+import static xyz.xenondevs.particle.ParticleConstants.PARTICLE_TYPE_REGISTRY;
+import static xyz.xenondevs.particle.ParticleConstants.REGISTRY_GET_METHOD;
 import static xyz.xenondevs.particle.PropertyType.*;
 
 /**
@@ -123,6 +124,10 @@ import static xyz.xenondevs.particle.PropertyType.*;
  */
 public enum ParticleEffect {
 
+    /**
+     * 1.16 Placeholder
+     */
+    ASH(version -> version < 16 ? "NONE" : "ash"),
     /**
      * In the base game this particle
      * is displayed by barrier blocks
@@ -277,9 +282,13 @@ public enum ParticleEffect {
      */
     COMPOSTER(version -> version < 14 ? "NONE" : "composter"),
     /**
+     * 1.16 Placeholder
+     */
+    CRIMSON_SPORE(version -> version < 16 ? "NONE" : "crimson_spore"),
+    /**
      * In the base game this particle
      * is displayed when a player lands
-     * a critical hit on an entity or a
+     * a critical hit on an entity or an
      * arrow is launched with full power.
      * <p>
      * The normal critical particle is
@@ -421,6 +430,10 @@ public enum ParticleEffect {
      * </ul>
      */
     DRIPPING_HONEY(version -> version < 15 ? "NONE" : "dripping_honey"),
+    /**
+     * 1.16 Placeholder
+     */
+    DRIPPING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "dripping_obsidian_tear"),
     /**
      * In the base game this particle
      * is displayed by bookshelves near
@@ -656,6 +669,10 @@ public enum ParticleEffect {
      */
     LANDING_HONEY(version -> version < 15 ? "NONE" : "landing_honey"),
     /**
+     * 1.16 Placeholder
+     */
+    LANDING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "landing_obsidian_tear"),
+    /**
      * In the base game this particle
      * is randomly displayed by lava.
      * <p>
@@ -762,6 +779,10 @@ public enum ParticleEffect {
      * </ul>
      */
     REDSTONE(version -> version < 8 ? "NONE" : (version < 13 ? "REDSTONE" : "dust"), COLORABLE),
+    /**
+     * 1.16 Placeholder
+     */
+    REVERSE_PORTAL(version -> version < 16 ? "NONE" : "reverse_portal"),
     /**
      * In the base game this particle
      * is displayed by jumping slimes.
@@ -1092,6 +1113,10 @@ public enum ParticleEffect {
      */
     VILLAGER_HAPPY(version -> version < 8 ? "NONE" : (version < 13 ? "VILLAGER_HAPPY" : "happy_villager"), DIRECTIONAL),
     /**
+     * 1.16 Placeholder
+     */
+    WARPED_SPORE(version -> version < 16 ? "NONE" : "warped_spore"),
+    /**
      * In the base game this particle
      * is displayed when a Entity is
      * swimming in water, a projectile
@@ -1155,7 +1180,11 @@ public enum ParticleEffect {
      * <li>Speed value: Doesn't influence the particle.</li>
      * </ul>
      */
-    WATER_WAKE(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_WAKE" : "fishing"), DIRECTIONAL);
+    WATER_WAKE(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_WAKE" : "fishing"), DIRECTIONAL),
+    /**
+     * 1.16 Placeholder
+     */
+    WHITE_ASH(version -> version < 16 ? "NONE" : "white_ash");
 
     /**
      * A {@link IntFunction} to get the
