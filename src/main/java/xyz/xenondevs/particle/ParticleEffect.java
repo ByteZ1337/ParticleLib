@@ -1191,14 +1191,14 @@ public enum ParticleEffect {
      * name of the particle by checking
      * the version.
      */
-    private IntFunction<String> fieldNameMapper;
+    private final IntFunction<String> fieldNameMapper;
     /**
      * A list of
      * {@link PropertyType properties}
      * the current particle instance
      * supports.
      */
-    private PropertyType[] properties;
+    private final PropertyType[] properties;
 
     /**
      * A array with all
