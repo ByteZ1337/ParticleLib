@@ -424,6 +424,7 @@ public enum ParticleEffect {
      * so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
+     * <ul>
      * <li>Appearance: A rectangular honey drop.</li>
      * <li>Speed value: Doesn't influence the particle.</li>
      * <li>Extra: Spawns a {@link #LANDING_HONEY} particle after landing on a block.</li>
@@ -545,6 +546,7 @@ public enum ParticleEffect {
      * so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
+     * <ul>
      * <li>Appearance: A rectangular honey drop.</li>
      * <li>Speed value: Doesn't influence the particle.</li>
      * <li>Extra: Spawns a {@link #LANDING_HONEY} after landing on a block.</li>

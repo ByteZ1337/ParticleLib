@@ -6,6 +6,17 @@
 # ParticleLib
 A spigot library to support all particles from 1.8 to 1.15
 
+#### Maven
+```xml
+<dependencies>
+    <dependency>
+        <groupId>xyz.xenondevs</groupId>
+        <artifactId>particle</artifactId>
+        <version>1.4</version>
+    </dependency>
+</dependencies>
+```
+
 ## How to use this library
 
 Choose the particle you want to display and then use the display method.
