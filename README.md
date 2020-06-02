@@ -23,7 +23,7 @@ Choose the particle you want to display and then use the display method.
 
 <b>Example:</b>
 ```java
-ParticleEffect.FLAME.display(player.getLocation(), Bukkit.getOnlinePlayers());
+ParticleEffect.FLAME.display(player.getLocation());
 ```
 Parameter explanation:
 
