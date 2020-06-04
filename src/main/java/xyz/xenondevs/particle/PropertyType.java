@@ -75,8 +75,8 @@ public enum PropertyType {
      * the major 1.13 particle changes this
      * data can no longer be set in a simple
      * int array. There is now a custom
-     * object to set the data of such a
-     * particle. The class of this object
+     * object to set the data of such
+     * particles. The class of this object
      * is ParticleParamBlock and it
      * implements the ParticleParam interface,
      * which is now needed in the constructor.
@@ -92,7 +92,7 @@ public enum PropertyType {
      * major 1.13 particle changes this data
      * can no longer be set in a simple int
      * array. There is now a custom object to
-     * set the data of such a particle. The
+     * set the data of such particles. The
      * class of this object is ParticleParamItem
      * and it implements the ParticleParam
      * interface, which is now needed in the

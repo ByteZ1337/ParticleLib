@@ -76,6 +76,6 @@ public class MathUtils {
      * @return the calculated value.
      */
     public static int getMaxOrMin(int value, int max, int min) {
-        return value >= max ? max : (value <= min ? min : value);
+        return value < max ? (Math.max(value, min)) : max;
     }
 }
