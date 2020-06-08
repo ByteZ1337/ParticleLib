@@ -2,6 +2,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/stargazers)
 [![GitHub license](https://img.shields.io/github/license/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE)
 [![Maven](https://img.shields.io/maven-central/v/xyz.xenondevs/particle)](https://search.maven.org/artifact/xyz.xenondevs/particle)
+![Build](https://img.shields.io/github/workflow/status/ByteZ1337/ParticleLib/Java%20CI%20with%20Maven)
 
 # ParticleLib
 A spigot library to support all particles from 1.8 to 1.15
