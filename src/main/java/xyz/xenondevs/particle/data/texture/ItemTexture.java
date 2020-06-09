@@ -34,9 +34,10 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 /**
  * A implementation of the {@link ParticleTexture}
- * object to support block texture particles.
+ * object to support item texture particles.
  *
  * @author ByteZ
+ * @see PropertyType#REQUIRES_ITEM
  * @since 11.06.2019
  */
 public class ItemTexture extends ParticleTexture {

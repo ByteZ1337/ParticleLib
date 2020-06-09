@@ -28,6 +28,7 @@ package xyz.xenondevs.particle.data.color;
 
 import xyz.xenondevs.particle.ParticleConstants;
 import xyz.xenondevs.particle.ParticleEffect;
+import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.MathUtils;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
@@ -39,6 +40,7 @@ import java.awt.*;
  * class that supports normal RGB values.
  *
  * @author ByteZ
+ * @see PropertyType#COLORABLE
  * @since 10.06.2019
  */
 public class RegularColor extends ParticleColor {

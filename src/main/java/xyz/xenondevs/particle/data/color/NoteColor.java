@@ -33,7 +33,7 @@ import xyz.xenondevs.particle.utils.MathUtils;
 
 /**
  * A implementation of the {@link ParticleColor}
- * class that supports note colors.
+ * class to support note colors.
  *
  * @author ByteZ
  * @see ParticleEffect#NOTE

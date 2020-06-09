@@ -1222,8 +1222,8 @@ public enum ParticleEffect {
      * Creates a new {@link ParticleEffect}
      *
      * @param fieldNameMapper the {@link IntFunction} to map
-     *                        the version into the name of
-     *                        the particle.
+     *                        the version to the name of the
+     *                        respective particle.
      * @param properties      A list of
      *                        {@link PropertyType properties}
      *                        supported by this particle.

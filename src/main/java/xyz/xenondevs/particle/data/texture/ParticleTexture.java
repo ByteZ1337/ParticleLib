@@ -32,7 +32,8 @@ import xyz.xenondevs.particle.data.ParticleData;
 
 /**
  * A implementation of {@link ParticleData}
- * to support particles that need a texture.
+ * to support particles that require a texture
+ * to function properly.
  *
  * @author ByteZ
  * @see PropertyType#REQUIRES_BLOCK
