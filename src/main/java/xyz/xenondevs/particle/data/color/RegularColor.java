@@ -36,8 +36,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.awt.*;
 
 /**
- * A implementation of the {@link ParticleColor}
- * class that supports normal RGB values.
+ * A implementation of the {@link ParticleColor} class that supports normal RGB values.
  *
  * @author ByteZ
  * @see PropertyType#COLORABLE
@@ -46,8 +45,7 @@ import java.awt.*;
 public class RegularColor extends ParticleColor {
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param color the {@link Color} the
      *              particle should have.
@@ -57,8 +55,7 @@ public class RegularColor extends ParticleColor {
     }
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param red   the red value of the color.
      * @param green the green value of the color.
@@ -99,12 +96,9 @@ public class RegularColor extends ParticleColor {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam" has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 an int array should be returned. If the
+     * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
      */
@@ -120,10 +114,8 @@ public class RegularColor extends ParticleColor {
     }
 
     /**
-     * Generates a random {@link RegularColor}
-     * instance with a high saturation. If you
-     * want a completely random {@link Color}
-     * use {@link #random(boolean)} with false
+     * Generates a random {@link RegularColor} instance with a high saturation. If you
+     * want a completely random {@link Color} use {@link #random(boolean)} with false
      * as the highSaturarion parameter.
      *
      * @return a randomly generated {@link RegularColor} instance.
@@ -133,12 +125,9 @@ public class RegularColor extends ParticleColor {
     }
 
     /**
-     * Generates a random {@link RegularColor}
-     * instance. If the highSaturation parameter
-     * is set to true, a random hue from the HSV
-     * spectrum will be used. Otherwise 3 random
-     * integers ranging from 0 to 255 for the RGB
-     * values will be generated.
+     * Generates a random {@link RegularColor} instance. If the highSaturation parameter
+     * is set to true, a random hue from the HSV spectrum will be used. Otherwise 3 random
+     * integers ranging from 0 to 255 for the RGB values will be generated.
      *
      * @param highSaturation determines if the colors should have a high saturation.
      * @return a randomly generated {@link RegularColor} instance.
@@ -151,8 +140,7 @@ public class RegularColor extends ParticleColor {
     }
 
     /**
-     * Constructs a {@link RegularColor} using the
-     * HSV color spectrum.
+     * Constructs a {@link RegularColor} using the HSV color spectrum.
      *
      * @param hue the hue the the specific color has.
      * @return a {@link RegularColor} instance with the given HSV value as its {@link Color}.

@@ -33,8 +33,7 @@ import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 /**
- * A implementation of the {@link ParticleTexture}
- * object to support item texture particles.
+ * A implementation of the {@link ParticleTexture} object to support item texture particles.
  *
  * @author ByteZ
  * @see PropertyType#REQUIRES_ITEM
@@ -43,14 +42,12 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 public class ItemTexture extends ParticleTexture {
 
     /**
-     * The {@link ItemStack} that will be
-     * displayed by the particle.
+     * The {@link ItemStack} that will be displayed by the particle.
      */
     private final ItemStack itemStack;
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param itemStack the {@link ItemStack} which
      *                  should be displayed by the
@@ -62,12 +59,9 @@ public class ItemTexture extends ParticleTexture {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 a int array should be returned. If the
+     * version was released after 1.12 a nms ParticleParam has to be returned.
      *
      * @return the nms data.
      */
@@ -87,8 +81,7 @@ public class ItemTexture extends ParticleTexture {
     }
 
     /**
-     * Gets the {@link ItemStack} that will
-     * be displayed by the particle.
+     * Gets the {@link ItemStack} that will be displayed by the particle.
      *
      * @return the assigned {@link ItemStack}.
      */
@@ -97,8 +90,7 @@ public class ItemTexture extends ParticleTexture {
     }
 
     /**
-     * Gets the NMS ItemStack instance of a
-     * CraftItemSTack.
+     * Gets the NMS ItemStack instance of a CraftItemSTack.
      *
      * @param itemStack the CraftItemStack
      * @return the ItemStack instance of the specified CraftItemStack or {@code null} if either the given parameter is invalid or an error occurs.

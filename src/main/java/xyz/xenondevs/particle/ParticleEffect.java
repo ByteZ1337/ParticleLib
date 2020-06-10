@@ -50,8 +50,7 @@ import static xyz.xenondevs.particle.ParticleConstants.REGISTRY_GET_METHOD;
 import static xyz.xenondevs.particle.PropertyType.*;
 
 /**
- * {@link Enum} to reflect particle packets
- * with their respective data.
+ * {@link Enum} to reflect particle packets with their respective data.
  * <p>
  * List of all currently supported effects:
  * <ul>
@@ -129,17 +128,12 @@ public enum ParticleEffect {
      */
     ASH(version -> version < 16 ? "NONE" : "ash"),
     /**
-     * In the base game this particle
-     * is displayed by barrier blocks
-     * when a player holds a barrier
-     * item in the main or off hand.
+     * In the base game this particle is displayed by barrier blocks
+     * when a player holds a barrier item in the main or off hand.
      * <p>
-     * The original use of this
-     * particle is clientside. However
-     * when the server writes the data
-     * of a WorldParticles into a
-     * ByteBuf and the particle field
-     * is {@code null} the barrier
+     * The original use of this particle is clientside. However
+     * when the server writes the data of a WorldParticles into a
+     * ByteBuf and the particle field is {@code null} the barrier
      * particle is used.
      * <p>
      * <b>Information</b>:
@@ -150,14 +144,11 @@ public enum ParticleEffect {
      */
     BARRIER(version -> version < 8 ? "NONE" : (version < 13 ? "BARRIER" : "barrier")),
     /**
-     * In the base game this particle
-     * is displayed when a player breaks
-     * a block or sprints. It's also
-     * displayed by iron golems while
+     * In the base game this particle is displayed when a player breaks
+     * a block or sprints. It's also displayed by iron golems while
      * walking.
      * <p>
-     * The particle originates from
-     * the nms Entity and EntityIronGolem
+     * The particle originates from the nms Entity and EntityIronGolem
      * classes.
      * <p>
      * <b>Information</b>:
@@ -169,15 +160,11 @@ public enum ParticleEffect {
      */
     BLOCK_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "BLOCK_CRACK" : "block"), REQUIRES_BLOCK),
     /**
-     * In the base game this particle
-     * is displayed when an entity hits the ground
-     * after falling. It's also displayed
-     * when a armorstand is broken.
+     * In the base game this particle is displayed when an entity hits the ground
+     * after falling. It's also displayed when a armorstand is broken.
      * <p>
-     * The particle originates from
-     * the nms EntityArmorStand,
-     * EntityRabbit and EntityLiving
-     * classes.
+     * The particle originates from the nms EntityArmorStand,
+     * EntityRabbit and EntityLiving classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -189,12 +176,10 @@ public enum ParticleEffect {
      */
     BLOCK_DUST(version -> version < 8 ? "NONE" : (version < 13 ? "BLOCK_DUST" : "falling_dust"), DIRECTIONAL, REQUIRES_BLOCK),
     /**
-     * In the base game this particle
-     * is randomly displayed by magma
+     * In the base game this particle is randomly displayed by magma
      * blocks and soulsand underwater.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -205,12 +190,10 @@ public enum ParticleEffect {
      */
     BUBBLE_COLUMN_UP(version -> version < 13 ? "NONE" : "bubble_column_up", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed at the top of
+     * In the base game this particle is displayed at the top of
      * bubble columns.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -221,11 +204,9 @@ public enum ParticleEffect {
      */
     BUBBLE_POP(version -> version < 13 ? "NONE" : "bubble_pop", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed by campfires.
+     * In the base game this particle is displayed by campfires.
      * <p>
-     * The particle originates from the
-     * nms BlockCampfire class.
+     * The particle originates from the nms BlockCampfire class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -236,12 +217,10 @@ public enum ParticleEffect {
      */
     CAMPFIRE_COSY_SMOKE(version -> version < 14 ? "NONE" : "campfire_cosy_smoke", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed by campfires with
+     * In the base game this particle is displayed by campfires with
      * a hay bale placed under them.
      * <p>
-     * The particle originates from the
-     * nms BlockCampfire class.
+     * The particle originates from the nms BlockCampfire class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -252,11 +231,9 @@ public enum ParticleEffect {
      */
     CAMPFIRE_SIGNAL_SMOKE(version -> version < 14 ? "NONE" : "campfire_signal_smoke", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when an entity dies.
+     * In the base game this particle is displayed when an entity dies.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -267,12 +244,10 @@ public enum ParticleEffect {
      */
     CLOUD(version -> version < 8 ? "NONE" : (version < 13 ? "CLOUD" : "cloud"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a composter
+     * In the base game this particle is displayed when a composter
      * is used by a player.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside  so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -286,15 +261,11 @@ public enum ParticleEffect {
      */
     CRIMSON_SPORE(version -> version < 16 ? "NONE" : "crimson_spore"),
     /**
-     * In the base game this particle
-     * is displayed when a player lands
-     * a critical hit on an entity or an
-     * arrow is launched with full power.
+     * In the base game this particle is displayed when a player lands
+     * a critical hit on an entity or an  arrow is launched with full power.
      * <p>
-     * The normal critical particle is
-     * displayed clientside which is why it
-     * is only used in the nms EntityArrow
-     * class.
+     * The normal critical particle is displayed clientside which is why it
+     * is only used in the nms EntityArrow class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -304,12 +275,10 @@ public enum ParticleEffect {
      */
     CRIT(version -> version < 8 ? "NONE" : (version < 13 ? "CRIT" : "crit"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a player hits
+     * In the base game this particle  is displayed when a player hits
      * an entity with a sharpness sword.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -319,12 +288,10 @@ public enum ParticleEffect {
      */
     CRIT_MAGIC(version -> version < 8 ? "NONE" : (version < 13 ? "CRIT_MAGIC" : "enchanted_hit"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed by magma blocks
+     * In the base game this particle is displayed by magma blocks
      * under water.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -334,12 +301,10 @@ public enum ParticleEffect {
      */
     CURRENT_DOWN(version -> version < 13 ? "NONE" : "current_down"),
     /**
-     * In the base game this particle
-     * is displayed when a Player hits
+     * In the base game this particle is displayed when a Player hits
      * an Entity by melee attack.
      * <p>
-     * The particle originates from the
-     * nms EntityHuman class.
+     * The particle originates from the nms EntityHuman class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -350,12 +315,10 @@ public enum ParticleEffect {
      */
     DAMAGE_INDICATOR(version -> version < 9 ? "NONE" : (version < 13 ? "DAMAGE_INDICATOR" : "damage_indicator"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed as a trail of
+     * In the base game this particle is displayed as a trail of
      * dolphins.
      * <p>
-     * The particle originates from the
-     * nms EntityDolphin class.
+     * The particle originates from the nms EntityDolphin class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -365,14 +328,11 @@ public enum ParticleEffect {
      */
     DOLPHIN(version -> version < 13 ? "NONE" : "dolphin"),
     /**
-     * In the base game this particle
-     * is displayed by the ender dragons
+     * In the base game this particle is displayed by the ender dragons
      * breath and ender fireballs.
      * <p>
-     * The particle originates from the
-     * nms DragonControllerLandedFlame,
-     * DragonControllerLanding and
-     * EntityDragonFireball classes.
+     * The particle originates from the nms DragonControllerLandedFlame,
+     * DragonControllerLanding and EntityDragonFireball classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -383,12 +343,10 @@ public enum ParticleEffect {
      */
     DRAGON_BREATH(version -> version < 9 ? "NONE" : (version < 13 ? "DRAGON_BREATH" : "dragon_breath"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed randomly when a
+     * In the base game this particle is displayed randomly when a
      * lava block is above a block.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -398,12 +356,10 @@ public enum ParticleEffect {
      */
     DRIP_LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_lava")),
     /**
-     * In the base game this particle
-     * is displayed randomly when a
+     * In the base game this particle is displayed randomly when a
      * water block is above a block.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -413,15 +369,11 @@ public enum ParticleEffect {
      */
     DRIP_WATER(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_water")),
     /**
-     * In the base game this particle
-     * is displayed by beehives filled
-     * with honey. As opposed to the
-     * {@link #FALLING_HONEY} particles,
-     * this particle floats in the air
-     * before falling to the ground.
+     * In the base game this particle is displayed by beehives filled
+     * with honey. As opposed to the {@link #FALLING_HONEY} particles,
+     * this particle floats in the air before falling to the ground.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -436,12 +388,10 @@ public enum ParticleEffect {
      */
     DRIPPING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "dripping_obsidian_tear"),
     /**
-     * In the base game this particle
-     * is displayed by bookshelves near
+     * In the base game this particle is displayed by bookshelves near
      * an enchanting table.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -452,14 +402,11 @@ public enum ParticleEffect {
      */
     ENCHANTMENT_TABLE(version -> version < 8 ? "NONE" : (version < 13 ? "ENCHANTMENT_TABLE" : "enchant"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed by end rods and
+     * In the base game this particle is displayed by end rods and
      * shulker bullets.
      * <p>
-     * Even though the original purpose of
-     * this particle is handled clientside
-     * the nms EntityShulkerBullet class
-     * still uses this particle.
+     * Even though the original purpose of this particle is handled clientside
+     * the nms EntityShulkerBullet class still uses this particle.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -470,14 +417,11 @@ public enum ParticleEffect {
      */
     END_ROD(version -> version < 9 ? "NONE" : (version < 13 ? "END_ROD" : "end_rod"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when tnt or creeper
+     * In the base game this particle is displayed when tnt or creeper
      * explodes.
      * <p>
-     * The particle originates from the
-     * nms EntityEnderDragon and Explosion
-     * classes and will only be shown when
-     * the size field is greater than 2.
+     * The particle originates from the nms EntityEnderDragon and Explosion
+     * classes and will only be shown when the size field is greater than 2.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -487,15 +431,11 @@ public enum ParticleEffect {
      */
     EXPLOSION_HUGE(version -> version < 8 ? "NONE" : (version < 13 ? "EXPLOSION_HUGE" : "explosion_emitter")),
     /**
-     * In the base game this particle
-     * is displayed when a fireball
-     * explodes or a wither skull hits
-     * a block/entity.
+     * In the base game this particle is displayed when a fireball
+     * explodes or a wither skull hits a block/entity.
      * <p>
-     * The particle originates from the
-     * nms Explosion class and will only
-     * be shown when the size field is
-     * smaller than 2.
+     * The particle originates from the  nms Explosion class and will only
+     * be shown when the size field is smaller than 2.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -505,8 +445,7 @@ public enum ParticleEffect {
      */
     EXPLOSION_LARGE(version -> version < 8 ? "NONE" : (version < 13 ? "EXPLOSION_LARGE" : "explosion")),
     /**
-     * In the base game this particle is
-     * displayed when either a creeper or
+     * In the base game this particle is displayed when either a creeper or
      * a tnt explodes.
      * <p>
      * The particle originates from the nms
@@ -520,12 +459,10 @@ public enum ParticleEffect {
      */
     EXPLOSION_NORMAL(version -> version < 8 ? "NONE" : (version < 13 ? "EXPLOSION_NORMAL" : "poof"), DIRECTIONAL),
     /**
-     * In the base game this particle is
-     * displayed randomly by floating sand
+     * In the base game this particle is displayed randomly by floating sand
      * and gravel.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -536,14 +473,11 @@ public enum ParticleEffect {
      */
     FALLING_DUST(version -> version < 10 ? "NONE" : (version < 13 ? "FALLING_DUST" : "falling_dust"), REQUIRES_BLOCK),
     /**
-     * In the base game this particle is
-     * displayed below beehives filled
-     * with honey. As opposed to the
-     * {@link #DRIPPING_HONEY} particles,
+     * In the base game this particle is displayed below beehives filled
+     * with honey. As opposed to the {@link #DRIPPING_HONEY} particles,
      * this particle falls instantly.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -554,12 +488,10 @@ public enum ParticleEffect {
      */
     FALLING_HONEY(version -> version < 15 ? "NONE" : "falling_honey"),
     /**
-     * In the base game this particle is
-     * displayed by bees that have pollen
+     * In the base game this particle is displayed by bees that have pollen
      * and are on their way to the beehive.
      * <p>
-     * The particle originates from the
-     * nms EntityBee class.
+     * The particle originates from the nms EntityBee class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -569,12 +501,10 @@ public enum ParticleEffect {
      */
     FALLING_NECTAR(version -> version < 15 ? "NONE" : "falling_nectar"),
     /**
-     * In the base game this particle
-     * is displayed when a firework is
+     * In the base game this particle is displayed when a firework is
      * launched.
      * <p>
-     * The particle originates from the
-     * nms EntityFireworks class.
+     * The particle originates from the nms EntityFireworks class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -584,13 +514,10 @@ public enum ParticleEffect {
      */
     FIREWORKS_SPARK(version -> version < 8 ? "NONE" : (version < 13 ? "FIREWORKS_SPARK" : "firework"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is randomly displayed by torches,
-     * active furnaces,spawners and
-     * magma cubes.
+     * In the base game this particle  is randomly displayed by torches,
+     * active furnaces,spawners and magma cubes.
      * <p>
-     * The particle originates from
-     * the nms MobSpawnerAbstract and
+     * The particle originates from the nms MobSpawnerAbstract and
      * EntityMagmaCube class.
      * <p>
      * <b>Information</b>:
@@ -602,11 +529,9 @@ public enum ParticleEffect {
      */
     FLAME(version -> version < 8 ? "NONE" : (version < 13 ? "FLAME" : "flame"), DIRECTIONAL),
     /**
-     * This particle is unused and is removed
-     * in the version 1.13.
+     * This particle is unused and is removed in the version 1.13.
      * <p>
-     * Since this particle is unused it
-     * isn't used in any nms classes.
+     * Since this particle is unused it isn't used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -616,14 +541,11 @@ public enum ParticleEffect {
      */
     FOOTSTEP(version -> version > 8 && version < 13 ? "FOOTSTEP" : "NONE"),
     /**
-     * In the base game this particle
-     * is displayed when taming or
+     * In the base game this particle is displayed when taming or
      * breeding animals.
      * <p>
-     * The particle originates from
-     * the nms EntityAnimal,
-     * EntityTameableAnimal and
-     * PathfinderGoalBreed classes.
+     * The particle originates from the nms EntityAnimal,
+     * EntityTameableAnimal and PathfinderGoalBreed classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -633,12 +555,9 @@ public enum ParticleEffect {
      */
     HEART(version -> version < 8 ? "NONE" : (version < 13 ? "HEART" : "heart")),
     /**
-     * In the base game this particle
-     * is displayed when a tool is
-     * broken, a egg or a splash potion
-     * hits an entity or a block, It is
-     * also displayed when a player eats
-     * or a eye of ender breaks.
+     * In the base game this particle is displayed when a tool is
+     * broken, a egg or a splash potion hits an entity or a block, It is
+     * also displayed when a player eats or a eye of ender breaks.
      * <p>
      * The particle originates from
      * the nms EntityEgg, EntityHuman
@@ -654,10 +573,8 @@ public enum ParticleEffect {
      */
     ITEM_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "ITEM_CRACK" : "item"), DIRECTIONAL, REQUIRES_ITEM),
     /**
-     * In the base game this particle
-     * is displayed after a Falling or
-     * Dripping Honey particle reaches
-     * a block.
+     * In the base game this particle is displayed after a Falling or
+     * Dripping Honey particle reaches a block.
      * <p>
      * The particle is displayed clientside
      * so it's not used in any nms classes.
@@ -675,11 +592,9 @@ public enum ParticleEffect {
      */
     LANDING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "landing_obsidian_tear"),
     /**
-     * In the base game this particle
-     * is randomly displayed by lava.
+     * In the base game this particle is randomly displayed by lava.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -689,8 +604,7 @@ public enum ParticleEffect {
      */
     LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "LAVA" : "lava")),
     /**
-     * In the base game this particle
-     * is displayed by elder guardians.
+     * In the base game this particle is displayed by elder guardians.
      * <p>
      * The particle is displayed clientside
      * so it's not used in any nms classes.
@@ -703,11 +617,9 @@ public enum ParticleEffect {
      */
     MOB_APPEARANCE(version -> version < 8 ? "NONE" : (version < 13 ? "MOB_APPEARANCE" : "elder_guardian")),
     /**
-     * In the base game this particle
-     * is displayed by active conduits.
+     * In the base game this particle is displayed by active conduits.
      * <p>
-     * The particle originates from
-     * the nmsTileEntityConduit class.
+     * The particle originates from the nmsTileEntityConduit class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -718,12 +630,10 @@ public enum ParticleEffect {
      */
     NAUTILUS(version -> version < 13 ? "NONE" : "nautilus", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when rightclicking
+     * In the base game this particle is displayed when rightclicking
      * or activating a note block.
      * <p>
-     * The particle originates from
-     * the nms BlockNote class.
+     * The particle originates from the nms BlockNote class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -734,20 +644,14 @@ public enum ParticleEffect {
      */
     NOTE(version -> version < 8 ? "NONE" : (version < 13 ? "NOTE" : "note"), COLORABLE),
     /**
-     * In the base game this particle
-     * is randomly displayed by nether
-     * portal, endermen, ender chests,
-     * dragon eggs, endermites and end
-     * gateway portals. It is also
-     * displayed when a ender pearl hits
-     * a block or an entity, when a eye of
-     * ender beaks or when the player eats
+     * In the base game this particle is randomly displayed by nether
+     * portal, endermen, ender chests, dragon eggs, endermites and end
+     * gateway portals. It is also displayed when a ender pearl hits
+     * a block or an entity, when a eye of ender beaks or when the player eats
      * a chorus fruit.
      * <p>
-     * The particle originates from
-     * the following nms classes:<br>
-     * BlockDragonEgg, EntityEnderman,
-     * EntityEndermite, EntityEnderPearl
+     * The particle originates from the following nms classes:<br>
+     * BlockDragonEgg, EntityEnderman, EntityEndermite, EntityEnderPearl
      * and EntityEnderSignal
      * <p>
      * <b>Information</b>:
@@ -759,18 +663,13 @@ public enum ParticleEffect {
      */
     PORTAL(version -> version < 8 ? "NONE" : (version < 13 ? "PORTAL" : "portal"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is randomly displayed by active
-     * redstone ore, active redstone,
-     * active redstone repeater and
-     * active redstone torches. Since
-     * 1.13 it is also displayed when
-     * pressing a button, activating a
-     * lever or stepping onto a pressure
+     * In the base game this particle is randomly displayed by active
+     * redstone ore, active redstone, active redstone repeater and
+     * active redstone torches. Since 1.13 it is also displayed when
+     * pressing a button, activating a lever or stepping onto a pressure
      * plate
      * <p>
-     * The particle is mainly displayed
-     * clientside. However it is used
+     * The particle is mainly displayed clientside. However it is used
      * in the BlockRedstoneOre nms class
      * <p>
      * <b>Information</b>:
@@ -786,11 +685,9 @@ public enum ParticleEffect {
      */
     REVERSE_PORTAL(version -> version < 16 ? "NONE" : "reverse_portal"),
     /**
-     * In the base game this particle
-     * is displayed by jumping slimes.
+     * In the base game this particle is displayed by jumping slimes.
      * <p>
-     * The particle originates from
-     * the nms EntitySlime class.
+     * The particle originates from the nms EntitySlime class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -800,16 +697,12 @@ public enum ParticleEffect {
      */
     SLIME(version -> version < 8 ? "NONE" : (version < 13 ? "SLIME" : "item_slime")),
     /**
-     * In the base game this particle is
-     * randomly displayed by fire, furnace
-     * minecarts and blazes. It's also
-     * displayed when trying to place water
+     * In the base game this particle is randomly displayed by fire, furnace
+     * minecarts and blazes. It's also displayed when trying to place water
      * in the nether.
      * <p>
-     * The particle originates from
-     * the nms ItemBucket, EntityBlaze
-     * BlockFluids and EntityMinecart
-     * classes.
+     * The particle originates from the nms ItemBucket, EntityBlaze
+     * BlockFluids and EntityMinecart classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -819,19 +712,13 @@ public enum ParticleEffect {
      */
     SMOKE_LARGE(version -> version < 8 ? "NONE" : (version < 13 ? "SMOKE_LARGE" : "large_smoke"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is randomly displayed by primed
-     * tnt, torches, end portals,
-     * active brewing stands, monster
-     * spawners or when either a dropper
-     * or dispenser gets triggered. It's
-     * also displayed when taming a wild
-     * animal or an explosion occurs.
+     * In the base game this particle is randomly displayed by primed
+     * tnt, torches, end portals, active brewing stands, monster
+     * spawners or when either a dropper or dispenser gets triggered. It's
+     * also displayed when taming a wild animal or an explosion occurs.
      * <p>
-     * Most of the particles are displayed
-     * by the client however the explosion
-     * particles, the taming particles and
-     * a lot more are displayed by the server.
+     * Most of the particles are displayed by the client however the explosion
+     * particles, the taming particles and a lot more are displayed by the server.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -841,12 +728,9 @@ public enum ParticleEffect {
      */
     SMOKE_NORMAL(version -> version < 8 ? "NONE" : (version < 13 ? "SMOKE_NORMAL" : "smoke"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed by sneezing baby
-     * pandas.
+     * In the base game this particle is displayed by sneezing baby pandas.
      * <p>
-     * The particle originates from
-     * the nms EntityPanda class.
+     * The particle originates from the nms EntityPanda class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -857,12 +741,10 @@ public enum ParticleEffect {
      */
     SNEEZE(version -> version < 14 ? "NONE" : "sneeze", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a snowball
+     * In the base game this particle is displayed when a snowball
      * hits an entity or a block.
      * <p>
-     * The particle originates from
-     * the nms EntitySnowball class.
+     * The particle originates from the nms EntitySnowball class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -872,11 +754,9 @@ public enum ParticleEffect {
      */
     SNOWBALL(version -> version < 8 ? "NONE" : (version < 13 ? "SNOWBALL" : "item_snowball")),
     /**
-     * This particle is unused and is
-     * merged into "poof" in 1.13.
+     * This particle is unused and is merged into "poof" in 1.13.
      * <p>
-     * Since this particle is unused it
-     * isn't used in any nms classes.
+     * Since this particle is unused it isn't used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -887,14 +767,11 @@ public enum ParticleEffect {
      */
     SNOW_SHOVEL(version -> version < 8 ? "NONE" : (version < 13 ? "SNOW_SHOVEL" : "poof"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a splash potion or
-     * a experience bottle hits a block or
-     * an entity. It's also displayed by
+     * In the base game this particle is displayed when a splash potion or
+     * a experience bottle hits a block or an entity. It's also displayed by
      * evokers.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -905,13 +782,10 @@ public enum ParticleEffect {
      */
     SPELL(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL" : "effect")),
     /**
-     * In the base game this particle
-     * is displayed when a instant splash
-     * potion (e.g. instant health) hits a
-     * block or an entity.
+     * In the base game this particle is displayed when a instant splash
+     * potion (e.g. instant health) hits a block or an entity.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -922,13 +796,10 @@ public enum ParticleEffect {
      */
     SPELL_INSTANT(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_INSTANT" : "instant_effect")),
     /**
-     * In the base game this particle
-     * is displayed when a entity has
-     * a active potion effect with the
-     * "ShowParticles" tag set to 1.
+     * In the base game this particle is displayed when a entity has
+     * a active potion effect with the "ShowParticles" tag set to 1.
      * <p>
-     * The particle originates from
-     * the nms EntityLiving and
+     * The particle originates from the nms EntityLiving and
      * EntityWither classes.
      * <p>
      * <b>Information</b>:
@@ -940,10 +811,8 @@ public enum ParticleEffect {
      */
     SPELL_MOB(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_MOB" : "entity_effect"), COLORABLE),
     /**
-     * In the base game this particle
-     * is displayed when a entity has
-     * a active potion effect from a
-     * nearby beacon.
+     * In the base game this particle is displayed when a entity has
+     * a active potion effect from a nearby beacon.
      * <p>
      * The particle originates from
      * the nms EntityLiving class.
@@ -957,11 +826,9 @@ public enum ParticleEffect {
      */
     SPELL_MOB_AMBIENT(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_MOB_AMBIENT" : "ambient_entity_effect"), COLORABLE),
     /**
-     * In the base game this particle
-     * is displayed randomly by witches.
+     * In the base game this particle is displayed randomly by witches.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -972,12 +839,10 @@ public enum ParticleEffect {
      */
     SPELL_WITCH(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_WITCH" : "witch")),
     /**
-     * In the base game this particle
-     * is displayed by llamas while
+     * In the base game this particle is displayed by llamas while
      * attacking an entity.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -988,12 +853,10 @@ public enum ParticleEffect {
      */
     SPIT(version -> version < 11 ? "NONE" : (version < 13 ? "SPIT" : "spit")),
     /**
-     * In the base game this particle
-     * is displayed when a squid gets
+     * In the base game this particle is displayed when a squid gets
      * damaged.
      * <p>
-     * The particle originates from
-     * the nmsEntitySquid class.
+     * The particle originates from the nmsEntitySquid class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1004,11 +867,9 @@ public enum ParticleEffect {
      */
     SQUID_INK(version -> version < 13 ? "NONE" : "squid_ink", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed randomly in water.
+     * In the base game this particle is displayed randomly in water.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1018,12 +879,10 @@ public enum ParticleEffect {
      */
     SUSPENDED(version -> version < 8 ? "NONE" : (version < 13 ? "SUSPENDED" : "underwater"), REQUIRES_WATER),
     /**
-     * In the base game this particle
-     * is displayed when a player is close
+     * In the base game this particle is displayed when a player is close
      * to bedrock or the void.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1033,13 +892,10 @@ public enum ParticleEffect {
      */
     SUSPENDED_DEPTH(version -> version > 8 && version < 13 ? "SUSPENDED_DEPTH" : "NONE", DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a Player hits
-     * multiple entities at once with
-     * a sword.
+     * In the base game this particle is displayed when a Player hits
+     * multiple entities at once with a sword.
      * <p>
-     * The particle originates from
-     * the nms EntityHuman class,
+     * The particle originates from the nms EntityHuman class,
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1050,12 +906,10 @@ public enum ParticleEffect {
      */
     SWEEP_ATTACK(version -> version < 8 ? "NONE" : (version < 13 ? "SWEEP_ATTACK" : "sweep_attack"), RESIZEABLE),
     /**
-     * In the base game this particle
-     * is displayed when a totem of
+     * In the base game this particle is displayed when a totem of
      * undying is used.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1066,12 +920,10 @@ public enum ParticleEffect {
      */
     TOTEM(version -> version < 11 ? "NONE" : (version < 13 ? "TOTEM" : "totem_of_undying"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is randomly displayed by mycelium
+     * In the base game this particle is randomly displayed by mycelium
      * blocks.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1082,12 +934,9 @@ public enum ParticleEffect {
      */
     TOWN_AURA(version -> version < 8 ? "NONE" : (version < 13 ? "TOWN_AURA" : "mycelium"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when attacking a
-     * village.
+     * In the base game this particle is displayed when attacking a village.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1097,14 +946,11 @@ public enum ParticleEffect {
      */
     VILLAGER_ANGRY(version -> version < 8 ? "NONE" : (version < 13 ? "VILLAGER_ANGRY" : "angry_villager")),
     /**
-     * In the base game this particle
-     * is displayed when trading with a
-     * villager, using bone meal on crops,
-     * feeding baby animals or walking on
+     * In the base game this particle is displayed when trading with a
+     * villager, using bone meal on crops, feeding baby animals or walking on
      * turtle eggs.
      * <p>
-     * The particle originates from
-     * the nms EntityAgeable class.
+     * The particle originates from the nms EntityAgeable class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1119,14 +965,11 @@ public enum ParticleEffect {
      */
     WARPED_SPORE(version -> version < 16 ? "NONE" : "warped_spore"),
     /**
-     * In the base game this particle
-     * is displayed when a Entity is
-     * swimming in water, a projectile
-     * flies into the water or a fish
+     * In the base game this particle is displayed when a Entity is
+     * swimming in water, a projectile flies into the water or a fish
      * bites onto the bait.
      * <p>
-     * The particle originates from the
-     * nms EntityLiving, EntityProjectile
+     * The particle originates from the  nms EntityLiving, EntityProjectile
      * and EntityFishingHook classes.
      * <p>
      * <b>Information</b>:
@@ -1137,12 +980,9 @@ public enum ParticleEffect {
      */
     WATER_BUBBLE(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_BUBBLE" : "bubble"), DIRECTIONAL, REQUIRES_WATER),
     /**
-     * In the base game this particle
-     * is displayed when rain hits the
-     * ground.
+     * In the base game this particle is displayed when rain hits the ground.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1152,13 +992,10 @@ public enum ParticleEffect {
      */
     WATER_DROP(version -> version > 8 && version < 13 ? "WATER_DROP" : "NONE"),
     /**
-     * In the base game this particle
-     * is displayed when a Entity is
-     * swimming in water, wolves shaking
-     * off after swimming or boats.
+     * In the base game this particle is displayed when a Entity is
+     * swimming in water, wolves shaking  off after swimming or boats.
      * <p>
-     * The particle originates from the
-     * nms EntityWolf, EntityLiving and
+     * The particle originates from the nms EntityWolf, EntityLiving and
      * EntityBoat classes.
      * <p>
      * <b>Information</b>:
@@ -1169,12 +1006,10 @@ public enum ParticleEffect {
      */
     WATER_SPLASH(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_SPLASH" : "splash"), DIRECTIONAL),
     /**
-     * In the base game this particle
-     * is displayed when a fish bites
+     * In the base game this particle is displayed when a fish bites
      * onto the bait of a fishing rod.
      * <p>
-     * The particle originates from the
-     * nms EntityFishingHook class.
+     * The particle originates from the nms EntityFishingHook class.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1189,27 +1024,21 @@ public enum ParticleEffect {
     WHITE_ASH(version -> version < 16 ? "NONE" : "white_ash");
 
     /**
-     * A {@link IntFunction} to get the
-     * name of the particle by checking
-     * the version.
+     * A {@link IntFunction} to get the name of the particle by checking the version.
      */
     private final IntFunction<String> fieldNameMapper;
     /**
-     * A list of
-     * {@link PropertyType properties}
-     * the current particle instance
-     * supports.
+     * A list of {@link PropertyType properties}
+     * the current particle instance supports.
      */
     private final PropertyType[] properties;
 
     /**
-     * A array with all
-     * {@link ParticleEffect ParticleEffects}.
+     * A array with all {@link ParticleEffect ParticleEffects}.
      */
     public static final ParticleEffect[] VALUES = values();
     /**
-     * A {@link HashMap} to store the nms
-     * instances of all currently supported
+     * A {@link HashMap} to store the nms instances of all currently supported
      * {@link ParticleEffect ParticleEffects}.
      */
     public static final Map<ParticleEffect, Object> NMS_EFFECTS = Maps.newHashMap();
@@ -1221,12 +1050,9 @@ public enum ParticleEffect {
     /**
      * Creates a new {@link ParticleEffect}
      *
-     * @param fieldNameMapper the {@link IntFunction} to map
-     *                        the version to the name of the
+     * @param fieldNameMapper the {@link IntFunction} to map the version to the name of the
      *                        respective particle.
-     * @param properties      A list of
-     *                        {@link PropertyType properties}
-     *                        supported by this particle.
+     * @param properties      A list of {@link PropertyType properties} supported by this particle.
      */
     ParticleEffect(IntFunction<String> fieldNameMapper, PropertyType... properties) {
         this.fieldNameMapper = fieldNameMapper;
@@ -1234,8 +1060,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Applies the {@link IntFunction} defined
-     * in the constructor to get the respective
+     * Applies the {@link IntFunction} defined in the constructor to get the respective
      * name of the particle.
      *
      * @return the {@link String} name of the particle.
@@ -1245,11 +1070,9 @@ public enum ParticleEffect {
     }
 
     /**
-     * Checks if the current {@link ParticleEffect}
-     * instance has a specific {@link PropertyType}.
+     * Checks if the current {@link ParticleEffect} instance has a specific {@link PropertyType}.
      *
-     * @param propertyType the {@link PropertyType}
-     *                     that should be searched.
+     * @param propertyType the {@link PropertyType} that should be searched.
      * @return {@code true} if the current {@link ParticleEffect} instance supports the given {@link PropertyType}.
      */
     public boolean hasProperty(PropertyType propertyType) {
@@ -1257,11 +1080,9 @@ public enum ParticleEffect {
     }
 
     /**
-     * Checks if the current {@link ParticleEffect}
-     * instance supports the given {@link ParticleData}.
+     * Checks if the current {@link ParticleEffect} instance supports the given {@link ParticleData}.
      *
-     * @param data the {@link ParticleData} that should
-     *             that should be checked.
+     * @param data the {@link ParticleData} that should that should be checked.
      * @return {@code true} if the current instance supports the given {@link ParticleData}.
      */
     public boolean isCorrectData(ParticleData data) {
@@ -1275,14 +1096,11 @@ public enum ParticleEffect {
     }
 
     /**
-     * Checks if the current {@link ParticleEffect}
-     * instance needs the given {@link ParticleColor}.
+     * Checks if the current {@link ParticleEffect} instance needs the given {@link ParticleColor}.
      * <p>
-     * Note: Use {@link NoteColor} for the color of
-     * notes.
+     * Note: Use {@link NoteColor} for the color of notes.
      *
-     * @param color the {@link ParticleColor} data
-     *              that should be checked.
+     * @param color the {@link ParticleColor} data that should be checked.
      * @return {@code true} if the current instance supports the given {@link ParticleColor}.
      */
     public boolean isCorrectColor(ParticleColor color) {
@@ -1290,8 +1108,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Gets the nms instance of the current
-     * {@link ParticleEffect} instance.
+     * Gets the nms instance of the current {@link ParticleEffect} instance.
      *
      * @return The NMS instance or {@code null} if the particle isn't supported in the current minecraft version.
      */
@@ -1314,12 +1131,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link ParticleColor} the particle
-     *                 should have.
-     * @param players  a list of players that should receive
-     *                 the particle packet.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link ParticleColor} the particle should have.
+     * @param players  a list of players that should receive the particle packet.
      */
     public void display(Location location, ParticleColor color, Player... players) {
         display(location, 0f, 0f, 0f, 1f, 0, color, players);
@@ -1328,12 +1142,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link Color} the particle
-     *                 should have.
-     * @param players  a list of players that should receive
-     *                 the particle packet.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link Color} the particle should have.
+     * @param players  a list of players that should receive the particle packet.
      */
     public void display(Location location, Color color, Player... players) {
         display(location, new RegularColor(color), players);
@@ -1342,12 +1153,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link ParticleColor} the particle
-     *                 should have.
-     * @param filter   a {@link Predicate} to filter out
-     *                 specific {@link Player Players}.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link ParticleColor} the particle should have.
+     * @param filter   a {@link Predicate} to filter out specific {@link Player Players}.
      */
     public void display(Location location, ParticleColor color, Predicate filter) {
         display(location, 0f, 0f, 0f, 1f, 0, color, filter);
@@ -1356,12 +1164,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link Color} the particle
-     *                 should have.
-     * @param filter   a {@link Predicate} to filter out
-     *                 specific {@link Player Players}.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link Color} the particle should have.
+     * @param filter   a {@link Predicate} to filter out  specific {@link Player Players}.
      */
     public void display(Location location, Color color, Predicate filter) {
         display(location, new RegularColor(color), filter);
@@ -1370,12 +1175,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link ParticleColor} the particle
-     *                 should have.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
+     * @param location the {@link Location} at which  the particle should be displayed.
+     * @param color    the {@link ParticleColor} the particle should have.
+     * @param players  a {@link Collection} of players that should receive the particle packet.
      */
     public void display(Location location, ParticleColor color, Collection<? extends Player> players) {
         display(location, 0f, 0f, 0f, 1f, 0, color, players);
@@ -1384,12 +1186,9 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link Color} the particle
-     *                 should have.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link Color} the particle  should have.
+     * @param players  a {@link Collection} of players that should receive the particle packet.
      */
     public void display(Location location, Color color, Collection<? extends Player> players) {
         display(location, new RegularColor(color), players);
@@ -1398,10 +1197,8 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link ParticleColor} the particle
-     *                 should have.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link ParticleColor} the particle should have.
      */
     public void display(Location location, ParticleColor color) {
         display(location, 0f, 0f, 0f, 1f, 0, color);
@@ -1410,10 +1207,8 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param color    the {@link Color} the particle
-     *                 should have.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param color    the {@link Color} the particle should have.
      */
     public void display(Location location, Color color) {
         display(location, new RegularColor(color));
@@ -1422,10 +1217,8 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param players  a list of players that should receive
-     *                 the particle packet.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param players  a list of players that should receive the particle packet.
      */
     public void display(Location location, Player... players) {
         display(location, 0f, 0f, 0f, 0f, 1, null, players);
@@ -1434,10 +1227,8 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param filter   a {@link Predicate} to filter out
-     *                 specific {@link Player Players}.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param filter   a {@link Predicate} to filter out specific {@link Player Players}.
      */
     public void display(Location location, Predicate filter) {
         display(location, 0f, 0f, 0f, 0f, 1, null, filter);
@@ -1446,10 +1237,8 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
+     * @param location the {@link Location} at which the particle should be displayed.
+     * @param players  a {@link Collection} of players that should receive the particle packet.
      */
     public void display(Location location, Collection<? extends Player> players) {
         display(location, 0f, 0f, 0f, 0f, 1, null, players);
@@ -1458,8 +1247,7 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
+     * @param location the {@link Location} at which the particle should be displayed.
      */
     public void display(Location location) {
         display(location, 0f, 0f, 0f, 0f, 1, null, Bukkit.getOnlinePlayers());
@@ -1469,18 +1257,12 @@ public enum ParticleEffect {
      * Displays the current {@link ParticleEffect}.
      *
      * @param location the {@link Location} at which
-     * @param vector   the velocity at which the
-     *                 particle should fly off.
-     *                 the multiplier of the particle
-     *                 velocity.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param players  a list of players that should receive
-     *                 the particle packet.
+     * @param vector   the velocity at which the particle should fly off.
+     *                 the multiplier of the particle velocity.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
+     * @param players  a list of players that should receive the particle packet.
      */
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Player... players) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, players);
@@ -1490,18 +1272,12 @@ public enum ParticleEffect {
      * Displays the current {@link ParticleEffect}.
      *
      * @param location the {@link Location} at which
-     * @param vector   the velocity at which the
-     *                 particle should fly off.
-     *                 the multiplier of the particle
-     *                 velocity.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param filter   a {@link Predicate} to filter out
-     *                 specific {@link Player Players}.
+     * @param vector   the velocity at which the particle should fly off.
+     *                 the multiplier of the particle velocity.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle  should have.
+     * @param filter   a {@link Predicate} to filter out specific {@link Player Players}.
      */
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Predicate filter) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, filter);
@@ -1511,18 +1287,12 @@ public enum ParticleEffect {
      * Displays the current {@link ParticleEffect}.
      *
      * @param location the {@link Location} at which
-     * @param vector   the velocity at which the
-     *                 particle should fly off.
-     *                 the multiplier of the particle
-     *                 velocity.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
+     * @param vector   the velocity at which the particle should fly off.
+     *                 the multiplier of the particle  velocity.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
+     * @param players  a {@link Collection} of players that should receive the particle packet.
      */
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Collection<? extends Player> players) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, players);
@@ -1532,16 +1302,11 @@ public enum ParticleEffect {
      * Displays the current {@link ParticleEffect}.
      *
      * @param location the {@link Location} at which
-     * @param vector   the velocity at which the
-     *                 particle should fly off.
-     *                 the multiplier of the particle
-     *                 velocity.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
+     * @param vector   the velocity at which the particle should fly off.
+     *                 the multiplier of the particle velocity.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
      */
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data);
@@ -1550,19 +1315,14 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
+     * @param location the {@link Location} at which the particle should be displayed.
      * @param offsetX  the offsetX data of the particle.
      * @param offsetY  the offsetY data of the particle.
      * @param offsetZ  the offsetZ data of the particle.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param players  a list of players that should receive
-     *                 the particle packet.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
+     * @param players  a list of players that should receive the particle packet.
      */
     public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data, Player... players) {
         ArrayList<Player> playerList = Arrays.stream(players).collect(Collectors.toCollection(ArrayList::new));
@@ -1572,19 +1332,14 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
+     * @param location the {@link Location} at which the particle should be displayed.
      * @param offsetX  the offsetX data of the particle.
      * @param offsetY  the offsetY data of the particle.
      * @param offsetZ  the offsetZ data of the particle.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param filter   a {@link Predicate} to filter out
-     *                 specific {@link Player Players}.
+     * @param speed    the multiplier of the particle  velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
+     * @param filter   a {@link Predicate} to filter out specific {@link Player Players}.
      */
     public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data, Predicate<Player> filter) {
         ArrayList<Player> players = Bukkit.getOnlinePlayers().stream().filter(filter).collect(Collectors.toCollection(ArrayList::new));
@@ -1594,17 +1349,13 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
+     * @param location the {@link Location} at which the particle should be displayed.
      * @param offsetX  the offsetX data of the particle.
      * @param offsetY  the offsetY data of the particle.
      * @param offsetZ  the offsetZ data of the particle.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
+     * @param speed    the multiplier of the particle  velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle should have.
      */
     public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data) {
         display(location, offsetX, offsetY, offsetZ, speed, amount, data, Bukkit.getOnlinePlayers());
@@ -1613,19 +1364,14 @@ public enum ParticleEffect {
     /**
      * Displays the current {@link ParticleEffect}.
      *
-     * @param location the {@link Location} at which
-     *                 the particle should be displayed.
+     * @param location the {@link Location} at which the particle should be displayed.
      * @param offsetX  the offsetX data of the particle.
      * @param offsetY  the offsetY data of the particle.
      * @param offsetZ  the offsetZ data of the particle.
-     * @param speed    the multiplier of the particle
-     *                 velocity.
-     * @param amount   the amount of particles that should
-     *                 be displayed.
-     * @param data     the {@link ParticleData} the particle
-     *                 should have.
-     * @param players  a {@link Collection} of players that
-     *                 should receive the particle packet.
+     * @param speed    the multiplier of the particle velocity.
+     * @param amount   the amount of particles that should be displayed.
+     * @param data     the {@link ParticleData} the particle /should have.
+     * @param players  a {@link Collection} of players that should receive the particle packet.
      */
     public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data, Collection<? extends Player> players) {
         if (!isCorrectData(data))

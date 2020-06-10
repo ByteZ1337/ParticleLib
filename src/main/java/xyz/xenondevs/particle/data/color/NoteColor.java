@@ -32,8 +32,7 @@ import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.MathUtils;
 
 /**
- * A implementation of the {@link ParticleColor}
- * class to support note colors.
+ * A implementation of the {@link ParticleColor} class to support note colors.
  *
  * @author ByteZ
  * @see ParticleEffect#NOTE
@@ -42,11 +41,9 @@ import xyz.xenondevs.particle.utils.MathUtils;
 public class NoteColor extends ParticleColor {
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
-     * @param note the note that should be
-     *             displayed.
+     * @param note the note that should be displayed.
      */
     public NoteColor(int note) {
         super(MathUtils.getMaxOrMin(note, 24, 0), 0, 0);
@@ -56,8 +53,7 @@ public class NoteColor extends ParticleColor {
     /**
      * Sets the {@link ParticleEffect}.
      *
-     * @param effect the {@link ParticleEffect}
-     *               that should be displayed.
+     * @param effect the {@link ParticleEffect} that should be displayed.
      */
     @Override
     public void setEffect(ParticleEffect effect) {
@@ -75,8 +71,7 @@ public class NoteColor extends ParticleColor {
     }
 
     /**
-     * Returns 0 because the offsetY isn't
-     * used by the color of notes.
+     * Returns 0 because the offsetY isn't used by the color of notes.
      *
      * @return 0.
      */
@@ -86,8 +81,7 @@ public class NoteColor extends ParticleColor {
     }
 
     /**
-     * Returns 0 because the offsetZ isn't
-     * used by the color of notes.
+     * Returns 0 because the offsetZ isn't used by the color of notes.
      *
      * @return 0.
      */
@@ -97,12 +91,9 @@ public class NoteColor extends ParticleColor {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 a int array should be returned. If the
+     * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
      */
@@ -112,10 +103,8 @@ public class NoteColor extends ParticleColor {
     }
 
     /**
-     * Generates a random {@link NoteColor}
-     * instance to support rainbow trails,
-     * cloaks and other effects that can be
-     * constructed using the note particle.
+     * Generates a random {@link NoteColor} instance to support rainbow trails,
+     * cloaks and other effects that can be constructed using the note particle.
      *
      * @return a random {@link NoteColor} instance.
      */

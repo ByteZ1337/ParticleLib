@@ -71,12 +71,11 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the nms path of a class
-     * without depending on versions
+     * Gets the nms path of a class without depending on versions
      * <p>
      * e.g.
-     * getNMSPath("Block")  = "net.minecraft.server.v1_8_R3.Block"
-     * getNMSPath("Entity") = "net.minecraft.server.v1_8_R3.Entity"
+     * getNMSPath("Block")  = "net.minecraft.server.v1_14_R1.Block"
+     * getNMSPath("Entity") = "net.minecraft.server.v1_12_R1.Entity"
      *
      * @param path the path that should be added
      *             to the nms path
@@ -87,8 +86,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Directly gets the class object
-     * over the path
+     * Directly gets the class object over the path
      *
      * @param path the path of the class
      * @return the class. If the class isn't found null
@@ -102,15 +100,13 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the craftbukkit path of a class
-     * without depending on versions
+     * Gets the craftbukkit path of a class without depending on versions
      * <p>
      * e.g.
-     * getCraftBukkitPath("CraftChunk")              = "org.bukkit.craftbukkit.v1_8_R3.CraftChunk"
+     * getCraftBukkitPath("CraftChunk")              = "org.bukkit.craftbukkit.v1_15_R1.CraftChunk"
      * getCraftBukkitPath("event.CraftEventFactory") = "org.bukkit.craftbukkit.v1_8_R3.event.CraftEventFactory"
      *
-     * @param path the path that should be added
-     *             to the craftbukkit path
+     * @param path the path that should be added to the craftbukkit path
      * @return the craftbukkit path
      */
     public static String getCraftBukkitPath(String path) {
@@ -118,8 +114,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Method to directly get the class object
-     * over the path
+     * Method to directly get the class object over the path
      *
      * @param path the path of the class
      * @return the class. If the class isn't found null
@@ -165,7 +160,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Method to not get disturbed by the forced try catch block
+     * Gets a constructor without throwing exceptions
      *
      * @param targetClass    the {@link Class} the {@link Constructor} is in
      * @param parameterTypes the parameterTypes of the {@link Constructor}
@@ -180,7 +175,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Method to check if a class exists
+     * Checks if a class exists
      *
      * @param path the path of the class that should be checked
      * @return true if the defined class exists
@@ -196,11 +191,8 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the specified Field over the
-     * specified fieldName and the given
-     * targetClass. Then reads the specified
-     * {@link Field} from the specified
-     * {@link Object}. When the {@link Field} is static
+     * Gets the specified Field over the specified fieldName and the given targetClass. Then reads the specified
+     * {@link Field} from the specified {@link Object}. When the {@link Field} is static
      * set the object to {@code null}.
      *
      * @param targetClass the {@link Class} of the field
@@ -215,10 +207,8 @@ public class ReflectionUtils {
     }
 
     /**
-     * Reads the specified {@link Field} from
-     * the specified {@link Object}. When the
-     * {@link Field} is static set the object
-     * to {@code null}.
+     * Reads the specified {@link Field} from the specified {@link Object}. When the
+     * {@link Field} is static set the object to {@code null}.
      *
      * @param field  the {@link Field} from which the value should be extracted.
      * @param object the {@link Object} from which the specified {@link Field Fields} value is to be extracted.
@@ -235,12 +225,9 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the specified declared Field over
-     * the specified fieldName and the given
-     * targetClass. Then reads the specified
-     * {@link Field} from the specified
-     * {@link Object}. When the {@link Field} is static
-     * set the object to {@code null}.
+     * Gets the specified declared Field over  the specified fieldName and the given
+     * targetClass. Then reads the specified {@link Field} from the specified
+     * {@link Object}. When the {@link Field} is static set the object to {@code null}.
      *
      * @param targetClass the {@link Class} of the field
      * @param fieldName   the name of the searched {@link Field}
@@ -254,11 +241,8 @@ public class ReflectionUtils {
     }
 
     /**
-     * Reads the declared specified
-     * {@link Field} from the specified
-     * {@link Object}. When the {@link Field}
-     * is static set the object to
-     * {@code null}.
+     * Reads the declared specified {@link Field} from the specified {@link Object}.
+     * When the {@link Field} is static set the object to {@code null}.
      *
      * @param field  the {@link Field} from which the value should be extracted.
      * @param object the {@link Object} from which the specified {@link Field Fields} value is to be extracted.
@@ -276,10 +260,8 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the specified declared {@link Field}
-     * over the specified fieldName and the given
-     * targetClass. Then writes the specified
-     * value into the specified {@link Field}
+     * Gets the specified declared {@link Field} over the specified fieldName and the given
+     * targetClass. Then writes the specified value into the specified {@link Field}
      * in the given {@link Object}.
      *
      * @param targetClass the {@link Class} of the field.
@@ -294,8 +276,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Writes a value to the specified
-     * declared {@link Field} in the
+     * Writes a value to the specified declared {@link Field} in the
      * given {@link Object}.
      *
      * @param field  the {@link Field} which should be changed.
@@ -313,10 +294,8 @@ public class ReflectionUtils {
     }
 
     /**
-     * Gets the specified {@link Field} over
-     * the specified fieldName and the given
-     * targetClass. Then writes the specified
-     * value into the specified {@link Field}
+     * Gets the specified {@link Field} over the specified fieldName and the given
+     * targetClass. Then writes the specified value into the specified {@link Field}
      * in the given {@link Object}.
      *
      * @param targetClass the {@link Class} of the field.
@@ -331,8 +310,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Writes a value to the specified
-     * {@link Field} in the given
+     * Writes a value to the specified {@link Field} in the given
      * {@link Object}.
      *
      * @param field  the {@link Field} which should be changed.
@@ -363,8 +341,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * Creates a new MinecraftKey with the
-     * given data.
+     * Creates a new MinecraftKey with the given data.
      *
      * @param key the data that should be
      *            used in the constructor

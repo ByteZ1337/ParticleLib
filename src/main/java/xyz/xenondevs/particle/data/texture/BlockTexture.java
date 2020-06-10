@@ -35,8 +35,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.lang.reflect.Field;
 
 /**
- * A implementation of the {@link ParticleTexture}
- * object to support block texture particles.
+ * A implementation of the {@link ParticleTexture} object to support block texture particles.
  *
  * @author ByteZ
  * @see PropertyType#REQUIRES_BLOCK
@@ -46,8 +45,7 @@ public class BlockTexture extends ParticleTexture {
 
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param material the {@link Material} the particle should display.
      */
@@ -56,8 +54,7 @@ public class BlockTexture extends ParticleTexture {
     }
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} Object.
      *
      * @param material the {@link Material} the particle should display.
      * @param data     the damage value that should influence the texture.
@@ -67,12 +64,9 @@ public class BlockTexture extends ParticleTexture {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 a int array should be returned. If the
+     * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
      */
@@ -93,8 +87,7 @@ public class BlockTexture extends ParticleTexture {
     }
 
     /**
-     * Gets the nms block data of the given
-     * bukkit {@link Material}.
+     * Gets the nms block data of the given bukkit {@link Material}.
      *
      * @param material the {@link Material}
      *                 whose data should be

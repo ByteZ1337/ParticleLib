@@ -31,8 +31,7 @@ import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 
 /**
- * A implementation of {@link ParticleData}
- * to support particles that require a texture
+ * A implementation of {@link ParticleData} to support particles that require a texture
  * to function properly.
  *
  * @author ByteZ
@@ -43,19 +42,16 @@ import xyz.xenondevs.particle.data.ParticleData;
 public class ParticleTexture extends ParticleData {
 
     /**
-     * The {@link Material} that should be
-     * displayed by the particle.
+     * The {@link Material} that should be displayed by the particle.
      */
     private final Material material;
     /**
-     * The damage data to be displayed by
-     * the given texture.
+     * The damage data to be displayed by the given texture.
      */
     private final byte data;
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param material the {@link Material} the particle should display.
      * @param data     the damage value that should influence the texture.
@@ -66,8 +62,7 @@ public class ParticleTexture extends ParticleData {
     }
 
     /**
-     * Gets the {@link Material} that will
-     * be displayed b the particle.
+     * Gets the {@link Material} that will be displayed b the particle.
      *
      * @return the {@link Material} the current data is assigned to
      */
@@ -76,8 +71,7 @@ public class ParticleTexture extends ParticleData {
     }
 
     /**
-     * Gets the damage value that will
-     * be displayed by the client.
+     * Gets the damage value that will be displayed by the client.
      *
      * @return the damage value of the current texture.
      */
@@ -86,12 +80,9 @@ public class ParticleTexture extends ParticleData {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 a int array should be returned. If the
+     * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
      */

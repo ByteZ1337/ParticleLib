@@ -30,10 +30,8 @@ import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 
 /**
- * The {@link ParticleColor} class is used
- * to store the rgb values of colors and
- * convert them into the corresponding
- * nms objects.
+ * The {@link ParticleColor} class is used to store the rgb values of colors and
+ * convert them into the corresponding nms objects.
  *
  * @author ByteZ
  * @see PropertyType#COLORABLE
@@ -55,8 +53,7 @@ public abstract class ParticleColor extends ParticleData {
     private final int blue;
 
     /**
-     * Initializes a new {@link ParticleData}
-     * Object.
+     * Initializes a new {@link ParticleData} object.
      *
      * @param red   the red value of the color.
      * @param green the green value of the color.
@@ -69,12 +66,9 @@ public abstract class ParticleColor extends ParticleData {
     }
 
     /**
-     * Converts the current {@link ParticleData}
-     * instance into nms data. If the current
-     * minecraft version was released before 1.13
-     * a int array should be returned. If the
-     * version was released after 1.12 a nms
-     * "ParticleParam has to be returned.
+     * Converts the current {@link ParticleData} instance into nms data. If the current
+     * minecraft version was released before 1.13 a int array should be returned. If the
+     * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
      */

@@ -21,8 +21,7 @@ import java.util.function.Predicate;
 public class ParticleBuilder {
 
     /**
-     * The {@link ParticleEffect} which
-     * should be displayed by the client.
+     * The {@link ParticleEffect} which should be displayed by the client.
      */
     private final ParticleEffect particle;
 
@@ -33,81 +32,59 @@ public class ParticleBuilder {
     /**
      * This field has three uses:
      * <p>
-     * The offsetX defines in which x
-     * oriented range the particles can
+     * The offsetX defines in which x oriented range the particles can
      * spawn.
      * <p>
-     * It represents the x velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the x velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL} property should have.
      * <p>
-     * It sets the red value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the red value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
      * the colors of redstone.
      */
     private float offsetX = 0;
     /**
      * This field has three uses:
      * <p>
-     * The offsetY defines in which y
-     * oriented range the particles can
+     * The offsetY defines in which y oriented range the particles can
      * spawn.
      * <p>
-     * It represents the y velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the y velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL}  property should have.
      * <p>
-     * It sets the green value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the green value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
      * the colors of redstone.
      */
     private float offsetY = 0;
     /**
      * This field has three uses:
      * <p>
-     * The offsetZ defines in which z
-     * oriented range the particles can
+     * The offsetZ defines in which z oriented range the particles can
      * spawn.
      * <p>
-     * It represents the z velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the z velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL} property should have.
      * <p>
-     * It sets the blue value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the blue value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
      * the colors of redstone.
      */
     private float offsetZ = 0;
     /**
-     * Normally this field is used to
-     * multiply the velocity of a
-     * particle by the given speed. There
-     * are however some special cases
-     * where this value is used for something
-     * different. (e.g. {@link ParticleEffect#NOTE}).
+     * Normally this field is used to multiply the velocity of a
+     * particle by the given speed. There are however some special cases
+     * where this value is used for something different. (e.g. {@link ParticleEffect#NOTE}).
      */
     private float speed = 1;
     /**
-     * The amount of particles that should
-     * be spawned. For the extra data defined
-     * in offsetX, offsetY and offsetZ to work
-     * the amount has to be set to {@code 0}.
+     * The amount of particles that should be spawned. For the extra data defined
+     * in offsetX, offsetY and offsetZ to work the amount has to be set to {@code 0}.
      */
     private int amount = 0;
     /**
-     * The data of the particle which should be
-     * displayed. This data contains additional
-     * information the client needs to display
-     * the particle correctly.
+     * The data of the particle which should be displayed. This data contains additional
+     * information the client needs to display the particle correctly.
      */
     private ParticleData particleData = null;
 
@@ -115,10 +92,8 @@ public class ParticleBuilder {
     /**
      * Initializes a new {@link ParticleBuilder}
      *
-     * @param particle The {@link ParticleEffect}
-     *                 of the builder.
-     * @param location The location at which the
-     *                 particle should be displayed
+     * @param particle The {@link ParticleEffect} of the builder.
+     * @param location The location at which the particle should be displayed
      */
     public ParticleBuilder(ParticleEffect particle, Location location) {
         this.particle = particle;
@@ -235,8 +210,7 @@ public class ParticleBuilder {
     }
 
     /**
-     * Display the given particle to online player that match
-     * the given filter.
+     * Display the given particle to online player that match the given filter.
      *
      * @param filter a {@link Predicate} to filter out
      *               specific {@link Player Players}.
@@ -249,8 +223,7 @@ public class ParticleBuilder {
     /**
      * Displays the given particle to all players in the {@link Collection}
      *
-     * @param players a list of players that should receive
-     *                the particle packet.
+     * @param players a list of players that should receive the particle packet.
      */
     public void display(Collection<? extends Player> players) {
         Object packet = toPacket();

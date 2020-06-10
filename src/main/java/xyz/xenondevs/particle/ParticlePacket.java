@@ -44,8 +44,7 @@ import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
 
 
 /**
- * Represents the "PacketPlayOutWorldParticles"
- * packet from nms.
+ * Represents the nms "PacketPlayOutWorldParticles" packet.
  *
  * @author ByteZ
  * @since 10.06.2019
@@ -53,94 +52,70 @@ import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
 public class ParticlePacket {
 
     /**
-     * The {@link ParticleEffect} which
-     * should be displayed by the client.
+     * The {@link ParticleEffect} which should be displayed by the client.
      */
     private final ParticleEffect particle;
     /**
      * This field has three uses:
      * <p>
-     * The offsetX defines in which x
-     * oriented range the particles can
+     * The offsetX defines in which x oriented range the particles can
      * spawn.
      * <p>
-     * It represents the x velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the x velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL} property should have.
      * <p>
-     * It sets the red value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the red value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
      * the colors of redstone.
      */
     private final float offsetX;
     /**
      * This field has three uses:
      * <p>
-     * The offsetY defines in which y
-     * oriented range the particles can
+     * The offsetY defines in which y oriented range the particles can
      * spawn.
      * <p>
-     * It represents the y velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the y velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL}  property should have.
      * <p>
-     * It sets the green value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the green value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a  ParticleParam has to be used to set
      * the colors of redstone.
      */
     private final float offsetY;
     /**
      * This field has three uses:
      * <p>
-     * The offsetZ defines in which z
-     * oriented range the particles can
+     * The offsetZ defines in which z oriented range the particles can
      * spawn.
      * <p>
-     * It represents the z velocity a
-     * particle with the
-     * {@link PropertyType#DIRECTIONAL}
-     * property should have.
+     * It represents the z velocity a  particle with the
+     * {@link PropertyType#DIRECTIONAL}  property should have.
      * <p>
-     * It sets the blue value of a
-     * {@link PropertyType#COLORABLE}
-     * particle. However, since 1.13 a
-     * ParticleParam has to be used to set
+     * It sets the blue value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
      * the colors of redstone.
      */
     private final float offsetZ;
     /**
-     * Normally this field is used to
-     * multiply the velocity of a
-     * particle by the given speed. There
-     * are however some special cases
-     * where this value is used for something
-     * different. (e.g. {@link ParticleEffect#NOTE}).
+     * Normally this field is used to multiply the velocity of a
+     * particle by the given speed. There  are however some special cases
+     * where this value is used for something different. (e.g. {@link ParticleEffect#NOTE}).
      */
     private final float speed;
     /**
-     * The amount of particles that should
-     * be spawned. For the extra data defined
-     * in offsetX, offsetY and offsetZ to work
-     * the amount has to be set to {@code 0}.
+     * The amount of particles that should be spawned. For the extra data defined
+     * in offsetX, offsetY and offsetZ to work the amount has to be set to {@code 0}.
      */
     private final int amount;
     /**
-     * The data of the particle which should be
-     * displayed. This data contains additional
-     * information the client needs to display
-     * the particle correctly.
+     * The data of the particle which should be displayed. This data contains additional
+     * information the client needs to display  the particle correctly.
      */
     private final ParticleData particleData;
 
     /**
-     * Creates a new {@link ParticlePacket}
-     * that can be sent to one or multiple
+     * Creates a new {@link ParticlePacket} that can be sent to one or multiple
      * {@link Player players}.
      *
      * @param particle     the {@link ParticleEffect} that should be sent.
@@ -170,8 +145,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Creates a new {@link ParticlePacket}
-     * that can be sent to one or multiple
+     * Creates a new {@link ParticlePacket} that can be sent to one or multiple
      * {@link Player players}.
      *
      * @param particle the {@link ParticleEffect} that should be sent.
@@ -198,8 +172,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the {@link ParticleEffect} that
-     * will be displayed by the client.
+     * Gets the {@link ParticleEffect} that will be displayed by the client.
      *
      * @return The {@link ParticleEffect} which should be displayed by the client.
      */
@@ -208,8 +181,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the offsetX value of the
-     * particle.
+     * Gets the offsetX value of the particle.
      *
      * @return the offsetX value.
      */
@@ -218,8 +190,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the offsetY value of the
-     * particle.
+     * Gets the offsetY value of the particle.
      *
      * @return the offsetY value.
      */
@@ -228,8 +199,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the offsetZ value of the
-     * particle.
+     * Gets the offsetZ value of the particle.
      *
      * @return the offsetZ value.
      */
@@ -238,8 +208,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the speed at which the particle
-     * will fly off.
+     * Gets the speed at which the particle will fly off.
      *
      * @return the speed of the particle.
      */
@@ -248,8 +217,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets how many particles will be
-     * shown by the client.
+     * Gets how many particles will be shown by the client.
      *
      * @return the amount of particles to be spawned.
      */
@@ -258,8 +226,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Gets the {@link ParticleData} that
-     * should be used when displaying the
+     * Gets the {@link ParticleData} that should be used when displaying the
      * particle.
      *
      * @return the {@link ParticleData} that will be used.
@@ -269,8 +236,7 @@ public class ParticlePacket {
     }
 
     /**
-     * Creates a NMS PacketPlayOutWorldParticles
-     * packet with the data in the current
+     * Creates a NMS PacketPlayOutWorldParticles packet with the data in the current
      * {@link ParticlePacket} data.
      *
      * @param location the {@link Location} the
@@ -329,23 +295,16 @@ public class ParticlePacket {
      * Creates a new PacketPlayOutWorldParticles
      * object with the given data.
      *
-     * @param param     the ParticleParam of the
-     *                  packet.
-     * @param locationX the x coordinate of
-     *                  the location the particle
+     * @param param     the ParticleParam of the  packet.
+     * @param locationX the x coordinate of the location the particle
      *                  should be displayed at.
-     * @param locationY the y coordinate of
-     *                  the location the particle
+     * @param locationY the y coordinate of the location the particle
      *                  should be displayed at.
-     * @param locationZ the z coordinate of
-     *                  the location the particle
+     * @param locationZ the z coordinate of the location the particle
      *                  should be displayed at.
-     * @param offsetX   the offset x value of the
-     *                  packet.
-     * @param offsetY   the offset y value of the
-     *                  packet.
-     * @param offsetZ   the offset z value of the
-     *                  packet.
+     * @param offsetX   the offset x value of the packet.
+     * @param offsetY   the offset y value of the packet.
+     * @param offsetZ   the offset z value of the packet.
      * @param speed     the speed of the particle.
      * @param amount    the amount of particles.
      * @param data      extra data for the particle.

@@ -39,12 +39,9 @@ import java.util.Random;
 public class MathUtils {
 
     /**
-     * A easy to access {@link Random}
-     * implementation for random number
-     * generation. This specific field
-     * is mostly used by the random
-     * methods of the {@link ParticleData}
-     * types.
+     * A easy to access {@link Random} implementation for random number
+     * generation. This specific field is mostly used by the random
+     * methods of the {@link ParticleData} types.
      */
     public static final Random RANDOM = new Random();
 
@@ -62,13 +59,8 @@ public class MathUtils {
 
 
     /**
-     * Checks if a specific value is between
-     * two other values. If the first value
-     * is greater than the maximum value,
-     * the maximum value is returned. If the
-     * given value is less than the minimum
-     * value. the minimum value is returned.
-     * Otherwise the given value is returned.
+     * Checks if a specific {@link Integer} is in the given range.
+     * If not the respective bound of the range is returned.
      *
      * @param value the value which should be checked.
      * @param max   the maximum value.
