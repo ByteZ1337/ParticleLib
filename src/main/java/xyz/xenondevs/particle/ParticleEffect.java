@@ -54,6 +54,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <p>
  * List of all currently supported effects:
  * <ul>
+ * <li>{@link #ASH}</li>
  * <li>{@link #BARRIER}</li>
  * <li>{@link #BLOCK_CRACK}</li>
  * <li>{@link #BLOCK_DUST}</li>
@@ -63,6 +64,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #CAMPFIRE_SIGNAL_SMOKE}</li>
  * <li>{@link #CLOUD}</li>
  * <li>{@link #COMPOSTER}</li>
+ * <li>{@link #CRIMSON_SPORE}</li>
  * <li>{@link #CRIT}</li>
  * <li>{@link #CRIT_MAGIC}</li>
  * <li>{@link #CURRENT_DOWN}</li>
@@ -72,6 +74,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #DRIP_LAVA}</li>
  * <li>{@link #DRIP_WATER}</li>
  * <li>{@link #DRIPPING_HONEY}</li>
+ * <li>{@link #DRIPPING_OBSIDIAN_TEAR}</li>
  * <li>{@link #ENCHANTMENT_TABLE}</li>
  * <li>{@link #END_ROD}</li>
  * <li>{@link #EXPLOSION_HUGE}</li>
@@ -80,12 +83,15 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #FALLING_DUST}</li>
  * <li>{@link #FALLING_HONEY}</li>
  * <li>{@link #FALLING_NECTAR}</li>
+ * <li>{@link #FALLING_OBSIDIAN_TEAR}</li>
  * <li>{@link #FIREWORKS_SPARK}</li>
  * <li>{@link #FLAME}</li>
+ * <li>{@link #FLASH}</li>
  * <li>{@link #FOOTSTEP}</li>
  * <li>{@link #HEART}</li>
  * <li>{@link #ITEM_CRACK}</li>
  * <li>{@link #LANDING_HONEY}</li>
+ * <li>{@link #LANDING_OBSIDIAN_TEAR}</li>
  * <li>{@link #LAVA}</li>
  * <li>{@link #MOB_APPEARANCE}</li>
  * <li>{@link #NAUTILUS}</li>
@@ -98,6 +104,8 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #SNEEZE}</li>
  * <li>{@link #SNOWBALL}</li>
  * <li>{@link #SNOW_SHOVEL}</li>
+ * <li>{@link #SOUL}</li>
+ * <li>{@link #SOUL_FIRE_FLAME}</li>
  * <li>{@link #SPELL}</li>
  * <li>{@link #SPELL_INSTANT}</li>
  * <li>{@link #SPELL_MOB}</li>
@@ -116,6 +124,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #WATER_DROP}</li>
  * <li>{@link #WATER_SPLASH}</li>
  * <li>{@link #WATER_WAKE}</li>
+ * <li>{@link #WHITE_ASH}</li>
  * </ul>
  *
  * @author ByteZ
@@ -124,7 +133,19 @@ import static xyz.xenondevs.particle.PropertyType.*;
 public enum ParticleEffect {
 
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is randomly displayed in the
+     * basalt deltas nether biome.
+     * <p>
+     * The particle originates from the nms BiomeBasaltDeltas class.
+     * The movement of this particle is handled completely clientside
+     * and can therefore not be influenced.
+     * <p>
+     * <b>Information</b>
+     * <ul>
+     * <li>Appearance: Gray/White square</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: This Particle gets a random velocity while falling down.</li>
+     * </ul>
      */
     ASH(version -> version < 16 ? "NONE" : "ash"),
     /**
@@ -257,7 +278,17 @@ public enum ParticleEffect {
      */
     COMPOSTER(version -> version < 14 ? "NONE" : "composter"),
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is displayed in the crimson forest
+     * nether biome.
+     * <p>
+     * The particle originates from the nms BiomeCrimsonForest class.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Pink square.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: This Particle gets a random velocity up.</li>
+     * </ul>
      */
     CRIMSON_SPORE(version -> version < 16 ? "NONE" : "crimson_spore"),
     /**
@@ -384,7 +415,16 @@ public enum ParticleEffect {
      */
     DRIPPING_HONEY(version -> version < 15 ? "NONE" : "dripping_honey"),
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is displayed by crying obsidian.
+     * <p>
+     * The particle is displayed clientside so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A rectangular obsidian tear.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: Spawns a {@link #LANDING_OBSIDIAN_TEAR} particle after landing on a block.</li>
+     * </ul>
      */
     DRIPPING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "dripping_obsidian_tear"),
     /**
@@ -501,6 +541,19 @@ public enum ParticleEffect {
      */
     FALLING_NECTAR(version -> version < 15 ? "NONE" : "falling_nectar"),
     /**
+     * In the base game this particle is displayed below crying obsidian
+     * blocks.
+     * <p>
+     * The particle originates from the nms EntityBee class.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Purple square.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * </ul>
+     */
+    FALLING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "falling_obsidian_tear"),
+    /**
      * In the base game this particle is displayed when a firework is
      * launched.
      * <p>
@@ -514,7 +567,7 @@ public enum ParticleEffect {
      */
     FIREWORKS_SPARK(version -> version < 8 ? "NONE" : (version < 13 ? "FIREWORKS_SPARK" : "firework"), DIRECTIONAL),
     /**
-     * In the base game this particle  is randomly displayed by torches,
+     * In the base game this particle is randomly displayed by torches,
      * active furnaces,spawners and magma cubes.
      * <p>
      * The particle originates from the nms MobSpawnerAbstract and
@@ -528,6 +581,19 @@ public enum ParticleEffect {
      * </ul>
      */
     FLAME(version -> version < 8 ? "NONE" : (version < 13 ? "FLAME" : "flame"), DIRECTIONAL),
+    /**
+     * In the base game this particle is displayed by exploding fireworks
+     * <p>
+     * The particle is displayed clientside so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A white glow.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: The color of this flash can't be set since it's only set clientside.</li>
+     * </ul>
+     */
+    FLASH(version -> version < 14 ? "NONE" : "flash"),
     /**
      * This particle is unused and is removed in the version 1.13.
      * <p>
@@ -573,22 +639,31 @@ public enum ParticleEffect {
      */
     ITEM_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "ITEM_CRACK" : "item"), DIRECTIONAL, REQUIRES_ITEM),
     /**
-     * In the base game this particle is displayed after a Falling or
-     * Dripping Honey particle reaches a block.
+     * In the base game this particle is displayed after a falling or
+     * dripping Honey particle reaches a block.
      * <p>
-     * The particle is displayed clientside
-     * so it's not used in any nms classes.
+     * The particle is displayed clientside so it's not used in any nms classes.
      * <p>
      * <b>Information</b>:
      * <ul>
      * <li>Appearance: Honey colored lines.</li>
      * <li>Speed value: Doesn't influence the particle.</li>
-     * <li>Extra: This Particles stays on the ground and doesn't instantly despawn.</li>
+     * <li>Extra: This Particle stays on the ground and doesn't instantly despawn.</li>
      * </ul>
      */
     LANDING_HONEY(version -> version < 15 ? "NONE" : "landing_honey"),
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is displayed after a falling or
+     * dripping obsidian tear reaches a block.
+     * <p>
+     * The particle is displayed clientside so it's not used in any nms classes.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Purple colored lines.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: This Particle stays on the ground and doesn't instantly despawn.</li>
+     * </ul>
      */
     LANDING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "landing_obsidian_tear"),
     /**
@@ -681,9 +756,18 @@ public enum ParticleEffect {
      */
     REDSTONE(version -> version < 8 ? "NONE" : (version < 13 ? "REDSTONE" : "dust"), COLORABLE),
     /**
-     * 1.16 Placeholder
+     * Currently Unused in the base game. It's pretty much the same as the normal protal
+     * particle but insted of flying to the original location it flies away at the specfied
+     * velocity.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Purple Cloud.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
      */
-    REVERSE_PORTAL(version -> version < 16 ? "NONE" : "reverse_portal"),
+    REVERSE_PORTAL(version -> version < 16 ? "NONE" : "reverse_portal", DIRECTIONAL),
     /**
      * In the base game this particle is displayed by jumping slimes.
      * <p>
@@ -766,6 +850,33 @@ public enum ParticleEffect {
      * </ul>
      */
     SNOW_SHOVEL(version -> version < 8 ? "NONE" : (version < 13 ? "SNOW_SHOVEL" : "poof"), DIRECTIONAL),
+    /**
+     * In the base game this particle is displayed when a player walks
+     * on soulsand with the soul speed enchantment.
+     * <p>
+     * The particle originates from the nms EntityLiving class
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A soul.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
+    SOUL(version -> version < 16 ? "NONE" : "soul", DIRECTIONAL),
+    /**
+     * In the base game this particle is displayed by soul torches
+     * <p>
+     * The particle originates from the nms Blocks class.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Blue flame.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
+    SOUL_FIRE_FLAME(version -> version < 16? "NONE" : "soul_fire_flame", DIRECTIONAL),
     /**
      * In the base game this particle is displayed when a splash potion or
      * a experience bottle hits a block or an entity. It's also displayed by
@@ -1019,7 +1130,19 @@ public enum ParticleEffect {
      */
     WATER_WAKE(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_WAKE" : "fishing"), DIRECTIONAL),
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is randomly displayed in the
+     * basalt deltas nether biome.
+     * <p>
+     * The particle originates from the nms BiomeBasaltDeltas class.
+     * The movement of this particle is handled completely clientside
+     * and can therefore not be influenced.
+     * <p>
+     * <b>Information</b>
+     * <ul>
+     * <li>Appearance: White square</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: This Particle gets a random velocity in the -x and -z directiont while falling down.</li>
+     * </ul>
      */
     WHITE_ASH(version -> version < 16 ? "NONE" : "white_ash");
 

@@ -5,7 +5,7 @@
 ![Build](https://img.shields.io/github/workflow/status/ByteZ1337/ParticleLib/Java%20CI%20with%20Maven)
 
 # ParticleLib
-A spigot library to support all particles from 1.8 to 1.15
+A spigot library to support all particles from 1.8 to 1.16
 
 #### Maven
 ```xml
