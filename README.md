@@ -13,7 +13,7 @@ A spigot library to support all particles from 1.8 to 1.16
     <dependency>
         <groupId>xyz.xenondevs</groupId>
         <artifactId>particle</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
     </dependency>
 </dependencies>
 ```
