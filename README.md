@@ -48,7 +48,7 @@ Parameter explanation:
 1. The location at which the particle should be displayed.
 2. The velocity at which the particle will fly off.
 3. The speed of the particle.
-4. The amount of particles. <b>This parameter has to be 0 or it won't have the defined velocity.</b>
+4. The amount of particles. <b>This parameter has to be 0, or it won't have the defined velocity.</b>
 5. Since our particle doesn't need any extra data, the ParticleData is set to ``null`` 
 6. The players that will see the particle.
 
@@ -58,7 +58,7 @@ Parameter explanation:
 If a particle has the PropertyType "Colorable" it can have a user defined color. This color can be set with a implementation of the ParticleColor class. The RGB values of the color are set as the offsetX, offsetY and offsetZ values of the particle.
 
 Special:
-* Since 1.13 redstone has a own object for its RGB values. Therefore offsetX, offsetY and offsetZ can be used.
+* Since 1.13 redstone has a own object for its RGB values. Therefore, offsetX, offsetY and offsetZ can be used.
 * Note colors don't have a RGB value. They only support a note value from 0 to 24. Use "NoteColor" for this particle.
 
 <b>Example:</b>
@@ -72,7 +72,7 @@ Parameter explanation:
 ### Texture Particles
 
 If a particle has the PropertyType "Requires Block" or "Requires Item" a texture of either a block or item can be defined. This texture
-is set with a implementation of the ParticleTexture class.
+is set with an implementation of the ParticleTexture class.
 
 <b>Block Example:</b>
 ```java
