@@ -7,7 +7,7 @@
 # ParticleLib
 A spigot library to support all particles from 1.8 to 1.16
 
-#### Maven
+## Maven
 ```xml
 <dependencies>
     <dependency>
@@ -35,7 +35,7 @@ Parameter explanation:
 
 ### Directional Particles
 
-If a particle has the PropertyType "Directional" it can have a custom velocity. This velocity is specified in the offsetX, offsetY and offsetZ parameters. However, you can also specify a Vector in the display method.
+If a particle has the PropertyType "Directional" it can have a custom velocity. This velocity can be specified in the offsetX, offsetY and offsetZ parameters. However, you can also specify a Vector in the display method.
 
 Special: The particles Enchantment_Table and Nautilus will be displayed at the offset location and fly to the original location.
 
@@ -52,10 +52,9 @@ Parameter explanation:
 5. Since our particle doesn't need any extra data, the ParticleData is set to ``null`` 
 6. The players that will see the particle.
 
-
 ### Color Particles
 
-If a particle has the PropertyType "Colorable" it can have a user defined color. This color can be set with a implementation of the ParticleColor class. The RGB values of the color are set as the offsetX, offsetY and offsetZ values of the particle.
+If a particle has the PropertyType "Colorable" it can have a user defined color. This color can be set with a implementation of the ParticleColor class. The RGB values of the color can be set as the offsetX, offsetY and offsetZ values of the particle.
 
 Special:
 * Since 1.13 redstone has a own object for its RGB values. Therefore, offsetX, offsetY and offsetZ can be used.
@@ -72,7 +71,7 @@ Parameter explanation:
 ### Texture Particles
 
 If a particle has the PropertyType "Requires Block" or "Requires Item" a texture of either a block or item can be defined. This texture
-is set with an implementation of the ParticleTexture class.
+can be set with an implementation of the ParticleTexture class.
 
 <b>Block Example:</b>
 ```java

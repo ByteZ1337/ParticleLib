@@ -248,7 +248,6 @@ public class ParticlePacket {
         try {
             ParticleData data = getParticleData();
             ParticleEffect effect = getParticle();
-            Constructor packetConstructor = PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR;
             int version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;

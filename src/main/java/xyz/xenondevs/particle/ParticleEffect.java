@@ -1167,7 +1167,7 @@ public enum ParticleEffect {
     public static final Map<ParticleEffect, Object> NMS_EFFECTS = Maps.newHashMap();
 
     static {
-        Arrays.stream(VALUES).filter(effect -> !effect.getFieldName().equals("NONE")).forEach(effect -> NMS_EFFECTS.put(effect, effect.getNMSObject()));
+        Arrays.stream(VALUES).filter(effect -> !"NONE".equals(effect.getFieldName())).forEach(effect -> NMS_EFFECTS.put(effect, effect.getNMSObject()));
     }
 
     /**
