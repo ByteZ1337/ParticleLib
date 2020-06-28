@@ -73,7 +73,7 @@ Parameter explanation:
 If a particle has the PropertyType "Requires Block" or "Requires Item" a texture of either a block or item can be defined. This texture
 can be set with an implementation of the ParticleTexture class.
 
-<b>Block Example:</b>
+<b>Block texture example:</b>
 ```java
 ParticleEffect.FALLING_DUST.display(player.getLocation(), 5, 0, 5, 1f, 5, new BlockTexture(Material.REDSTONE_BLOCK), Bukkit.getOnlinePlayers());
 ```
@@ -87,7 +87,7 @@ Parameter explanation:
 7. The texture the particle will should have. (In this case it's a redstone block.)
 8. The players that will see the particle.
 
-<b>Item Example:</b>
+<b>Item texture example:</b>
 ```java
 ParticleEffect.ITEM_CRACK.display(player.getLocation(), 5, 0, 5, 1f, 5, new ItemTexture(new ItemStack(Material.DIAMOND_SWORD)), Bukkit.getOnlinePlayers());
 ```
