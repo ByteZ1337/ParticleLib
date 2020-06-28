@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/166f125b74014326831ca21c1d7df65b)](https://app.codacy.com/manual/ByteZ1337/ParticleLib?utm_source=github.com&utm_medium=referral&utm_content=ByteZ1337/ParticleLib&utm_campaign=Badge_Grade_Dashboard)
 [![GitHub issues](https://img.shields.io/github/issues/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/issues)
 [![GitHub stars](https://img.shields.io/github/stars/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/stargazers)
 [![GitHub license](https://img.shields.io/github/license/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE)
