@@ -120,6 +120,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #TOWN_AURA}</li>
  * <li>{@link #VILLAGER_ANGRY}</li>
  * <li>{@link #VILLAGER_HAPPY}</li>
+ * <li>{@link #WARPED_SPORE}</li>
  * <li>{@link #WATER_BUBBLE}</li>
  * <li>{@link #WATER_DROP}</li>
  * <li>{@link #WATER_SPLASH}</li>
@@ -876,7 +877,7 @@ public enum ParticleEffect {
      * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
      * </ul>
      */
-    SOUL_FIRE_FLAME(version -> version < 16? "NONE" : "soul_fire_flame", DIRECTIONAL),
+    SOUL_FIRE_FLAME(version -> version < 16 ? "NONE" : "soul_fire_flame", DIRECTIONAL),
     /**
      * In the base game this particle is displayed when a splash potion or
      * a experience bottle hits a block or an entity. It's also displayed by
@@ -1072,7 +1073,17 @@ public enum ParticleEffect {
      */
     VILLAGER_HAPPY(version -> version < 8 ? "NONE" : (version < 13 ? "VILLAGER_HAPPY" : "happy_villager"), DIRECTIONAL),
     /**
-     * 1.16 Placeholder
+     * In the base game this particle is displayed in the warped forest
+     * nether biome.
+     * <p>
+     * The particle originates from the nms BiomeWarpedForest class.
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Blue square.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: This Particle gets a random velocity up.</li>
+     * </ul>
      */
     WARPED_SPORE(version -> version < 16 ? "NONE" : "warped_spore"),
     /**
@@ -1239,7 +1250,7 @@ public enum ParticleEffect {
         if (NMS_EFFECTS.containsKey(this))
             return NMS_EFFECTS.get(this);
         String fieldName = getFieldName();
-        if (fieldName.equals("NONE"))
+        if ("NONE".equals(fieldName))
             return null;
         if (ReflectionUtils.MINECRAFT_VERSION < 13)
             return Arrays.stream(ParticleConstants.PARTICLE_ENUM.getEnumConstants()).filter(effect -> effect.toString().equals(fieldName)).findFirst().orElse(null);
