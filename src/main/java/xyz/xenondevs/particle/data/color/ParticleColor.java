@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2019 Xenondevs
+ * Copyright (c) 2020 Xenondevs
  *
  * The MIT License (MIT)
  *
