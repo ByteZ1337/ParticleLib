@@ -386,7 +386,7 @@ public enum ParticleEffect {
      * <li>Speed value: Doesn't influence the particle.</li>
      * </ul>
      */
-    DRIP_LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_lava")),
+    DRIP_LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_LAVA" : "dripping_lava")),
     /**
      * In the base game this particle is displayed randomly when a
      * water block is above a block.
@@ -1168,7 +1168,7 @@ public enum ParticleEffect {
     private final PropertyType[] properties;
 
     /**
-     * A array with all {@link ParticleEffect ParticleEffects}.
+     * An array with all {@link ParticleEffect ParticleEffects}.
      */
     public static final ParticleEffect[] VALUES = values();
     /**
