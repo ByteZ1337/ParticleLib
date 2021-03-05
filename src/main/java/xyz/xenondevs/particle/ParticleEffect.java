@@ -73,21 +73,29 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #DRAGON_BREATH}</li>
  * <li>{@link #DRIP_LAVA}</li>
  * <li>{@link #DRIP_WATER}</li>
+ * <li>{@link #DRIPPING_DRIPSTONE_LAVA}</li>
+ * <li>{@link #DRIPPING_DRIPSTONE_WATER}</li>
  * <li>{@link #DRIPPING_HONEY}</li>
  * <li>{@link #DRIPPING_OBSIDIAN_TEAR}</li>
+ * <li>{@link #DUST_COLOR_TRANSITION}</li>
  * <li>{@link #ENCHANTMENT_TABLE}</li>
  * <li>{@link #END_ROD}</li>
  * <li>{@link #EXPLOSION_HUGE}</li>
  * <li>{@link #EXPLOSION_LARGE}</li>
  * <li>{@link #EXPLOSION_NORMAL}</li>
+ * <li>{@link #FALLING_DRIPSTONE_LAVA}</li>
+ * <li>{@link #FALLING_DRIPSTONE_WATER}</li>
  * <li>{@link #FALLING_DUST}</li>
  * <li>{@link #FALLING_HONEY}</li>
  * <li>{@link #FALLING_NECTAR}</li>
  * <li>{@link #FALLING_OBSIDIAN_TEAR}</li>
+ * <li>{@link #FALLING_SPORE_BLOSSOM}</li>
  * <li>{@link #FIREWORKS_SPARK}</li>
  * <li>{@link #FLAME}</li>
  * <li>{@link #FLASH}</li>
  * <li>{@link #FOOTSTEP}</li>
+ * <li>{@link #GLOW}</li>
+ * <li>{@link #GLOW_SQUID_INK}</li>
  * <li>{@link #HEART}</li>
  * <li>{@link #ITEM_CRACK}</li>
  * <li>{@link #LANDING_HONEY}</li>
@@ -103,6 +111,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #SMOKE_NORMAL}</li>
  * <li>{@link #SNEEZE}</li>
  * <li>{@link #SNOWBALL}</li>
+ * <li>{@link #SNOWFLAKE}</li>
  * <li>{@link #SNOW_SHOVEL}</li>
  * <li>{@link #SOUL}</li>
  * <li>{@link #SOUL_FIRE_FLAME}</li>
@@ -112,12 +121,14 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #SPELL_MOB_AMBIENT}</li>
  * <li>{@link #SPELL_WITCH}</li>
  * <li>{@link #SPIT}</li>
+ * <li>{@link #SPORE_BLOSSOM_AIR}</li>
  * <li>{@link #SQUID_INK}</li>
  * <li>{@link #SUSPENDED}</li>
  * <li>{@link #SUSPENDED_DEPTH}</li>
  * <li>{@link #SWEEP_ATTACK}</li>
  * <li>{@link #TOTEM}</li>
  * <li>{@link #TOWN_AURA}</li>
+ * <li>{@link #VIBRATION}</li>
  * <li>{@link #VILLAGER_ANGRY}</li>
  * <li>{@link #VILLAGER_HAPPY}</li>
  * <li>{@link #WARPED_SPORE}</li>
@@ -132,7 +143,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * @since 28.05.2019
  */
 public enum ParticleEffect {
-
+    
     /**
      * In the base game this particle is randomly displayed in the
      * basalt deltas nether biome.
@@ -401,6 +412,14 @@ public enum ParticleEffect {
      */
     DRIP_WATER(version -> version < 8 ? "NONE" : (version < 13 ? "DRIP_WATER" : "dripping_water")),
     /**
+     * 1.17 Placeholder
+     */
+    DRIPPING_DRIPSTONE_LAVA(version -> version < 17 ? "NONE" : "dripping_dripstone_lava"),
+    /**
+     * 1.17 Placeholder
+     */
+    DRIPPING_DRIPSTONE_WATER(version -> version < 17 ? "NONE" : "dripping_dripstone_water"),
+    /**
      * In the base game this particle is displayed by beehives filled
      * with honey. As opposed to the {@link #FALLING_HONEY} particles,
      * this particle floats in the air before falling to the ground.
@@ -428,6 +447,10 @@ public enum ParticleEffect {
      * </ul>
      */
     DRIPPING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "dripping_obsidian_tear"),
+    /**
+     * 1.17 Placeholder
+     */
+    DUST_COLOR_TRANSITION(version -> version < 17 ? "NONE" : "dust_color_transition"),
     /**
      * In the base game this particle is displayed by bookshelves near
      * an enchanting table.
@@ -500,6 +523,14 @@ public enum ParticleEffect {
      */
     EXPLOSION_NORMAL(version -> version < 8 ? "NONE" : (version < 13 ? "EXPLOSION_NORMAL" : "poof"), DIRECTIONAL),
     /**
+     * 1.17 Placeholder
+     */
+    FALLING_DRIPSTONE_LAVA(version -> version < 16 ? "NONE" : "falling_dripstone_lava"),
+    /**
+     * 1.17 Placeholder
+     */
+    FALLING_DRIPSTONE_WATER(version -> version < 16 ? "NONE" : "falling_dripstone_water"),
+    /**
      * In the base game this particle is displayed randomly by floating sand
      * and gravel.
      * <p>
@@ -555,6 +586,10 @@ public enum ParticleEffect {
      */
     FALLING_OBSIDIAN_TEAR(version -> version < 16 ? "NONE" : "falling_obsidian_tear"),
     /**
+     * 1.17 Placeholder
+     */
+    FALLING_SPORE_BLOSSOM(version -> version < 17 ? "NONE" : "falling_spore_blossom"),
+    /**
      * In the base game this particle is displayed when a firework is
      * launched.
      * <p>
@@ -607,6 +642,14 @@ public enum ParticleEffect {
      * </ul>
      */
     FOOTSTEP(version -> version > 8 && version < 13 ? "FOOTSTEP" : "NONE"),
+    /**
+     * 1.17 Placeholder
+     */
+    GLOW(version -> version < 17 ? "NONE" : "glow"),
+    /**
+     * 1.17 Placeholder
+     */
+    GLOW_SQUID_INK(version -> version < 17 ? "NONE" : "glow_squid_ink"),
     /**
      * In the base game this particle is displayed when taming or
      * breeding animals.
@@ -839,6 +882,10 @@ public enum ParticleEffect {
      */
     SNOWBALL(version -> version < 8 ? "NONE" : (version < 13 ? "SNOWBALL" : "item_snowball")),
     /**
+     * 1.17 Placeholder
+     */
+    SNOWFLAKE(version -> version < 17 ? "NONE" : "snowflake"),
+    /**
      * This particle is unused and is merged into "poof" in 1.13.
      * <p>
      * Since this particle is unused it isn't used in any nms classes.
@@ -965,6 +1012,10 @@ public enum ParticleEffect {
      */
     SPIT(version -> version < 11 ? "NONE" : (version < 13 ? "SPIT" : "spit")),
     /**
+     * 1.17 Placeholder
+     */
+    SPORE_BLOSSOM_AIR(version -> version < 17 ? "NONE" : "spore_blossom_air"),
+    /**
      * In the base game this particle is displayed when a squid gets
      * damaged.
      * <p>
@@ -1045,6 +1096,10 @@ public enum ParticleEffect {
      * </ul>
      */
     TOWN_AURA(version -> version < 8 ? "NONE" : (version < 13 ? "TOWN_AURA" : "mycelium"), DIRECTIONAL),
+    /**
+     * 1.17 Placeholder
+     */
+    VIBRATION(version -> version < 17 ? "NONE" : "vibration"),
     /**
      * In the base game this particle is displayed when attacking a village.
      * <p>
@@ -1156,7 +1211,7 @@ public enum ParticleEffect {
      * </ul>
      */
     WHITE_ASH(version -> version < 16 ? "NONE" : "white_ash");
-
+    
     /**
      * A {@link IntFunction} to get the name of the particle by checking the version.
      */
@@ -1166,7 +1221,7 @@ public enum ParticleEffect {
      * the current particle instance supports.
      */
     private final PropertyType[] properties;
-
+    
     /**
      * An array with all {@link ParticleEffect ParticleEffects}.
      */
@@ -1176,11 +1231,11 @@ public enum ParticleEffect {
      * {@link ParticleEffect ParticleEffects}.
      */
     public static final Map<ParticleEffect, Object> NMS_EFFECTS = Maps.newHashMap();
-
+    
     static {
         Arrays.stream(VALUES).filter(effect -> !"NONE".equals(effect.getFieldName())).forEach(effect -> NMS_EFFECTS.put(effect, effect.getNMSObject()));
     }
-
+    
     /**
      * Creates a new {@link ParticleEffect}
      *
@@ -1192,7 +1247,7 @@ public enum ParticleEffect {
         this.fieldNameMapper = fieldNameMapper;
         this.properties = properties;
     }
-
+    
     /**
      * Applies the {@link IntFunction} defined in the constructor to get the respective
      * name of the particle.
@@ -1202,7 +1257,7 @@ public enum ParticleEffect {
     public String getFieldName() {
         return fieldNameMapper.apply(ReflectionUtils.MINECRAFT_VERSION);
     }
-
+    
     /**
      * Checks if the current {@link ParticleEffect} instance has a specific {@link PropertyType}.
      *
@@ -1212,7 +1267,7 @@ public enum ParticleEffect {
     public boolean hasProperty(PropertyType propertyType) {
         return propertyType != null && Arrays.asList(properties).contains(propertyType);
     }
-
+    
     /**
      * Checks if the current {@link ParticleEffect} instance supports the given {@link ParticleData}.
      *
@@ -1228,7 +1283,7 @@ public enum ParticleEffect {
             return hasProperty(REQUIRES_BLOCK);
         return data instanceof ItemTexture && hasProperty(REQUIRES_ITEM);
     }
-
+    
     /**
      * Checks if the current {@link ParticleEffect} instance needs the given {@link ParticleColor}.
      * <p>
@@ -1240,7 +1295,7 @@ public enum ParticleEffect {
     public boolean isCorrectColor(ParticleColor color) {
         return hasProperty(COLORABLE) && (this.equals(ParticleEffect.NOTE) ? color instanceof NoteColor : color instanceof RegularColor);
     }
-
+    
     /**
      * Gets the nms instance of the current {@link ParticleEffect} instance.
      *
@@ -1260,8 +1315,8 @@ public enum ParticleEffect {
         }
         return null;
     }
-
-
+    
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1272,7 +1327,7 @@ public enum ParticleEffect {
     public void display(Location location, ParticleColor color, Player... players) {
         display(location, 0f, 0f, 0f, 1f, 0, color, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1283,7 +1338,7 @@ public enum ParticleEffect {
     public void display(Location location, Color color, Player... players) {
         display(location, new RegularColor(color), players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1294,7 +1349,7 @@ public enum ParticleEffect {
     public void display(Location location, ParticleColor color, Predicate filter) {
         display(location, 0f, 0f, 0f, 1f, 0, color, filter);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1305,7 +1360,7 @@ public enum ParticleEffect {
     public void display(Location location, Color color, Predicate filter) {
         display(location, new RegularColor(color), filter);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1316,7 +1371,7 @@ public enum ParticleEffect {
     public void display(Location location, ParticleColor color, Collection<? extends Player> players) {
         display(location, 0f, 0f, 0f, 1f, 0, color, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1327,7 +1382,7 @@ public enum ParticleEffect {
     public void display(Location location, Color color, Collection<? extends Player> players) {
         display(location, new RegularColor(color), players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1337,7 +1392,7 @@ public enum ParticleEffect {
     public void display(Location location, ParticleColor color) {
         display(location, 0f, 0f, 0f, 1f, 0, color);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1347,7 +1402,7 @@ public enum ParticleEffect {
     public void display(Location location, Color color) {
         display(location, new RegularColor(color));
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1357,7 +1412,7 @@ public enum ParticleEffect {
     public void display(Location location, Player... players) {
         display(location, 0f, 0f, 0f, 0f, 1, null, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1367,7 +1422,7 @@ public enum ParticleEffect {
     public void display(Location location, Predicate filter) {
         display(location, 0f, 0f, 0f, 0f, 1, null, filter);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1377,7 +1432,7 @@ public enum ParticleEffect {
     public void display(Location location, Collection<? extends Player> players) {
         display(location, 0f, 0f, 0f, 0f, 1, null, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1386,7 +1441,7 @@ public enum ParticleEffect {
     public void display(Location location) {
         display(location, 0f, 0f, 0f, 0f, 1, null, Bukkit.getOnlinePlayers());
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1401,7 +1456,7 @@ public enum ParticleEffect {
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Player... players) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1416,7 +1471,7 @@ public enum ParticleEffect {
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Predicate filter) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, filter);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1431,7 +1486,7 @@ public enum ParticleEffect {
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data, Collection<? extends Player> players) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1445,7 +1500,7 @@ public enum ParticleEffect {
     public void display(Location location, Vector vector, float speed, int amount, ParticleData data) {
         display(location, (float) vector.getX(), (float) vector.getY(), (float) vector.getZ(), speed, amount, data);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1462,7 +1517,7 @@ public enum ParticleEffect {
         ArrayList<Player> playerList = Arrays.stream(players).collect(Collectors.toCollection(ArrayList::new));
         display(location, offsetX, offsetY, offsetZ, speed, amount, data, playerList);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1479,7 +1534,7 @@ public enum ParticleEffect {
         ArrayList<Player> players = Bukkit.getOnlinePlayers().stream().filter(filter).collect(Collectors.toCollection(ArrayList::new));
         display(location, offsetX, offsetY, offsetZ, speed, amount, data, players);
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1494,7 +1549,7 @@ public enum ParticleEffect {
     public void display(Location location, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData data) {
         display(location, offsetX, offsetY, offsetZ, speed, amount, data, Bukkit.getOnlinePlayers());
     }
-
+    
     /**
      * Displays the current {@link ParticleEffect}.
      *
@@ -1516,5 +1571,5 @@ public enum ParticleEffect {
         Object nmsPacket = packet.createPacket(location);
         players.forEach(player -> ReflectionUtils.sendPacket(player, nmsPacket));
     }
-
+    
 }
