@@ -1,13 +1,28 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/166f125b74014326831ca21c1d7df65b)](https://app.codacy.com/manual/ByteZ1337/ParticleLib?utm_source=github.com&utm_medium=referral&utm_content=ByteZ1337/ParticleLib&utm_campaign=Badge_Grade_Dashboard)
-[![HitCount](http://hits.dwyl.com/ByteZ1337/ParticleLib.svg)](http://hits.dwyl.com/ByteZ1337/ParticleLib)
-[![GitHub issues](https://img.shields.io/github/issues/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/issues)
-[![GitHub stars](https://img.shields.io/github/stars/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/stargazers)
-[![GitHub license](https://img.shields.io/github/license/ByteZ1337/ParticleLib)](https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE)
-[![Maven](https://img.shields.io/maven-central/v/xyz.xenondevs/particle)](https://search.maven.org/artifact/xyz.xenondevs/particle)
-![Build](https://img.shields.io/github/workflow/status/ByteZ1337/ParticleLib/Java%20CI%20with%20Maven)
+<h1 align="center">
+  <img width=250 height=250 src="https://xenondevs.xyz/particlelib/particle.svg" />
+  <br>ParticleLib<br>
+</h1>
 
-# ParticleLib
-A spigot library to support all particles from 1.8 to 1.16.1
+<p align="center">
+  A spigot library supporting all particles from 1.8 to 1.16.5<br><br>
+  <a href="https://app.codacy.com/manual/ByteZ1337/ParticleLib?utm_source=github.com&utm_medium=referral&utm_content=ByteZ1337/ParticleLib&utm_campaign=Badge_Grade_Dashboard">
+    <img src="https://api.codacy.com/project/badge/Grade/166f125b74014326831ca21c1d7df65b" alt="codacy"/>
+  </a>
+  <a href="https://search.maven.org/artifact/xyz.xenondevs/particle">
+    <img src="https://img.shields.io/maven-central/v/xyz.xenondevs/particle" alt="maven"> 
+  </a>
+  <img src="http://hits.dwyl.com/ByteZ1337/ParticleLib.svg" alt="hits"/>
+  <a href="https://github.com/ByteZ1337/ParticleLib/issues">
+    <img src="https://img.shields.io/github/issues/ByteZ1337/ParticleLib" alt="issues"/>
+  </a>
+  <a href="https://github.com/ByteZ1337/ParticleLib/stargazers">
+    <img src="https://img.shields.io/github/stars/ByteZ1337/ParticleLib" alt="stars"/>
+  </a>
+  <a href="https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/ByteZ1337/ParticleLib" alt="license"/>
+  </a>
+  <img src="https://img.shields.io/github/workflow/status/ByteZ1337/ParticleLib/Java%20CI%20with%20Maven" alt="build"/>
+</p>
 
 ## Maven
 ```xml
