@@ -40,7 +40,7 @@ import xyz.xenondevs.particle.data.ParticleData;
  * @since 11.06.2019
  */
 public class ParticleTexture extends ParticleData {
-
+    
     /**
      * The {@link Material} that should be displayed by the particle.
      */
@@ -49,7 +49,7 @@ public class ParticleTexture extends ParticleData {
      * The damage data to be displayed by the given texture.
      */
     private final byte data;
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -60,7 +60,7 @@ public class ParticleTexture extends ParticleData {
         this.material = material;
         this.data = data;
     }
-
+    
     /**
      * Gets the {@link Material} that will be displayed b the particle.
      *
@@ -69,7 +69,7 @@ public class ParticleTexture extends ParticleData {
     public Material getMaterial() {
         return material;
     }
-
+    
     /**
      * Gets the damage value that will be displayed by the client.
      *
@@ -78,7 +78,7 @@ public class ParticleTexture extends ParticleData {
     public byte getData() {
         return data;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -88,6 +88,6 @@ public class ParticleTexture extends ParticleData {
      */
     @Override
     public Object toNMSData() {
-        return new int[]{getMaterial().ordinal(), getData()};
+        return new int[] {getMaterial().ordinal(), getData()};
     }
 }

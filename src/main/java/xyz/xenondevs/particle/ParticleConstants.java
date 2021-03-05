@@ -41,9 +41,9 @@ import static xyz.xenondevs.particle.utils.ReflectionUtils.*;
  * @since 10.06.2019
  */
 public class ParticleConstants {
-
+    
     /* ---------------- Classes ---------------- */
-
+    
     /**
      * Represents the ItemStack class.
      */
@@ -116,9 +116,9 @@ public class ParticleConstants {
      * Represents the ParticleParamItem class.
      */
     public static final Class PARTICLE_PARAM_ITEM_CLASS;
-
+    
     /* ---------------- Methods ---------------- */
-
+    
     /**
      * Represents the IRegistry#get(MinecraftKey) method.
      */
@@ -139,16 +139,16 @@ public class ParticleConstants {
      * Represents the CraftItemStack#asNMSCopy(); method.
      */
     public static final Method CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD;
-
+    
     /* ---------------- Fields ---------------- */
-
+    
     /**
      * Represents the EntityPlayer#playerConnection field.
      */
     public static final Field ENTITY_PLAYER_PLAYER_CONNECTION_FIELD;
-
+    
     /* ---------------- Constructor ---------------- */
-
+    
     /**
      * Represents the PacketPlayOutWorldParticles constructor.
      */
@@ -169,16 +169,16 @@ public class ParticleConstants {
      * Represents the ParticleParamItem constructor.
      */
     public static final Constructor PARTICLE_PARAM_ITEM_CONSTRUCTOR;
-
+    
     /* ---------------- Object constants ---------------- */
-
+    
     /**
      * Represents the ParticleType Registry.
      */
     public static final Object PARTICLE_TYPE_REGISTRY;
-
+    
     /* ---------------- INIT ---------------- */
-
+    
     static {
         int version = MINECRAFT_VERSION;
         // Classes
@@ -222,5 +222,5 @@ public class ParticleConstants {
         // Constants
         PARTICLE_TYPE_REGISTRY = version < 13 ? null : readField(getFieldOrNull(REGISTRY_CLASS, "PARTICLE_TYPE", false), null);
     }
-
+    
 }

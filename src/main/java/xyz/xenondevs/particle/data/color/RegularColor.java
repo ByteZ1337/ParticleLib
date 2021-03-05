@@ -43,7 +43,7 @@ import java.awt.*;
  * @since 10.06.2019
  */
 public class RegularColor extends ParticleColor {
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -53,7 +53,7 @@ public class RegularColor extends ParticleColor {
     public RegularColor(Color color) {
         super(color.getRed(), color.getGreen(), color.getBlue());
     }
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -64,7 +64,7 @@ public class RegularColor extends ParticleColor {
     public RegularColor(int red, int green, int blue) {
         super(MathUtils.getMaxOrMin(red, 255, 0), MathUtils.getMaxOrMin(green, 255, 0), MathUtils.getMaxOrMin(blue, 255, 0));
     }
-
+    
     /**
      * Gets the red value of the color.
      *
@@ -74,7 +74,7 @@ public class RegularColor extends ParticleColor {
     public float getRed() {
         return super.getRed() / 255f;
     }
-
+    
     /**
      * Gets green red value of the color.
      *
@@ -84,7 +84,7 @@ public class RegularColor extends ParticleColor {
     public float getGreen() {
         return super.getGreen() / 255f;
     }
-
+    
     /**
      * Gets the blue value of the color.
      *
@@ -94,7 +94,7 @@ public class RegularColor extends ParticleColor {
     public float getBlue() {
         return super.getBlue() / 255f;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 an int array should be returned. If the
@@ -112,7 +112,7 @@ public class RegularColor extends ParticleColor {
             return null;
         }
     }
-
+    
     /**
      * Generates a random {@link RegularColor} instance with a high saturation. If you
      * want a completely random {@link Color} use {@link #random(boolean)} with false
@@ -123,7 +123,7 @@ public class RegularColor extends ParticleColor {
     public static RegularColor random() {
         return random(true);
     }
-
+    
     /**
      * Generates a random {@link RegularColor} instance. If the highSaturation parameter
      * is set to true, a random hue from the HSV spectrum will be used. Otherwise 3 random
@@ -138,7 +138,7 @@ public class RegularColor extends ParticleColor {
         else
             return new RegularColor(new Color(MathUtils.RANDOM.nextInt(256), MathUtils.RANDOM.nextInt(256), MathUtils.RANDOM.nextInt(256)));
     }
-
+    
     /**
      * Constructs a {@link RegularColor} using the HSV color spectrum.
      *
@@ -149,5 +149,5 @@ public class RegularColor extends ParticleColor {
     public static RegularColor fromHSVHue(int hue) {
         return new RegularColor(new Color(Color.HSBtoRGB(hue / 360f, 1f, 1f)));
     }
-
+    
 }

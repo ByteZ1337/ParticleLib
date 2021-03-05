@@ -40,9 +40,9 @@ import java.lang.reflect.Method;
  * @since 30.08.2018
  */
 public class ReflectionUtils {
-
+    
     /* ---------------- NMS & CB paths ---------------- */
-
+    
     /**
      * Represents the net minecraft server path
      * <p>
@@ -55,12 +55,12 @@ public class ReflectionUtils {
      * e.g. {@code org.bukkit.craftbukkit.v1_8_R3}, {@code org.bukkit.craftbukkit.v1_12_R1}
      */
     private static final String CRAFT_BUKKIT_PACKAGE_PATH;
-
+    
     /**
      * Represents the current Minecraft version as an int.
      */
     public static final int MINECRAFT_VERSION;
-
+    
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
         String version = serverPath.substring(serverPath.lastIndexOf(".") + 1);
@@ -69,7 +69,7 @@ public class ReflectionUtils {
         String packageVersion = serverPath.substring(serverPath.lastIndexOf(".") + 2);
         MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
     }
-
+    
     /**
      * Gets the nms path of a class without depending on versions
      * <p>
@@ -84,7 +84,7 @@ public class ReflectionUtils {
     public static String getNMSPath(String path) {
         return getNetMinecraftServerPackagePath() + "." + path;
     }
-
+    
     /**
      * Directly gets the class object over the path
      *
@@ -98,7 +98,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets the craftbukkit path of a class without depending on versions
      * <p>
@@ -112,7 +112,7 @@ public class ReflectionUtils {
     public static String getCraftBukkitPath(String path) {
         return getCraftBukkitPackagePath() + "." + path;
     }
-
+    
     /**
      * Method to directly get the class object over the path
      *
@@ -126,7 +126,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Method to not get disturbed by the forced try catch block
      *
@@ -142,7 +142,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Method to not get disturbed by the forced try catch block
      *
@@ -158,7 +158,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets a constructor without throwing exceptions
      *
@@ -173,7 +173,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Checks if a class exists
      *
@@ -189,7 +189,7 @@ public class ReflectionUtils {
             return false;
         }
     }
-
+    
     /**
      * Gets the specified Field over the specified fieldName and the given targetClass. Then reads the specified
      * {@link Field} from the specified {@link Object}. When the {@link Field} is static
@@ -205,7 +205,7 @@ public class ReflectionUtils {
             return null;
         return readField(getFieldOrNull(targetClass, fieldName, false), object);
     }
-
+    
     /**
      * Reads the specified {@link Field} from the specified {@link Object}. When the
      * {@link Field} is static set the object to {@code null}.
@@ -223,7 +223,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets the specified declared Field over  the specified fieldName and the given
      * targetClass. Then reads the specified {@link Field} from the specified
@@ -239,7 +239,7 @@ public class ReflectionUtils {
             return null;
         return readDeclaredField(getFieldOrNull(targetClass, fieldName, true), object);
     }
-
+    
     /**
      * Reads the declared specified {@link Field} from the specified {@link Object}.
      * When the {@link Field} is static set the object to {@code null}.
@@ -258,7 +258,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets the specified declared {@link Field} over the specified fieldName and the given
      * targetClass. Then writes the specified value into the specified {@link Field}
@@ -274,7 +274,7 @@ public class ReflectionUtils {
             return;
         writeDeclaredField(getFieldOrNull(targetClass, fieldName, true), object, value);
     }
-
+    
     /**
      * Writes a value to the specified declared {@link Field} in the
      * given {@link Object}.
@@ -292,7 +292,7 @@ public class ReflectionUtils {
         } catch (Exception ignored) {
         }
     }
-
+    
     /**
      * Gets the specified {@link Field} over the specified fieldName and the given
      * targetClass. Then writes the specified value into the specified {@link Field}
@@ -308,7 +308,7 @@ public class ReflectionUtils {
             return;
         writeField(getFieldOrNull(targetClass, fieldName, false), object, value);
     }
-
+    
     /**
      * Writes a value to the specified {@link Field} in the given
      * {@link Object}.
@@ -325,21 +325,21 @@ public class ReflectionUtils {
         } catch (Exception ignored) {
         }
     }
-
+    
     /**
      * @return the nms path
      */
     public static String getNetMinecraftServerPackagePath() {
         return NET_MINECRAFT_SERVER_PACKAGE_PATH;
     }
-
+    
     /**
      * @return the craftbukkit path
      */
     public static String getCraftBukkitPackagePath() {
         return CRAFT_BUKKIT_PACKAGE_PATH;
     }
-
+    
     /**
      * Creates a new MinecraftKey with the given data.
      *
@@ -357,7 +357,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets the EntityPlayer instance of a CraftPlayer
      *
@@ -373,7 +373,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Gets the PlayerConnection of a {@link Player}
      *
@@ -387,7 +387,7 @@ public class ReflectionUtils {
             return null;
         }
     }
-
+    
     /**
      * Sends a packet to a defined player.
      *
@@ -400,5 +400,5 @@ public class ReflectionUtils {
         } catch (Exception ignored) {
         }
     }
-
+    
 }

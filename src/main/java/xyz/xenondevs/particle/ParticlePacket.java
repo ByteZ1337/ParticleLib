@@ -50,7 +50,7 @@ import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
  * @since 10.06.2019
  */
 public class ParticlePacket {
-
+    
     /**
      * The {@link ParticleEffect} which should be displayed by the client.
      */
@@ -113,7 +113,7 @@ public class ParticlePacket {
      * information the client needs to display  the particle correctly.
      */
     private final ParticleData particleData;
-
+    
     /**
      * Creates a new {@link ParticlePacket} that can be sent to one or multiple
      * {@link Player players}.
@@ -143,7 +143,7 @@ public class ParticlePacket {
         this.amount = amount;
         this.particleData = particleData;
     }
-
+    
     /**
      * Creates a new {@link ParticlePacket} that can be sent to one or multiple
      * {@link Player players}.
@@ -170,7 +170,7 @@ public class ParticlePacket {
         this.amount = amount;
         this.particleData = null;
     }
-
+    
     /**
      * Gets the {@link ParticleEffect} that will be displayed by the client.
      *
@@ -179,7 +179,7 @@ public class ParticlePacket {
     public ParticleEffect getParticle() {
         return particle;
     }
-
+    
     /**
      * Gets the offsetX value of the particle.
      *
@@ -188,7 +188,7 @@ public class ParticlePacket {
     public float getOffsetX() {
         return offsetX;
     }
-
+    
     /**
      * Gets the offsetY value of the particle.
      *
@@ -197,7 +197,7 @@ public class ParticlePacket {
     public float getOffsetY() {
         return offsetY;
     }
-
+    
     /**
      * Gets the offsetZ value of the particle.
      *
@@ -206,7 +206,7 @@ public class ParticlePacket {
     public float getOffsetZ() {
         return offsetZ;
     }
-
+    
     /**
      * Gets the speed at which the particle will fly off.
      *
@@ -215,7 +215,7 @@ public class ParticlePacket {
     public float getSpeed() {
         return speed;
     }
-
+    
     /**
      * Gets how many particles will be shown by the client.
      *
@@ -224,7 +224,7 @@ public class ParticlePacket {
     public int getAmount() {
         return amount;
     }
-
+    
     /**
      * Gets the {@link ParticleData} that should be used when displaying the
      * particle.
@@ -234,7 +234,7 @@ public class ParticlePacket {
     public ParticleData getParticleData() {
         return particleData;
     }
-
+    
     /**
      * Creates a NMS PacketPlayOutWorldParticles packet with the data in the current
      * {@link ParticlePacket} data.
@@ -289,7 +289,7 @@ public class ParticlePacket {
         }
         return null;
     }
-
+    
     /**
      * Creates a new PacketPlayOutWorldParticles
      * object with the given data.
@@ -321,6 +321,6 @@ public class ParticlePacket {
             return null;
         }
     }
-
-
+    
+    
 }

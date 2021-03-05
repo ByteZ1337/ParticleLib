@@ -19,12 +19,12 @@ import java.util.function.Predicate;
  * @since 24/01/2020
  */
 public class ParticleBuilder {
-
+    
     /**
      * The {@link ParticleEffect} which should be displayed by the client.
      */
     private final ParticleEffect particle;
-
+    
     /**
      * The {@link Location} of the particle.
      */
@@ -87,8 +87,7 @@ public class ParticleBuilder {
      * information the client needs to display the particle correctly.
      */
     private ParticleData particleData = null;
-
-
+    
     /**
      * Initializes a new {@link ParticleBuilder}
      *
@@ -99,8 +98,7 @@ public class ParticleBuilder {
         this.particle = particle;
         this.location = location;
     }
-
-
+    
     /**
      * Sets the X offset.
      *
@@ -111,7 +109,7 @@ public class ParticleBuilder {
         this.offsetX = offsetX;
         return this;
     }
-
+    
     /**
      * Sets the Y offset.
      *
@@ -122,7 +120,7 @@ public class ParticleBuilder {
         this.offsetY = offsetY;
         return this;
     }
-
+    
     /**
      * Sets the Z offset.
      *
@@ -133,7 +131,7 @@ public class ParticleBuilder {
         this.offsetZ = offsetZ;
         return this;
     }
-
+    
     /**
      * Sets the speed.
      *
@@ -144,7 +142,7 @@ public class ParticleBuilder {
         this.speed = speed;
         return this;
     }
-
+    
     /**
      * Sets the amount.
      *
@@ -155,7 +153,7 @@ public class ParticleBuilder {
         this.amount = amount;
         return this;
     }
-
+    
     /**
      * Sets the particleData.
      *
@@ -166,7 +164,7 @@ public class ParticleBuilder {
         this.particleData = particleData;
         return this;
     }
-
+    
     /**
      * Sets the color of the particle. Note that particle
      * needs the {@link PropertyType#COLORABLE} PropertyType
@@ -180,7 +178,7 @@ public class ParticleBuilder {
             this.particleData = new RegularColor(color);
         return this;
     }
-
+    
     /**
      * Creates a new {@link ParticlePacket} wit the given values.
      *
@@ -192,14 +190,14 @@ public class ParticleBuilder {
         ParticlePacket packet = new ParticlePacket(this.particle, this.offsetX, this.offsetY, this.offsetZ, this.speed, this.amount, this.particleData);
         return packet.createPacket(this.location);
     }
-
+    
     /**
      * Displays the given particle to all players.
      */
     public void display() {
         display(Bukkit.getOnlinePlayers());
     }
-
+    
     /**
      * Displays the given particle to the players in the array.
      *
@@ -208,7 +206,7 @@ public class ParticleBuilder {
     public void display(Player... players) {
         this.display(Arrays.asList(players));
     }
-
+    
     /**
      * Display the given particle to online player that match the given filter.
      *
@@ -219,7 +217,7 @@ public class ParticleBuilder {
         Object packet = toPacket();
         Bukkit.getOnlinePlayers().stream().filter(filter).forEach(player -> ReflectionUtils.sendPacket(player, packet));
     }
-
+    
     /**
      * Displays the given particle to all players in the {@link Collection}
      *
@@ -229,5 +227,5 @@ public class ParticleBuilder {
         Object packet = toPacket();
         players.forEach(player -> ReflectionUtils.sendPacket(player, packet));
     }
-
+    
 }

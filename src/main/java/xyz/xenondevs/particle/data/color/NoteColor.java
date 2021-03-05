@@ -39,7 +39,7 @@ import xyz.xenondevs.particle.utils.MathUtils;
  * @since 10.06.2019
  */
 public class NoteColor extends ParticleColor {
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -49,7 +49,7 @@ public class NoteColor extends ParticleColor {
         super(MathUtils.getMaxOrMin(note, 24, 0), 0, 0);
         setEffect(ParticleEffect.NOTE);
     }
-
+    
     /**
      * Sets the {@link ParticleEffect}.
      *
@@ -59,7 +59,7 @@ public class NoteColor extends ParticleColor {
     public void setEffect(ParticleEffect effect) {
         super.setEffect(ParticleEffect.NOTE);
     }
-
+    
     /**
      * Gets the red value of the color.
      *
@@ -69,7 +69,7 @@ public class NoteColor extends ParticleColor {
     public float getRed() {
         return super.getRed() / 24f;
     }
-
+    
     /**
      * Returns 0 because the offsetY isn't used by the color of notes.
      *
@@ -79,7 +79,7 @@ public class NoteColor extends ParticleColor {
     public float getGreen() {
         return 0;
     }
-
+    
     /**
      * Returns 0 because the offsetZ isn't used by the color of notes.
      *
@@ -89,7 +89,7 @@ public class NoteColor extends ParticleColor {
     public float getBlue() {
         return 0;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -101,7 +101,7 @@ public class NoteColor extends ParticleColor {
     public Object toNMSData() {
         return null;
     }
-
+    
     /**
      * Generates a random {@link NoteColor} instance to support rainbow trails,
      * cloaks and other effects that can be constructed using the note particle.
@@ -111,5 +111,5 @@ public class NoteColor extends ParticleColor {
     public static NoteColor random() {
         return new NoteColor(MathUtils.generateRandomInteger(0, 24));
     }
-
+    
 }

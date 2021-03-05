@@ -38,7 +38,7 @@ import xyz.xenondevs.particle.data.ParticleData;
  * @since 10.06.2019
  */
 public abstract class ParticleColor extends ParticleData {
-
+    
     /**
      * The red value of the rgb value.
      */
@@ -51,7 +51,7 @@ public abstract class ParticleColor extends ParticleData {
      * The blue value of the rgb value.
      */
     private final int blue;
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -64,7 +64,7 @@ public abstract class ParticleColor extends ParticleData {
         this.green = green;
         this.blue = blue;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -74,7 +74,7 @@ public abstract class ParticleColor extends ParticleData {
      */
     @Override
     public abstract Object toNMSData();
-
+    
     /**
      * Gets the red value of the color.
      *
@@ -83,7 +83,7 @@ public abstract class ParticleColor extends ParticleData {
     public float getRed() {
         return red;
     }
-
+    
     /**
      * Gets green red value of the color.
      *
@@ -92,7 +92,7 @@ public abstract class ParticleColor extends ParticleData {
     public float getGreen() {
         return green;
     }
-
+    
     /**
      * Gets the blue value of the color.
      *

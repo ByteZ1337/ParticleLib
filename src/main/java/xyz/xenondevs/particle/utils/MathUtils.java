@@ -37,14 +37,14 @@ import java.util.Random;
  * @since 14.09.2018
  */
 public class MathUtils {
-
+    
     /**
      * A easy to access {@link Random} implementation for random number
      * generation. This specific field is mostly used by the random
      * methods of the {@link ParticleData} types.
      */
     public static final Random RANDOM = new Random();
-
+    
     /**
      * Generates a random {@link Integer}.
      *
@@ -56,8 +56,8 @@ public class MathUtils {
     public static int generateRandomInteger(int minimum, int maximum) {
         return minimum + (int) (RANDOM.nextDouble() * ((maximum - minimum) + 1));
     }
-
-
+    
+    
     /**
      * Checks if a specific {@link Integer} is in the given range.
      * If not the respective bound of the range is returned.

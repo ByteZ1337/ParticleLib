@@ -40,12 +40,12 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
  * @since 11.06.2019
  */
 public class ItemTexture extends ParticleTexture {
-
+    
     /**
      * The {@link ItemStack} that will be displayed by the particle.
      */
     private final ItemStack itemStack;
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -57,7 +57,7 @@ public class ItemTexture extends ParticleTexture {
         super(itemStack == null ? null : itemStack.getType(), (byte) 0);
         this.itemStack = itemStack;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -79,7 +79,7 @@ public class ItemTexture extends ParticleTexture {
             }
         }
     }
-
+    
     /**
      * Gets the {@link ItemStack} that will be displayed by the particle.
      *
@@ -88,7 +88,7 @@ public class ItemTexture extends ParticleTexture {
     public ItemStack getItemStack() {
         return itemStack;
     }
-
+    
     /**
      * Gets the NMS ItemStack instance of a CraftItemSTack.
      *
@@ -104,5 +104,5 @@ public class ItemTexture extends ParticleTexture {
             return null;
         }
     }
-
+    
 }

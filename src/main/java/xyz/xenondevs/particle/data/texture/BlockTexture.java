@@ -42,8 +42,7 @@ import java.lang.reflect.Field;
  * @since 11.06.2019
  */
 public class BlockTexture extends ParticleTexture {
-
-
+    
     /**
      * Initializes a new {@link ParticleData} object.
      *
@@ -52,7 +51,7 @@ public class BlockTexture extends ParticleTexture {
     public BlockTexture(Material material) {
         super(material, (byte) 0);
     }
-
+    
     /**
      * Initializes a new {@link ParticleData} Object.
      *
@@ -62,7 +61,7 @@ public class BlockTexture extends ParticleTexture {
     public BlockTexture(Material material, byte data) {
         super(material, data);
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -85,7 +84,7 @@ public class BlockTexture extends ParticleTexture {
             return null;
         }
     }
-
+    
     /**
      * Gets the nms block data of the given bukkit {@link Material}.
      *
@@ -105,5 +104,5 @@ public class BlockTexture extends ParticleTexture {
             return null;
         }
     }
-
+    
 }

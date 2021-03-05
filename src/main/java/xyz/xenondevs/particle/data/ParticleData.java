@@ -36,13 +36,13 @@ import xyz.xenondevs.particle.ParticleEffect;
  * @since 10.06.2019
  */
 public abstract class ParticleData {
-
+    
     /**
      * The {@link ParticleEffect} the current {@link ParticleData} instance is
      * assigned to.
      */
     private ParticleEffect effect;
-
+    
     /**
      * Sets the {@link ParticleEffect}.
      *
@@ -51,7 +51,7 @@ public abstract class ParticleData {
     public void setEffect(ParticleEffect effect) {
         this.effect = effect;
     }
-
+    
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
      * minecraft version was released before 1.13 a int array should be returned. If the
@@ -60,7 +60,7 @@ public abstract class ParticleData {
      * @return the nms data.
      */
     public abstract Object toNMSData();
-
+    
     /**
      * Gets the {@link ParticleEffect} the current {@link ParticleData} is assigned to.
      *
