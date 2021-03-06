@@ -76,8 +76,7 @@ ParticleEffect.FLAME.display(location);
 ```
 This code will spawn a flame particle at the specified location.
 
-**Some particles can have extra data. This data can contain a range of different properties.**
-
+**Some particles can have extra data. This data can contain a range of different properties.**<br>
 For these special cases, I will only use the ParticleBuilder. Display methods with the specific
 parameters still exist, but shouldn't be used to avoid confusion.
 
@@ -105,16 +104,16 @@ Minecraft's particles can behave quite weirdly, so you may have to tweak the spe
 
 A few particles like ``Redstone`` can have custom colors applied to them. This color can be set with ``ParticleColor``
 implementations:
-  * ``RegularColor``
-  * ``NoteColor``
+* ``RegularColor``
+* ``NoteColor``
 
 If your plugin runs on a pre 1.13 server, you can also set the RGB values in the offset properties.
 
 To see if a particle is colorable check if it has the ``COLORABLE`` PropertyType.
 
 **Note:**
-  * Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties can be properly used on servers above 1.13.
-  * ``Note`` particles don't accept a custom color. Instead, they support a note value from 0 to 24. Use ``NoteColor`` for this particle.
+* Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties can be properly used on servers above 1.13.
+* ``Note`` particles don't accept a custom color. Instead, they support a note value from 0 to 24. Use ``NoteColor`` for this particle.
 
 **Regular Example:**
 ```java
@@ -138,8 +137,8 @@ This code will spawn a green ``Note`` particle at the specified location.
 
 Several particles even accept textures as custom properties! These textures are modified with implementations of the 
 ``ParticleTexture`` class:
-  * ``BlockTexture``
-  * ``ItemTexture``
+* ``BlockTexture``
+* ``ItemTexture``
 
 **Warning:** These particles **NEED** the texture property, or the particle won't be displayed.
 
