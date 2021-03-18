@@ -1067,7 +1067,7 @@ public enum ParticleEffect {
      * <li>Extra: The size of this particle can be set in the offsetX parameter. The amount has to be 0 and the speed has to be 1.</li>
      * </ul>
      */
-    SWEEP_ATTACK(version -> version < 8 ? "NONE" : (version < 13 ? "SWEEP_ATTACK" : "sweep_attack"), RESIZEABLE),
+    SWEEP_ATTACK(version -> version < 9 ? "NONE" : (version < 13 ? "SWEEP_ATTACK" : "sweep_attack"), RESIZEABLE),
     /**
      * In the base game this particle is displayed when a totem of
      * undying is used.
