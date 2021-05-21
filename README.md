@@ -11,7 +11,6 @@
   <a href="https://search.maven.org/artifact/xyz.xenondevs/particle">
     <img src="https://img.shields.io/maven-central/v/xyz.xenondevs/particle" alt="maven"> 
   </a>
-  <img src="http://hits.dwyl.com/ByteZ1337/ParticleLib.svg" alt="hits"/>
   <a href="https://github.com/ByteZ1337/ParticleLib/issues">
     <img src="https://img.shields.io/github/issues/ByteZ1337/ParticleLib" alt="issues"/>
   </a>
