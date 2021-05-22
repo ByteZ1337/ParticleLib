@@ -116,6 +116,10 @@ public class ParticleConstants {
      * Represents the ParticleParamItem class.
      */
     public static final Class PARTICLE_PARAM_ITEM_CLASS;
+    /**
+     * Represents the PluginClassLoader class.
+     */
+    public static final Class PLUGIN_CLASS_LOADER_CLASS;
     
     /* ---------------- Methods ---------------- */
     
@@ -146,6 +150,10 @@ public class ParticleConstants {
      * Represents the EntityPlayer#playerConnection field.
      */
     public static final Field ENTITY_PLAYER_PLAYER_CONNECTION_FIELD;
+    /**
+     * Represents the PluginClassLoader#plugin field.
+     */
+    public static final Field PLUGIN_CLASS_LOADER_PLUGIN_FIELD;
     
     /* ---------------- Constructor ---------------- */
     
@@ -200,6 +208,7 @@ public class ParticleConstants {
         PARTICLE_PARAM_REDSTONE_CLASS = version < 13 ? null : getNMSClass("ParticleParamRedstone");
         PARTICLE_PARAM_BLOCK_CLASS = version < 13 ? null : getNMSClass("ParticleParamBlock");
         PARTICLE_PARAM_ITEM_CLASS = version < 13 ? null : getNMSClass("ParticleParamItem");
+        PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
         // Methods
         REGISTRY_GET_METHOD = version < 13 ? null : getMethodOrNull(REGISTRY_CLASS, "get", MINECRAFT_KEY_CLASS);
         PLAYER_CONNECTION_SEND_PACKET_METHOD = getMethodOrNull(PLAYER_CONNECTION_CLASS, "sendPacket", PACKET_CLASS);
@@ -208,6 +217,7 @@ public class ParticleConstants {
         CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
         //Fields
         ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getFieldOrNull(ENTITY_PLAYER_CLASS, "playerConnection", false);
+        PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
         //Constructors
         if (version < 13)
             PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR = getConstructorOrNull(PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS, PARTICLE_ENUM, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);

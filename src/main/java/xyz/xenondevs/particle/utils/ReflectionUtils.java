@@ -28,11 +28,14 @@ package xyz.xenondevs.particle.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import xyz.xenondevs.particle.ParticleConstants;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import static xyz.xenondevs.particle.ParticleConstants.PLUGIN_CLASS_LOADER_PLUGIN_FIELD;
 
 /**
  * @author ByteZ
@@ -56,10 +59,22 @@ public class ReflectionUtils {
      */
     private static final String CRAFT_BUKKIT_PACKAGE_PATH;
     
+    /* ---------------- PlayerConnection caching ---------------- */
+    
     /**
-     * Represents the current Minecraft version as an int.
+     * The current Minecraft version as an int.
      */
     public static final int MINECRAFT_VERSION;
+    
+    /**
+     * A cache for playerconnections.
+     */
+    private static final PlayerConnectionCache PLAYER_CONNECTION_CACHE;
+    
+    /**
+     * The current {@link Plugin} using ParticleLib.
+     */
+    public static final Plugin PLUGIN;
     
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
@@ -68,6 +83,23 @@ public class ReflectionUtils {
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         String packageVersion = serverPath.substring(serverPath.lastIndexOf(".") + 2);
         MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
+        PLUGIN = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
+        PLAYER_CONNECTION_CACHE = new PlayerConnectionCache();
+    }
+    
+    /**
+     * Gets a class but returns null instead of throwing
+     * a {@link ClassNotFoundException}.
+     *
+     * @param path the path of the class
+     * @return the class. If the class isn't found null
+     */
+    public static Class<?> getClassSafe(String path) {
+        try {
+            return Class.forName(path);
+        } catch (Exception ex) {
+            return null;
+        }
     }
     
     /**
@@ -92,11 +124,7 @@ public class ReflectionUtils {
      * @return the class. If the class isn't found null
      */
     public static Class<?> getNMSClass(String path) {
-        try {
-            return Class.forName(getNMSPath(path));
-        } catch (Exception ex) {
-            return null;
-        }
+        return getClassSafe(getNMSPath(path));
     }
     
     /**
@@ -120,11 +148,7 @@ public class ReflectionUtils {
      * @return the class. If the class isn't found null
      */
     public static Class<?> getCraftBukkitClass(String path) {
-        try {
-            return Class.forName(getCraftBukkitPath(path));
-        } catch (Exception ex) {
-            return null;
-        }
+        return getClassSafe(getCraftBukkitPath(path));
     }
     
     /**
@@ -214,11 +238,11 @@ public class ReflectionUtils {
      * @param object the {@link Object} from which the specified {@link Field Fields} value is to be extracted.
      * @return the extracted value of the specified {@link Field} in the specified {@link Object}.
      */
-    public static Object readField(Field field, Object object) {
+    public static <T> T readField(Field field, Object object) {
         if (field == null)
             return null;
         try {
-            return field.get(object);
+            return (T) field.get(object);
         } catch (Exception ex) {
             return null;
         }
@@ -248,12 +272,12 @@ public class ReflectionUtils {
      * @param object the {@link Object} from which the specified {@link Field Fields} value is to be extracted.
      * @return the extracted value of the specified {@link Field} in the specified {@link Object}.
      */
-    public static Object readDeclaredField(Field field, Object object) {
+    public static <T> T readDeclaredField(Field field, Object object) {
         if (field == null)
             return null;
         field.setAccessible(true);
         try {
-            return field.get(object);
+            return (T) field.get(object);
         } catch (Exception ex) {
             return null;
         }
@@ -396,7 +420,8 @@ public class ReflectionUtils {
      */
     public static void sendPacket(Player player, Object packet) {
         try {
-            ParticleConstants.PLAYER_CONNECTION_SEND_PACKET_METHOD.invoke(getPlayerConnection(player), packet);
+            Object connection = PLAYER_CONNECTION_CACHE.getConnection(player);
+            ParticleConstants.PLAYER_CONNECTION_SEND_PACKET_METHOD.invoke(connection, packet);
         } catch (Exception ignored) {
         }
     }
