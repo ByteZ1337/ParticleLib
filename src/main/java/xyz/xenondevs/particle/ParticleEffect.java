@@ -26,7 +26,6 @@
 
 package xyz.xenondevs.particle;
 
-import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -40,7 +39,9 @@ import xyz.xenondevs.particle.data.texture.ItemTexture;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 import java.awt.*;
+import java.util.List;
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -525,11 +526,11 @@ public enum ParticleEffect {
     /**
      * 1.17 Placeholder
      */
-    FALLING_DRIPSTONE_LAVA(version -> version < 16 ? "NONE" : "falling_dripstone_lava"),
+    FALLING_DRIPSTONE_LAVA(version -> version < 17 ? "NONE" : "falling_dripstone_lava"),
     /**
      * 1.17 Placeholder
      */
-    FALLING_DRIPSTONE_WATER(version -> version < 16 ? "NONE" : "falling_dripstone_water"),
+    FALLING_DRIPSTONE_WATER(version -> version < 17 ? "NONE" : "falling_dripstone_water"),
     /**
      * In the base game this particle is displayed randomly by floating sand
      * and gravel.
@@ -1213,7 +1214,7 @@ public enum ParticleEffect {
     WHITE_ASH(version -> version < 16 ? "NONE" : "white_ash");
     
     /**
-     * A {@link IntFunction} to get the name of the particle by checking the version.
+     * An {@link IntFunction} to get the name of the particle by checking the version.
      */
     private final IntFunction<String> fieldNameMapper;
     /**
@@ -1225,15 +1226,29 @@ public enum ParticleEffect {
     /**
      * An array with all {@link ParticleEffect ParticleEffects}.
      */
-    public static final ParticleEffect[] VALUES = values();
+    public static final List<ParticleEffect> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
     /**
      * A {@link HashMap} to store the nms instances of all currently supported
      * {@link ParticleEffect ParticleEffects}.
      */
-    public static final Map<ParticleEffect, Object> NMS_EFFECTS = Maps.newHashMap();
+    public static final Map<ParticleEffect, Object> NMS_EFFECTS;
     
     static {
-        Arrays.stream(VALUES).filter(effect -> !"NONE".equals(effect.getFieldName())).forEach(effect -> NMS_EFFECTS.put(effect, effect.getNMSObject()));
+        //noinspection ConstantConditions
+        NMS_EFFECTS = Collections.unmodifiableMap(
+                VALUES.stream()
+                        .filter(effect -> !"NONE".equals(effect.getFieldName()))
+                        .collect(Collectors.toMap(Function.identity(), ParticleEffect::getNMSObject))
+        );
+    }
+    
+    /**
+     * Returns a set of all effects that are available in the current version.
+     *
+     * @return all available effects.
+     */
+    public static Set<ParticleEffect> getAvailableEffects() {
+        return NMS_EFFECTS.keySet();
     }
     
     /**
@@ -1302,7 +1317,7 @@ public enum ParticleEffect {
      * @return The NMS instance or {@code null} if the particle isn't supported in the current minecraft version.
      */
     public Object getNMSObject() {
-        if (NMS_EFFECTS.containsKey(this))
+        if (NMS_EFFECTS != null && NMS_EFFECTS.containsKey(this))
             return NMS_EFFECTS.get(this);
         String fieldName = getFieldName();
         if ("NONE".equals(fieldName))
