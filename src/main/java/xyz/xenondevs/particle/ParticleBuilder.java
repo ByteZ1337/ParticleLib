@@ -28,7 +28,7 @@ public class ParticleBuilder {
     /**
      * The {@link Location} of the particle.
      */
-    private final Location location;
+    private Location location;
     /**
      * This field has three uses:
      * <p>
@@ -97,6 +97,28 @@ public class ParticleBuilder {
     public ParticleBuilder(ParticleEffect particle, Location location) {
         this.particle = particle;
         this.location = location;
+    }
+    
+    /**
+     * Initializes a new {@link ParticleBuilder}
+     *
+     * @param particle The {@link ParticleEffect} of the builder.
+     */
+    public ParticleBuilder(ParticleEffect particle) {
+        this.particle = particle;
+        this.location = null;
+    }
+    
+    
+    /**
+     * Sets the {@link Location} of the particle.
+     *
+     * @param location The new {@link Location} of the particle.
+     * @return the current instance to support building operations
+     */
+    public ParticleBuilder setLocation(Location location) {
+        this.location = location;
+        return this;
     }
     
     /**
@@ -183,8 +205,11 @@ public class ParticleBuilder {
      * Creates a new {@link ParticlePacket} wit the given values.
      *
      * @return the new {@link ParticlePacket}
+     * @throws IllegalStateException if the location field isn't set yet.
      */
     public Object toPacket() {
+        if (location == null)
+            throw new IllegalStateException("Missing location of particle.");
         if (this.particleData != null)
             this.particleData.setEffect(this.particle);
         ParticlePacket packet = new ParticlePacket(this.particle, this.offsetX, this.offsetY, this.offsetZ, this.speed, this.amount, this.particleData);
