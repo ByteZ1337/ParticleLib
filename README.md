@@ -79,6 +79,8 @@ This code will spawn a flame particle at the specified location.
 For these special cases, I will only use the ParticleBuilder. Display methods with the specific
 parameters still exist, but shouldn't be used to avoid confusion.
 
+---
+
 ### Directional
 
 Some particles accept a custom velocity. When given a ``Vector`` they will travel to the specified offset. The velocity is
@@ -98,6 +100,8 @@ new ParticleBuilder(ParticleEffect.FLAME, player.getLocation())
 This code will spawn a flame particle that flies to the player's head.<br>
 
 Minecraft's particles can behave quite weirdly, so you may have to tweak the speed parameter when using directional particles.
+
+---
 
 ### Colored
 
@@ -131,6 +135,8 @@ new ParticleBuilder(ParticleEffect.NOTE, location)
         .display()
 ```
 This code will spawn a green ``Note`` particle at the specified location.
+
+---
 
 ### Textured
 
