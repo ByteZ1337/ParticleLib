@@ -239,55 +239,91 @@ public class ParticlePacket {
      * Creates a NMS PacketPlayOutWorldParticles packet with the data in the current
      * {@link ParticlePacket} data.
      *
-     * @param location the {@link Location} the
-     *                 particle should be displayed
-     *                 at.
+     * @param location the {@link Location} the particle should be displayed at.
      * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
      */
     public Object createPacket(Location location) {
         try {
-            ParticleData data = getParticleData();
             ParticleEffect effect = getParticle();
+            ParticleData data = getParticleData();
             int version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;
             if (data != null) {
                 if (data.getEffect() != effect)
                     return null;
-                if ((data instanceof BlockTexture && getParticle().hasProperty(PropertyType.REQUIRES_BLOCK)) || (data instanceof ItemTexture && getParticle().hasProperty(PropertyType.REQUIRES_ITEM))) {
-                    return createPacket(version < 13 ? effect.getNMSObject() : data.toNMSData(),
-                            (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                            getOffsetX(), getOffsetY(), getOffsetZ(),
-                            getSpeed(), getAmount(), version < 13 ? (int[]) data.toNMSData() : new int[0]);
-                } else if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE)) {
-                    if (data instanceof NoteColor && effect.equals(NOTE))
-                        return createPacket(effect.getNMSObject(),
-                                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                                ((NoteColor) data).getRed(), 0f, 0f,
-                                getSpeed(), getAmount(), new int[0]
-                        );
-                    else if (data instanceof RegularColor) {
-                        RegularColor color = ((RegularColor) data);
-                        if (version < 13 || !effect.equals(REDSTONE)) {
-                            return createPacket(effect.getNMSObject(),
-                                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                                    (effect.equals(REDSTONE) && color.getRed() == 0 ? Float.MIN_NORMAL : color.getRed()), color.getGreen(), color.getBlue(),
-                                    1f, 0, new int[0]);
-                        } else {
-                            return createPacket(data.toNMSData(),
-                                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                                    getOffsetX(), getOffsetY(), getOffsetZ(),
-                                    getSpeed(), getAmount(), new int[0]);
-                        }
-                    }
-                }
-                return null;
+                if ((data instanceof BlockTexture && effect.hasProperty(PropertyType.REQUIRES_BLOCK))
+                        || (data instanceof ItemTexture && effect.hasProperty(PropertyType.REQUIRES_ITEM)))
+                    return createTexturedParticlePacket(location);
+                if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE))
+                    return createColoredParticlePacket(location);
+                else
+                    return null;
             } else if (!effect.hasProperty(PropertyType.REQUIRES_BLOCK) && !effect.hasProperty(PropertyType.REQUIRES_ITEM)) {
                 return createPacket(effect.getNMSObject(), (float) location.getX(), (float) location.getY(), (float) location.getZ(), getOffsetX(), getOffsetY(), getOffsetZ(), getSpeed(), getAmount(), new int[0]);
             }
         } catch (Exception ignored) {
         }
         return null;
+    }
+    
+    /**
+     * Creates a new packet for particles that support custom textures.
+     * <p>
+     * <b>Note: This method does not check if the given particle and
+     * data match!</b>
+     *
+     * @param location the {@link Location} the particle should be displayed at.
+     * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
+     * @see PropertyType#REQUIRES_BLOCK
+     * @see PropertyType#REQUIRES_ITEM
+     */
+    private Object createTexturedParticlePacket(Location location) {
+        ParticleEffect effect = getParticle();
+        ParticleData data = getParticleData();
+        int version = ReflectionUtils.MINECRAFT_VERSION;
+        return createPacket(version < 13 ? effect.getNMSObject() : data.toNMSData(),
+                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                getOffsetX(), getOffsetY(), getOffsetZ(),
+                getSpeed(), getAmount(), version < 13 ? (int[]) data.toNMSData() : new int[0]
+        );
+    }
+    
+    /**
+     * Creates a new packet for particles that support custom colors.
+     * <p>
+     * <b>Note: This method does not check if the given particle and
+     * data match!</b>
+     *
+     * @param location the {@link Location} the particle should be displayed at.
+     * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
+     * @see PropertyType#COLORABLE
+     */
+    private Object createColoredParticlePacket(Location location) {
+        ParticleEffect effect = getParticle();
+        ParticleData data = getParticleData();
+        if (data instanceof NoteColor && effect.equals(NOTE)) {
+            return createPacket(effect.getNMSObject(),
+                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                    ((NoteColor) data).getRed(), 0f, 0f,
+                    getSpeed(), getAmount(), new int[0]
+            );
+        } else if (data instanceof RegularColor) {
+            RegularColor color = ((RegularColor) data);
+            if (ReflectionUtils.MINECRAFT_VERSION < 13 || !effect.equals(REDSTONE)) {
+                return createPacket(effect.getNMSObject(),
+                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                        (effect.equals(REDSTONE) && color.getRed() == 0 ? Float.MIN_NORMAL : color.getRed()), color.getGreen(), color.getBlue(),
+                        1f, 0, new int[0]
+                );
+            } else {
+                return createPacket(data.toNMSData(),
+                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                        getOffsetX(), getOffsetY(), getOffsetZ(),
+                        getSpeed(), getAmount(), new int[0]
+                );
+            }
+        } else return null;
     }
     
     /**
