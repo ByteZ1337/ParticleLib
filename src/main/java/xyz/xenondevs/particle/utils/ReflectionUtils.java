@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2020 Xenondevs
+ * Copyright (c) 2021 ByteZ1337
  *
  * The MIT License (MIT)
  *
