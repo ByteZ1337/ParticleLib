@@ -69,7 +69,7 @@ public class ReflectionUtils {
     /**
      * A cache for playerconnections.
      */
-    private static final PlayerConnectionCache PLAYER_CONNECTION_CACHE;
+    public static final PlayerConnectionCache PLAYER_CONNECTION_CACHE;
     
     /**
      * The current {@link Plugin} using ParticleLib.
