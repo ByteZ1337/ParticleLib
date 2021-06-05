@@ -40,7 +40,7 @@ import java.util.Objects;
  * list of targeted {@link Player Players}. Custom implementations
  * of this class are encouraged if none of the built-in tasks match.
  * <p>
- * <b>A more in depth explanation can be found on the</b> <a href="https://github.com/ByteZ1337/ParticleLib/wiki/ParticleTasks-%7C-Repeatingly-displaying-particles">Wiki</a>
+ * <b>A more in depth explanation can be found on the</b> <a href="https://github.com/ByteZ1337/ParticleLib/wiki/ParticleTasks">Wiki</a>
  * <p>
  * This class holds the basic information needed by the
  * {@link TaskManager}.
