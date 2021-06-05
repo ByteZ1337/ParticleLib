@@ -36,7 +36,7 @@ import java.util.Random;
  * @author ByteZ
  * @since 14.09.2018
  */
-public class MathUtils {
+public final class MathUtils {
     
     /**
      * A easy to access {@link Random} implementation for random number

@@ -18,7 +18,7 @@ import java.util.function.Predicate;
  * @author ByteZ
  * @since 24/01/2020
  */
-public class ParticleBuilder {
+public final class ParticleBuilder {
     
     /**
      * The {@link ParticleEffect} which should be displayed by the client.

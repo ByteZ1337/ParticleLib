@@ -40,7 +40,7 @@ import java.util.Map;
  * methods for each packet.
  * @author ByteZ
  */
-public class PlayerConnectionCache implements Listener {
+public final class PlayerConnectionCache implements Listener {
     
     /**
      * A {@link HashMap} containing a cache of player connections

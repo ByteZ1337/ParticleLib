@@ -49,7 +49,7 @@ import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
  * @author ByteZ
  * @since 10.06.2019
  */
-public class ParticlePacket {
+public final class ParticlePacket {
     
     /**
      * The {@link ParticleEffect} which should be displayed by the client.
@@ -246,7 +246,6 @@ public class ParticlePacket {
         try {
             ParticleEffect effect = getParticle();
             ParticleData data = getParticleData();
-            int version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;
             if (data != null) {

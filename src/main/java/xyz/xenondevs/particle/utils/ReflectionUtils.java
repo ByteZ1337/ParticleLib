@@ -42,7 +42,7 @@ import static xyz.xenondevs.particle.ParticleConstants.PLUGIN_CLASS_LOADER_PLUGI
  * @see ParticleConstants
  * @since 30.08.2018
  */
-public class ReflectionUtils {
+public final class ReflectionUtils {
     
     /* ---------------- NMS & CB paths ---------------- */
     

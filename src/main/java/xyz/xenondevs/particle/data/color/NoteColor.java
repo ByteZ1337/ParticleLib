@@ -38,7 +38,7 @@ import xyz.xenondevs.particle.utils.MathUtils;
  * @see ParticleEffect#NOTE
  * @since 10.06.2019
  */
-public class NoteColor extends ParticleColor {
+public final class NoteColor extends ParticleColor {
     
     /**
      * Initializes a new {@link ParticleData} object.

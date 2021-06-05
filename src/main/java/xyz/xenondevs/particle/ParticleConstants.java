@@ -40,7 +40,7 @@ import static xyz.xenondevs.particle.utils.ReflectionUtils.*;
  * @author ByteZ
  * @since 10.06.2019
  */
-public class ParticleConstants {
+public final class ParticleConstants {
     
     /* ---------------- Classes ---------------- */
     

@@ -42,7 +42,7 @@ import java.awt.*;
  * @see PropertyType#COLORABLE
  * @since 10.06.2019
  */
-public class RegularColor extends ParticleColor {
+public final class RegularColor extends ParticleColor {
     
     /**
      * Initializes a new {@link ParticleData} object.

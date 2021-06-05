@@ -39,7 +39,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
  * @see PropertyType#REQUIRES_ITEM
  * @since 11.06.2019
  */
-public class ItemTexture extends ParticleTexture {
+public final class ItemTexture extends ParticleTexture {
     
     /**
      * The {@link ItemStack} that will be displayed by the particle.

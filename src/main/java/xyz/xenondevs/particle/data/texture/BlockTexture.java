@@ -41,7 +41,7 @@ import java.lang.reflect.Field;
  * @see PropertyType#REQUIRES_BLOCK
  * @since 11.06.2019
  */
-public class BlockTexture extends ParticleTexture {
+public final class BlockTexture extends ParticleTexture {
     
     /**
      * Initializes a new {@link ParticleData} object.
