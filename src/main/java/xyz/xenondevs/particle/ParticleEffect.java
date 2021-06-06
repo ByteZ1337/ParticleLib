@@ -77,6 +77,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #DRIPPING_HONEY}</li>
  * <li>{@link #DRIPPING_OBSIDIAN_TEAR}</li>
  * <li>{@link #DUST_COLOR_TRANSITION}</li>
+ * <li>{@link #ELECTRIC_SPARK}</li>
  * <li>{@link #ENCHANTMENT_TABLE}</li>
  * <li>{@link #END_ROD}</li>
  * <li>{@link #EXPLOSION_HUGE}</li>
@@ -100,11 +101,14 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #LANDING_HONEY}</li>
  * <li>{@link #LANDING_OBSIDIAN_TEAR}</li>
  * <li>{@link #LAVA}</li>
+ * <li>{@link #LIGHT}</li>
  * <li>{@link #MOB_APPEARANCE}</li>
  * <li>{@link #NAUTILUS}</li>
  * <li>{@link #NOTE}</li>
  * <li>{@link #PORTAL}</li>
  * <li>{@link #REDSTONE}</li>
+ * <li>{@link #REVERSE_PORTAL}</li>
+ * <li>{@link #SCRAPE}</li>
  * <li>{@link #SLIME}</li>
  * <li>{@link #SMOKE_LARGE}</li>
  * <li>{@link #SMOKE_NORMAL}</li>
@@ -135,6 +139,8 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #WATER_DROP}</li>
  * <li>{@link #WATER_SPLASH}</li>
  * <li>{@link #WATER_WAKE}</li>
+ * <li>{@link #WAX_OFF}</li>
+ * <li>{@link #WAX_ON}</li>
  * <li>{@link #WHITE_ASH}</li>
  * </ul>
  *
@@ -451,6 +457,10 @@ public enum ParticleEffect {
      */
     DUST_COLOR_TRANSITION(version -> version < 17 ? "NONE" : "dust_color_transition"),
     /**
+     * 1.17 Placeholder
+     */
+    ELECTRIC_SPARK(version -> version < 17 ? "NONE" : "electric_spark"),
+    /**
      * In the base game this particle is displayed by bookshelves near
      * an enchanting table.
      * <p>
@@ -722,6 +732,10 @@ public enum ParticleEffect {
      */
     LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "LAVA" : "lava")),
     /**
+     * 1.17 Placeholder
+     */
+    LIGHT(version -> version < 17 ? "NONE" : "light"),
+    /**
      * In the base game this particle is displayed by elder guardians.
      * <p>
      * The particle is displayed clientside
@@ -811,6 +825,10 @@ public enum ParticleEffect {
      * </ul>
      */
     REVERSE_PORTAL(version -> version < 16 ? "NONE" : "reverse_portal", DIRECTIONAL),
+    /**
+     * 1.17 Placeholder
+     */
+    SCRAPE(version -> version < 17 ? "NONE" : "scrape"),
     /**
      * In the base game this particle is displayed by jumping slimes.
      * <p>
@@ -1194,6 +1212,14 @@ public enum ParticleEffect {
      * </ul>
      */
     WATER_WAKE(version -> version < 8 ? "NONE" : (version < 13 ? "WATER_WAKE" : "fishing"), DIRECTIONAL),
+    /**
+     * 1.17 Placeholder
+     */
+    WAX_OFF(version -> version < 17 ? "NONE" : "wax_off"),
+    /**
+     * 1.17 Placeholder
+     */
+    WAX_ON(version -> version < 17 ? "NONE" : "wax_on"),
     /**
      * In the base game this particle is randomly displayed in the
      * basalt deltas nether biome.
