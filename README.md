@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  <b>A spigot library supporting all particles from <code>1.8</code> to <code>1.16.5</code></b><br><br>
+  <b>A spigot library supporting all particles from <code>1.8</code> to <code>1.17</code></b><br><br>
   <a href="https://app.codacy.com/manual/ByteZ1337/ParticleLib?utm_source=github.com&utm_medium=referral&utm_content=ByteZ1337/ParticleLib&utm_campaign=Badge_Grade_Dashboard">
     <img src="https://api.codacy.com/project/badge/Grade/166f125b74014326831ca21c1d7df65b" alt="codacy"/>
   </a>
@@ -28,7 +28,7 @@
 
 ## Features
 
-* Multiversion support from 1.8 - 1.16.5 <sup>(All in one Jar)</sup>
+* Multiversion support from 1.8 - 1.17 <sup>(All in one Jar)</sup>
 * Colored particles
 * Moving particles with velocities
 * Particles with textures
@@ -37,17 +37,18 @@
 
 ## Download
 
-The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/ParticleLib"/> can be downloaded on the 
+The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/ParticleLib"/> can be downloaded on the
 <a href="https://github.com/ByteZ1337/ParticleLib/releases">releases</a> page.<br>
 
 ### Maven
 
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>xyz.xenondevs</groupId>
         <artifactId>particle</artifactId>
-        <version>1.5.1</version>
+        <version>1.6</version>
     </dependency>
 </dependencies>
 ```
@@ -56,7 +57,7 @@ The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/P
 
 ```groovy
 dependencies {
-    implementation 'xyz.xenondevs:particle:1.5.1'
+    implementation 'xyz.xenondevs:particle:1.6'
 }
 ```
 
@@ -70,36 +71,42 @@ To spawn particles, you can either use the ``ParticleEffet#display`` method, or 
 <br>For normal particles without any extra data, the display method is the best choice.
 
 **Example:**
+
 ```java
 ParticleEffect.FLAME.display(location);
 ```
+
 This code will spawn a flame particle at the specified location.
 
 **Some particles can have extra data. This data can contain a range of different properties.**<br>
-For these special cases, I will only use the ParticleBuilder. Display methods with the specific
-parameters still exist, but shouldn't be used to avoid confusion.
+For these special cases, I will only use the ParticleBuilder. Display methods with the specific parameters still exist,
+but shouldn't be used to avoid confusion.
 
 ---
 
 ### Directional
 
-Some particles accept a custom velocity. When given a ``Vector`` they will travel to the specified offset. The velocity is
-stored in the offsetX, offsetY and offsetZ properties of the particle.
+Some particles accept a custom velocity. When given a ``Vector`` they will travel to the specified offset. The velocity
+is stored in the offsetX, offsetY and offsetZ properties of the particle.
 
 To see if a particle is Directional check if it has the ``DIRECTIONAL`` PropertyType.
 
-**Note:** The particles ``Enchantment_Table`` and ``Nautilus`` will be displayed at the offset location and fly to the original location.
+**Note:** The particles ``Enchantment_Table`` and ``Nautilus`` will be displayed at the offset location and fly to the
+original location.
 
 **Example:**
+
 ```java
-new ParticleBuilder(ParticleEffect.FLAME, player.getLocation())
+new ParticleBuilder(ParticleEffect.FLAME,player.getLocation())
         .setOffsetY(1f)
         .setSpeed(0.1f)
         .display();
 ```
+
 This code will spawn a flame particle that flies to the player's head.<br>
 
-Minecraft's particles can behave quite weirdly, so you may have to tweak the speed parameter when using directional particles.
+Minecraft's particles can behave quite weirdly, so you may have to tweak the speed parameter when using directional
+particles.
 
 ---
 
@@ -107,6 +114,7 @@ Minecraft's particles can behave quite weirdly, so you may have to tweak the spe
 
 A few particles like ``Redstone`` can have custom colors applied to them. This color can be set with ``ParticleColor``
 implementations:
+
 * ``RegularColor``
 * ``NoteColor``
 
@@ -115,52 +123,65 @@ If your plugin runs on a pre 1.13 server, you can also set the RGB values in the
 To see if a particle is colorable check if it has the ``COLORABLE`` PropertyType.
 
 **Note:**
-* Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties can be properly used on servers above 1.13.
-* ``Note`` particles don't accept a custom color. Instead, they support a note value from 0 to 24. Use ``NoteColor`` for this particle.
+
+* Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties
+  can be properly used on servers above 1.13.
+* ``Note`` particles don't accept a custom color. Instead, they support a note value from 0 to 24. Use ``NoteColor`` for
+  this particle.
 
 **Regular Example:**
+
 ```java
-new ParticleBuilder(ParticleEffect.REDSTONE, location)
-        .setParticleData(new RegularColor(255, 255, 0))
+new ParticleBuilder(ParticleEffect.REDSTONE,location)
+        .setParticleData(new RegularColor(255,255,0))
         .display()
 ```
+
 This code will spawn a yellow ``Redstone`` particle at the specified location.
 
-``setParticleData(new RegularColor(255, 255, 0))`` can also be replaced with ``setColor(Color.YELLOW)`` in case you want to use ``java.awt.Color`` instead.
+``setParticleData(new RegularColor(255, 255, 0))`` can also be replaced with ``setColor(Color.YELLOW)`` in case you want
+to use ``java.awt.Color`` instead.
 
 **Note Example:**
+
 ```java
-new ParticleBuilder(ParticleEffect.NOTE, location)
+new ParticleBuilder(ParticleEffect.NOTE,location)
         .setParticleData(new NoteColor(1))
         .display()
 ```
+
 This code will spawn a green ``Note`` particle at the specified location.
 
 ---
 
 ### Textured
 
-Several particles even accept textures as custom properties! These textures are modified with implementations of the 
+Several particles even accept textures as custom properties! These textures are modified with implementations of the
 ``ParticleTexture`` class:
+
 * ``BlockTexture``
 * ``ItemTexture``
 
 **Warning:** These particles **NEED** the texture property, or the particle won't be displayed.
 
-To see if a particle supports custom textures check if it has the ``REQUIRES_BLOCK`` or the ``REQUIRES_ITEM`` PropertyType.
+To see if a particle supports custom textures check if it has the ``REQUIRES_BLOCK`` or the ``REQUIRES_ITEM``
+PropertyType.
 
 <b>Block texture example:</b>
+
 ```java
-new ParticleBuilder(ParticleEffect.FALLING_DUST, location)
+new ParticleBuilder(ParticleEffect.FALLING_DUST,location)
         .setParticleData(new BlockTexture(Material.STONE))
         .display()
 ```
+
 This code will spawn a ``Falling Dust`` particle with a stone texture.
 
 <b>Item texture example:</b>
+
 ```java
-ItemStack item = new ItemStack(Material.DIAMOND_AXE);
-new ParticleBuilder(ParticleEffect.ITEM_CRACK, location)
+ItemStack item=new ItemStack(Material.DIAMOND_AXE);
+        new ParticleBuilder(ParticleEffect.ITEM_CRACK,location)
         .setParticleData(new ItemTexture(item))
         .display();
 ```

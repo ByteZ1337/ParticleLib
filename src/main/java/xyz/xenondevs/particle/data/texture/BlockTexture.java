@@ -32,6 +32,9 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 import java.lang.reflect.Field;
 
+import static xyz.xenondevs.particle.ParticleConstants.BLOCK_REGISTRY;
+import static xyz.xenondevs.particle.ParticleConstants.REGISTRY_GET_METHOD;
+
 /**
  * A implementation of the {@link ParticleTexture} object to support block texture particles.
  *
@@ -91,12 +94,17 @@ public final class BlockTexture extends ParticleTexture {
      *                 getted.
      * @return the block data of the specified {@link Material} or {@code null} when an error occurs.
      */
-    public Object getBlockData(Material material) {
+    public Object getBlockData(Material material) { // FIXME
         try {
-            Field blockField = ReflectionUtils.getFieldOrNull(ParticleConstants.BLOCKS_CLASS, material.name(), false);
-            if (blockField == null)
-                return null;
-            Object block = ReflectionUtils.readField(blockField, null);
+            Object block;
+            if (ReflectionUtils.MINECRAFT_VERSION < 17) {
+                Field blockField = ReflectionUtils.getFieldOrNull(ParticleConstants.BLOCKS_CLASS, material.name(), false);
+                if (blockField == null)
+                    return null;
+                block = ReflectionUtils.readField(blockField, null);
+            } else
+                block = REGISTRY_GET_METHOD.invoke(BLOCK_REGISTRY, ReflectionUtils.getMinecraftKey(material.name().toLowerCase()));
+            
             return ParticleConstants.BLOCK_GET_BLOCK_DATA_METHOD.invoke(block);
         } catch (Exception ex) {
             return null;

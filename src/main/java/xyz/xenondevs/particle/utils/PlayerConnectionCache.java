@@ -36,6 +36,7 @@ import java.util.Map;
 /**
  * A cache for player connections to avoid calling reflective
  * methods for each packet.
+ *
  * @author ByteZ
  */
 public final class PlayerConnectionCache implements Listener {

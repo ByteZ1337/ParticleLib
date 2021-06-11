@@ -55,6 +55,12 @@ public final class TaskManager {
     private final List<Integer> runningTasks = new ArrayList<>();
     
     /**
+     * Private constructor because this is a singleton class.
+     */
+    private TaskManager() {
+    }
+    
+    /**
      * Starts a new Timer for the given task.
      *
      * @param task the task that should be added to the scheduler

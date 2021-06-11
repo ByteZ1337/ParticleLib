@@ -67,6 +67,10 @@ public final class ParticleConstants {
      */
     public static final Class MINECRAFT_KEY_CLASS;
     /**
+     * Represents the Vector3f class.
+     */
+    public static final Class VECTOR_3FA_CLASS;
+    /**
      * Represents the abstract IRegistry class.
      */
     public static final Class REGISTRY_CLASS;
@@ -75,6 +79,10 @@ public final class ParticleConstants {
      */
     public static final Class BLOCK_CLASS;
     /**
+     * Represents the BlockPosition class.
+     */
+    public static final Class BLOCK_POSITION_CLASS;
+    /**
      * Represents the IBLockData interface.
      */
     public static final Class BLOCK_DATA_INTERFACE;
@@ -82,6 +90,14 @@ public final class ParticleConstants {
      * Represents the Blocks class.
      */
     public static final Class BLOCKS_CLASS;
+    /**
+     * Represents the BlockPositionSource class.
+     */
+    public static final Class BLOCK_POSITION_SOURCE_CLASS;
+    /**
+     * Represents the VibrationPath class.
+     */
+    public static final Class VIBRATION_PATH_CLASS;
     /**
      * Represents the EntityPlayer class.
      */
@@ -107,6 +123,10 @@ public final class ParticleConstants {
      */
     public static final Class PARTICLE_PARAM_REDSTONE_CLASS;
     /**
+     * Represents the DustColorTransitionOptions class.
+     */
+    public static final Class PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS;
+    /**
      * Represents the ParticleParamBlock class.
      */
     public static final Class PARTICLE_PARAM_BLOCK_CLASS;
@@ -114,6 +134,10 @@ public final class ParticleConstants {
      * Represents the ParticleParamItem class.
      */
     public static final Class PARTICLE_PARAM_ITEM_CLASS;
+    /**
+     * Represents the VibrationParticleOption class.
+     */
+    public static final Class PARTICLE_PARAM_VIBRATION_CLASS;
     /**
      * Represents the PluginClassLoader class.
      */
@@ -164,9 +188,29 @@ public final class ParticleConstants {
      */
     public static final Constructor MINECRAFT_KEY_CONSTRUCTOR;
     /**
+     * Represents the Vector3fa constructor.
+     */
+    public static final Constructor VECTOR_3FA_CONSTRUCTOR;
+    /**
+     * Represents the BlockPosition constructor.
+     */
+    public static final Constructor BLOCK_POSITION_CONSTRUCTOR;
+    /**
+     * Represents the BlockPositionSource constructor.
+     */
+    public static final Constructor BLOCK_POSITION_SOURCE_CONSTRUCTOR;
+    /**
+     * Represents the VibrationPath constructor.
+     */
+    public static final Constructor VIBRATION_PATH_CONSTRUCTOR;
+    /**
      * Represents the ParticleParamRedstone constructor.
      */
     public static final Constructor PARTICLE_PARAM_REDSTONE_CONSTRUCTOR;
+    /**
+     * Represents the DustColorTransitionOptions constructor.
+     */
+    public static final Constructor PARTICLE_PARAM_DUST_COLOR_TRANSITION_CONSTRUCTOR;
     /**
      * Represents the ParticleParamBlock constructor.
      */
@@ -175,6 +219,11 @@ public final class ParticleConstants {
      * Represents the ParticleParamItem constructor.
      */
     public static final Constructor PARTICLE_PARAM_ITEM_CONSTRUCTOR;
+    /**
+     * Represents the VibrationParticleOption constructor.
+     */
+    public static final Constructor PARTICLE_PARAM_VIBRATION_CONSTRUCTOR;
+    
     
     /* ---------------- Object constants ---------------- */
     
@@ -182,30 +231,40 @@ public final class ParticleConstants {
      * Represents the ParticleType Registry.
      */
     public static final Object PARTICLE_TYPE_REGISTRY;
+    /**
+     * Represents the Block Registry.
+     */
+    public static final Object BLOCK_REGISTRY;
     
     /* ---------------- INIT ---------------- */
     
     static {
         int version = MINECRAFT_VERSION;
         // Classes
-        ITEM_STACK_CLASS = getNMSClass("ItemStack");
-        PACKET_CLASS = getNMSClass("Packet");
-        PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS = getNMSClass("PacketPlayOutWorldParticles");
+        ITEM_STACK_CLASS = getNMSClass(version < 17 ? "ItemStack" : "world.item.ItemStack");
+        PACKET_CLASS = getNMSClass(version < 17 ? "Packet" : "network.protocol.Packet");
+        PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS = getNMSClass(version < 17 ? "PacketPlayOutWorldParticles" : "network.protocol.game.PacketPlayOutWorldParticles");
         PARTICLE_ENUM = version < 13 ? getNMSClass("EnumParticle") : null;
-        PARTICLE_CLASS = version < 13 ? null : getNMSClass("Particle");
-        MINECRAFT_KEY_CLASS = getNMSClass("MinecraftKey");
-        REGISTRY_CLASS = version < 13 ? null : getNMSClass("IRegistry");
-        BLOCK_CLASS = getNMSClass("Block");
-        BLOCK_DATA_INTERFACE = getNMSClass("IBlockData");
-        BLOCKS_CLASS = version < 13 ? null : getNMSClass("Blocks");
-        ENTITY_PLAYER_CLASS = getNMSClass("EntityPlayer");
-        PLAYER_CONNECTION_CLASS = getNMSClass("PlayerConnection");
+        PARTICLE_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "Particle" : "core.particles.Particle");
+        MINECRAFT_KEY_CLASS = getNMSClass(version < 17 ? "MinecraftKey" : "resources.MinecraftKey");
+        VECTOR_3FA_CLASS = version < 17 ? getNMSClass("Vector3f") : getClassSafe("com.mojang.math.Vector3fa");
+        REGISTRY_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "IRegistry" : "core.IRegistry");
+        BLOCK_CLASS = getNMSClass(version < 17 ? "Block" : "world.level.block.Block");
+        BLOCK_POSITION_CLASS = getNMSClass(version < 17 ? "BlockPosition" : "core.BlockPosition");
+        BLOCK_DATA_INTERFACE = getNMSClass(version < 17 ? "IBlockData" : "world.level.block.state.IBlockData");
+        BLOCKS_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "Blocks" : "world.level.block.Blocks");
+        BLOCK_POSITION_SOURCE_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.BlockPositionSource");
+        VIBRATION_PATH_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.vibrations.VibrationPath");
+        ENTITY_PLAYER_CLASS = getNMSClass(version < 17 ? "EntityPlayer" : "server.level.EntityPlayer");
+        PLAYER_CONNECTION_CLASS = getNMSClass(version < 17 ? "PlayerConnection" : "server.network.PlayerConnection");
         CRAFT_PLAYER_CLASS = getCraftBukkitClass("entity.CraftPlayer");
         CRAFT_ITEM_STACK_CLASS = getCraftBukkitClass("inventory.CraftItemStack");
-        PARTICLE_PARAM_CLASS = version < 13 ? null : getNMSClass("ParticleParam");
-        PARTICLE_PARAM_REDSTONE_CLASS = version < 13 ? null : getNMSClass("ParticleParamRedstone");
-        PARTICLE_PARAM_BLOCK_CLASS = version < 13 ? null : getNMSClass("ParticleParamBlock");
-        PARTICLE_PARAM_ITEM_CLASS = version < 13 ? null : getNMSClass("ParticleParamItem");
+        PARTICLE_PARAM_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParam" : "core.particles.ParticleParam");
+        PARTICLE_PARAM_REDSTONE_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamRedstone" : "core.particles.ParticleParamRedstone");
+        PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS = version < 17 ? null : getNMSClass("core.particles.DustColorTransitionOptions");
+        PARTICLE_PARAM_BLOCK_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamBlock" : "core.particles.ParticleParamBlock");
+        PARTICLE_PARAM_ITEM_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamItem" : "core.particles.ParticleParamItem");
+        PARTICLE_PARAM_VIBRATION_CLASS = version < 17 ? null : getNMSClass("core.particles.VibrationParticleOption");
         PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
         // Methods
         REGISTRY_GET_METHOD = version < 13 ? null : getMethodOrNull(REGISTRY_CLASS, "get", MINECRAFT_KEY_CLASS);
@@ -213,22 +272,38 @@ public final class ParticleConstants {
         CRAFT_PLAYER_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_PLAYER_CLASS, "getHandle");
         BLOCK_GET_BLOCK_DATA_METHOD = getMethodOrNull(BLOCK_CLASS, "getBlockData");
         CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
-        //Fields
-        ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getFieldOrNull(ENTITY_PLAYER_CLASS, "playerConnection", false);
+        // Fields
+        ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getFieldOrNull(ENTITY_PLAYER_CLASS, version < 17 ? "playerConnection" : "b", false);
         PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
-        //Constructors
+        // Constructors
+        
         if (version < 13)
             PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR = getConstructorOrNull(PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS, PARTICLE_ENUM, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
         else if (version < 15)
             PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR = getConstructorOrNull(PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS, PARTICLE_PARAM_CLASS, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class);
         else
             PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR = getConstructorOrNull(PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS, PARTICLE_PARAM_CLASS, boolean.class, double.class, double.class, double.class, float.class, float.class, float.class, float.class, int.class);
+        
         MINECRAFT_KEY_CONSTRUCTOR = getConstructorOrNull(MINECRAFT_KEY_CLASS, String.class);
-        PARTICLE_PARAM_REDSTONE_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_REDSTONE_CLASS, float.class, float.class, float.class, float.class);
+        VECTOR_3FA_CONSTRUCTOR = getConstructorOrNull(VECTOR_3FA_CLASS, float.class, float.class, float.class);
+        BLOCK_POSITION_CONSTRUCTOR = getConstructorOrNull(BLOCK_POSITION_CLASS, double.class, double.class, double.class);
+        BLOCK_POSITION_SOURCE_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(BLOCK_POSITION_SOURCE_CLASS, BLOCK_POSITION_CLASS);
+        VIBRATION_PATH_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(VIBRATION_PATH_CLASS, BLOCK_POSITION_CLASS, getNMSClass("world.level.gameevent.PositionSource"), int.class);
+        
+        if (version < 13)
+            PARTICLE_PARAM_REDSTONE_CONSTRUCTOR = null;
+        else if (version < 17)
+            PARTICLE_PARAM_REDSTONE_CONSTRUCTOR = getConstructorOrNull(PARTICLE_PARAM_REDSTONE_CLASS, float.class, float.class, float.class, float.class);
+        else
+            PARTICLE_PARAM_REDSTONE_CONSTRUCTOR = getConstructorOrNull(PARTICLE_PARAM_REDSTONE_CLASS, VECTOR_3FA_CLASS, float.class);
+        
+        PARTICLE_PARAM_DUST_COLOR_TRANSITION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS, VECTOR_3FA_CLASS, VECTOR_3FA_CLASS, float.class);
         PARTICLE_PARAM_BLOCK_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_BLOCK_CLASS, PARTICLE_CLASS, BLOCK_DATA_INTERFACE);
         PARTICLE_PARAM_ITEM_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_ITEM_CLASS, PARTICLE_CLASS, ITEM_STACK_CLASS);
+        PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, VIBRATION_PATH_CLASS);
         // Constants
-        PARTICLE_TYPE_REGISTRY = version < 13 ? null : readField(getFieldOrNull(REGISTRY_CLASS, "PARTICLE_TYPE", false), null);
+        PARTICLE_TYPE_REGISTRY = version < 13 ? null : readField(getFieldOrNull(REGISTRY_CLASS, version < 17 ? "PARTICLE_TYPE" : "ab", false), null);
+        BLOCK_REGISTRY = version < 17 ? null : readField(getFieldOrNull(REGISTRY_CLASS, "W", false), null);
     }
     
 }

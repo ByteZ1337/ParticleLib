@@ -97,7 +97,7 @@ public final class NoteColor extends ParticleColor {
      */
     @Override
     public Object toNMSData() {
-        return null;
+        return new int[0];
     }
     
     /**

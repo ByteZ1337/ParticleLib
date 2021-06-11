@@ -49,7 +49,7 @@ public final class ParticleUtils {
      * calling the ConnectionCache for each packet.
      *
      * @param packets the packets that should be sent to the player
-     * @param player the target {@link Player} that should receive the packets
+     * @param player  the target {@link Player} that should receive the packets
      */
     public static void sendBulk(Collection<Object> packets, Player player) {
         Object connection = ReflectionUtils.PLAYER_CONNECTION_CACHE.getConnection(player);
@@ -94,7 +94,7 @@ public final class ParticleUtils {
      * in a local variable instead of calling the ConnectionCache for each packet.
      *
      * @param builders the {@link ParticleBuilder ParticleBuilders} that should be converted and sent to the player
-     * @param player the target {@link Player} that should receive the packets
+     * @param player   the target {@link Player} that should receive the packets
      */
     public static void sendBulkBuilders(Collection<ParticleBuilder> builders, Player player) {
         sendBulk(builders.stream().map(ParticleBuilder::toPacket).collect(Collectors.toList()), player);
@@ -106,7 +106,7 @@ public final class ParticleUtils {
      * in a local variable instead of calling the ConnectionCache for each packet.
      *
      * @param builders the {@link ParticleBuilder ParticleBuilders} that should be converted and sent to the players
-     * @param players the target {@link Player Players} that should receive the packets
+     * @param players  the target {@link Player Players} that should receive the packets
      */
     public static void sendBulkBuilders(Collection<ParticleBuilder> builders, Collection<Player> players) {
         List<Object> packets = builders.stream().map(ParticleBuilder::toPacket).collect(Collectors.toList());

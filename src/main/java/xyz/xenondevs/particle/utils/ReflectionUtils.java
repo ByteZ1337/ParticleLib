@@ -23,8 +23,8 @@
  */
 package xyz.xenondevs.particle.utils;
 
-
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import xyz.xenondevs.particle.ParticleConstants;
@@ -33,6 +33,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import static xyz.xenondevs.particle.ParticleConstants.BLOCK_POSITION_CONSTRUCTOR;
 import static xyz.xenondevs.particle.ParticleConstants.PLUGIN_CLASS_LOADER_PLUGIN_FIELD;
 
 /**
@@ -77,10 +78,10 @@ public final class ReflectionUtils {
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
         String version = serverPath.substring(serverPath.lastIndexOf(".") + 1);
-        NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft.server." + version;
-        CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         String packageVersion = serverPath.substring(serverPath.lastIndexOf(".") + 2);
         MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
+        NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft" + (MINECRAFT_VERSION < 17 ? ".server." + version : "");
+        CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         PLUGIN = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
         PLAYER_CONNECTION_CACHE = new PlayerConnectionCache();
     }
@@ -375,6 +376,36 @@ public final class ReflectionUtils {
             return null;
         try {
             return ParticleConstants.MINECRAFT_KEY_CONSTRUCTOR.newInstance(key);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
+    /**
+     * Creates a new Vector3fa instance.
+     *
+     * @param x x value of the vector.
+     * @param y y value of the vector.
+     * @param z z value of the vector.
+     * @return a Vector3fa instance with the specified coordinates.
+     */
+    public static Object createVector3fa(float x, float y, float z) {
+        try {
+            return ParticleConstants.VECTOR_3FA_CONSTRUCTOR.newInstance(x, y, z);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
+    /**
+     * Creates a new BlockPosition.
+     *
+     * @param location the {@link Location} of the block.
+     * @return the BlockPosition of the location
+     */
+    public static Object createBlockPosition(Location location) {
+        try {
+            return BLOCK_POSITION_CONSTRUCTOR.newInstance(location.getBlockX(), location.getBlockY(), location.getBlockZ());
         } catch (Exception ex) {
             return null;
         }

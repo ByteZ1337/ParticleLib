@@ -27,6 +27,8 @@ package xyz.xenondevs.particle;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import xyz.xenondevs.particle.data.ParticleData;
+import xyz.xenondevs.particle.data.VibrationData;
+import xyz.xenondevs.particle.data.color.DustData;
 import xyz.xenondevs.particle.data.color.NoteColor;
 import xyz.xenondevs.particle.data.color.ParticleColor;
 import xyz.xenondevs.particle.data.color.RegularColor;
@@ -244,24 +246,51 @@ public final class ParticlePacket {
         try {
             ParticleEffect effect = getParticle();
             ParticleData data = getParticleData();
+            int version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;
             if (data != null) {
                 if (data.getEffect() != effect)
                     return null;
+                Object nmsData = data.toNMSData();
+                if (nmsData == null)
+                    return null;
+                if ((data instanceof DustData && version >= 13)
+                        || (data instanceof VibrationData && version >= 17)
+                        || (data instanceof RegularColor && (version >= 17 && effect.hasProperty(PropertyType.DUST))))
+                    return createGenericParticlePacket(location, nmsData);
                 if ((data instanceof BlockTexture && effect.hasProperty(PropertyType.REQUIRES_BLOCK))
                         || (data instanceof ItemTexture && effect.hasProperty(PropertyType.REQUIRES_ITEM)))
-                    return createTexturedParticlePacket(location);
-                if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE))
-                    return createColoredParticlePacket(location);
-                else
+                    return createTexturedParticlePacket(location, nmsData);
+                if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE)) {
+                    return createColoredParticlePacket(location, nmsData);
+                } else
                     return null;
-            } else if (!effect.hasProperty(PropertyType.REQUIRES_BLOCK) && !effect.hasProperty(PropertyType.REQUIRES_ITEM)) {
-                return createPacket(effect.getNMSObject(), (float) location.getX(), (float) location.getY(), (float) location.getZ(), getOffsetX(), getOffsetY(), getOffsetZ(), getSpeed(), getAmount(), new int[0]);
-            }
+            } else if (!effect.hasProperty(PropertyType.REQUIRES_BLOCK) && !effect.hasProperty(PropertyType.REQUIRES_ITEM))
+                return createPacket(effect.getNMSObject(),
+                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                        getOffsetX(), getOffsetY(), getOffsetZ(),
+                        getSpeed(), getAmount(), new int[0]);
         } catch (Exception ignored) {
         }
         return null;
+    }
+    
+    /**
+     * Creates a new packet for particles that don't need any extra checks.
+     * <b>Note: This method does not check if the given particle and
+     * data match!</b>
+     *
+     * @param location the {@link Location} the particle should be displayed at.
+     * @param param    the pre-built ParticleParam.
+     * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
+     */
+    private Object createGenericParticlePacket(Location location, Object param) {
+        return createPacket(param,
+                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                getOffsetX(), getOffsetY(), getOffsetZ(),
+                getSpeed(), getAmount(), new int[0]
+        );
     }
     
     /**
@@ -271,18 +300,19 @@ public final class ParticlePacket {
      * data match!</b>
      *
      * @param location the {@link Location} the particle should be displayed at.
+     * @param param    the pre-built ParticleParam.
      * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
      * @see PropertyType#REQUIRES_BLOCK
      * @see PropertyType#REQUIRES_ITEM
      */
-    private Object createTexturedParticlePacket(Location location) {
+    private Object createTexturedParticlePacket(Location location, Object param) {
         ParticleEffect effect = getParticle();
         ParticleData data = getParticleData();
         int version = ReflectionUtils.MINECRAFT_VERSION;
-        return createPacket(version < 13 ? effect.getNMSObject() : data.toNMSData(),
+        return createPacket(version < 13 ? effect.getNMSObject() : param,
                 (float) location.getX(), (float) location.getY(), (float) location.getZ(),
                 getOffsetX(), getOffsetY(), getOffsetZ(),
-                getSpeed(), getAmount(), version < 13 ? (int[]) data.toNMSData() : new int[0]
+                getSpeed(), getAmount(), version < 13 ? (int[]) param : new int[0]
         );
     }
     
@@ -293,10 +323,11 @@ public final class ParticlePacket {
      * data match!</b>
      *
      * @param location the {@link Location} the particle should be displayed at.
+     * @param param    the pre-built ParticleParam.
      * @return a PacketPlayOutWorldParticles or {@code null} when something goes wrong.
      * @see PropertyType#COLORABLE
      */
-    private Object createColoredParticlePacket(Location location) {
+    private Object createColoredParticlePacket(Location location, Object param) {
         ParticleEffect effect = getParticle();
         ParticleData data = getParticleData();
         if (data instanceof NoteColor && effect.equals(NOTE)) {
@@ -314,7 +345,7 @@ public final class ParticlePacket {
                         1f, 0, new int[0]
                 );
             } else {
-                return createPacket(data.toNMSData(),
+                return createPacket(param,
                         (float) location.getX(), (float) location.getY(), (float) location.getZ(),
                         getOffsetX(), getOffsetY(), getOffsetZ(),
                         getSpeed(), getAmount(), new int[0]

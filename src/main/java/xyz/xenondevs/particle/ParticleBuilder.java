@@ -27,6 +27,7 @@ package xyz.xenondevs.particle;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.data.color.RegularColor;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
@@ -164,6 +165,34 @@ public final class ParticleBuilder {
      */
     public ParticleBuilder setOffsetY(float offsetY) {
         this.offsetY = offsetY;
+        return this;
+    }
+    
+    /**
+     * Sets the offset.
+     *
+     * @param offsetX The new value of the {@link #offsetX} field
+     * @param offsetY The new value of the {@link #offsetY} field
+     * @param offsetZ The new value of the {@link #offsetZ} field
+     * @return the current instance to support building operations
+     */
+    public ParticleBuilder setOffset(float offsetX, float offsetY, float offsetZ) {
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.offsetZ = offsetZ;
+        return this;
+    }
+    
+    /**
+     * Sets the offset.
+     *
+     * @param offset a {@link Vector} containing the offset values.
+     * @return the current instance to support building operations
+     */
+    public ParticleBuilder setOffset(Vector offset) {
+        this.offsetX = (float) offset.getX();
+        this.offsetY = (float) offset.getX();
+        this.offsetZ = (float) offset.getX();
         return this;
     }
     

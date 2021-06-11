@@ -24,6 +24,8 @@
 
 package xyz.xenondevs.particle;
 
+import xyz.xenondevs.particle.data.color.RegularColor;
+
 /**
  * {@link Enum} to easily define which properties are supported by specific
  * {@link ParticleEffect ParticleEffects}.
@@ -43,7 +45,7 @@ package xyz.xenondevs.particle;
  */
 public enum PropertyType {
     /**
-     * Specifies that the direction of thegiven particle can be edited. This
+     * Directional particles accept a custom vector as the direction. This
      * data is set as the offsetX, offsetY and offsetZ of the particle packet.
      */
     DIRECTIONAL,
@@ -82,5 +84,14 @@ public enum PropertyType {
     /**
      * Specifies that the size of the given particle can be changed in the offsetX parameter.
      */
-    RESIZEABLE
+    RESIZEABLE,
+    /**
+     * A dust particle accepts a custom color and a custom size (between 0-4). Please note that
+     * this {@link PropertyType} is not supported on pre 1.13 servers.
+     *
+     * @see RegularColor
+     * @see ParticleEffect#REDSTONE
+     * @see ParticleEffect#DUST_COLOR_TRANSITION
+     */
+    DUST
 }
