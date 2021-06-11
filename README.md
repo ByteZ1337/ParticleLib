@@ -48,7 +48,7 @@ The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/P
     <dependency>
         <groupId>xyz.xenondevs</groupId>
         <artifactId>particle</artifactId>
-        <version>1.6</version>
+        <version>1.6.1</version>
     </dependency>
 </dependencies>
 ```
@@ -57,7 +57,7 @@ The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/P
 
 ```groovy
 dependencies {
-    implementation 'xyz.xenondevs:particle:1.6'
+    implementation 'xyz.xenondevs:particle:1.6.1'
 }
 ```
 
