@@ -65,6 +65,8 @@ dependencies {
 
 ## Usage
 
+#### For more advanced usage explanations check out the [Wiki](https://github.com/ByteZ1337/ParticleLib/wiki) or the [Javadoc](https://xenondevs.xyz/particledoc/).
+
 ### Simple
 
 To spawn particles, you can either use the ``ParticleEffet#display`` method, or you can use the ``ParticleBuilder``.
