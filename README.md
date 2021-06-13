@@ -65,7 +65,7 @@ dependencies {
 
 ## Usage
 
-#### For more advanced usage explanations check out the [Wiki](https://github.com/ByteZ1337/ParticleLib/wiki) or the [Javadoc](https://xenondevs.xyz/particledoc/).
+<b>For more advanced usage explanations check out the [Wiki](https://github.com/ByteZ1337/ParticleLib/wiki) or the [Javadoc](https://xenondevs.xyz/particledoc/). </b>
 
 ### Simple
 
@@ -126,8 +126,7 @@ To see if a particle is colorable check if it has the ``COLORABLE`` PropertyType
 
 **Note:**
 
-* Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties
-  can be properly used on servers above 1.13.
+* Since 1.13 ``Redstone`` particles are storing their color values in another property. Therefore, the offset properties can be properly used on servers above 1.13.
 * ``Note`` particles don't accept a custom color. Instead, they support a note value from 0 to 24. Use ``NoteColor`` for
   this particle.
 
