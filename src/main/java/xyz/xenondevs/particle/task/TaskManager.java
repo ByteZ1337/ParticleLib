@@ -29,7 +29,6 @@ import org.bukkit.entity.Player;
 import xyz.xenondevs.particle.utils.ParticleUtils;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -50,11 +49,6 @@ public final class TaskManager {
     private final static TaskManager INSTANCE = new TaskManager();
     
     /**
-     * A list of IDs of the currently running tasks
-     */
-    private final List<Integer> runningTasks = new ArrayList<>();
-    
-    /**
      * Private constructor because this is a singleton class.
      */
     private TaskManager() {
@@ -72,7 +66,6 @@ public final class TaskManager {
         int taskId = Bukkit.getScheduler().runTaskTimerAsynchronously(ReflectionUtils.PLUGIN, () -> {
             ParticleUtils.sendBulk(task.getPackets(), task.getTargetPlayers());
         }, 0, task.getTickDelay()).getTaskId();
-        runningTasks.add(taskId);
         
         return taskId;
     }
@@ -83,10 +76,7 @@ public final class TaskManager {
      * @param taskId the id of the task to be stopped.
      */
     public void stopTask(int taskId) {
-        if (!runningTasks.contains(taskId))
-            return;
         Bukkit.getScheduler().cancelTask(taskId);
-        runningTasks.remove(taskId);
     }
     
     /**
