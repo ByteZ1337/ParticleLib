@@ -73,7 +73,7 @@ public final class ReflectionUtils {
     /**
      * The current {@link Plugin} using ParticleLib.
      */
-    public static final Plugin PLUGIN;
+    public static Plugin plugin;
     
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
@@ -82,7 +82,7 @@ public final class ReflectionUtils {
         MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
         NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft" + (MINECRAFT_VERSION < 17 ? ".server." + version : "");
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
-        PLUGIN = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
+        plugin = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
         PLAYER_CONNECTION_CACHE = new PlayerConnectionCache();
     }
     

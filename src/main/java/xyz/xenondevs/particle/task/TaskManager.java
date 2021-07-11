@@ -63,7 +63,7 @@ public final class TaskManager {
      */
     public int startTask(ParticleTask task) {
         //noinspection CodeBlock2Expr
-        int taskId = Bukkit.getScheduler().runTaskTimerAsynchronously(ReflectionUtils.PLUGIN, () -> {
+        int taskId = Bukkit.getScheduler().runTaskTimerAsynchronously(ReflectionUtils.plugin, () -> {
             ParticleUtils.sendBulk(task.getPackets(), task.getTargetPlayers());
         }, 0, task.getTickDelay()).getTaskId();
         
