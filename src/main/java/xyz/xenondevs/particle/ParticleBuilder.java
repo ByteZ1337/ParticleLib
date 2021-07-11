@@ -35,6 +35,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -273,7 +274,9 @@ public final class ParticleBuilder {
      * Displays the given particle to all players.
      */
     public void display() {
-        display(Bukkit.getOnlinePlayers());
+        Object packet = toPacket();
+        Objects.requireNonNull(location.getWorld()).getPlayers()
+                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
     /**
@@ -293,7 +296,10 @@ public final class ParticleBuilder {
      */
     public void display(Predicate<Player> filter) {
         Object packet = toPacket();
-        Bukkit.getOnlinePlayers().stream().filter(filter).forEach(player -> ReflectionUtils.sendPacket(player, packet));
+        Bukkit.getOnlinePlayers()
+                .stream()
+                .filter(p -> filter.test(p) && p.getWorld().equals(location.getWorld()))
+                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
     /**
@@ -303,7 +309,9 @@ public final class ParticleBuilder {
      */
     public void display(Collection<? extends Player> players) {
         Object packet = toPacket();
-        players.forEach(player -> ReflectionUtils.sendPacket(player, packet));
+        players.stream()
+                .filter(p -> p.getWorld().equals(location.getWorld()))
+                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
 }

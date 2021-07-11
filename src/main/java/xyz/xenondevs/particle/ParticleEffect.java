@@ -1566,7 +1566,9 @@ public enum ParticleEffect {
             data.setEffect(this);
         ParticlePacket packet = new ParticlePacket(this, offsetX, offsetY, offsetZ, speed, amount, data);
         Object nmsPacket = packet.createPacket(location);
-        players.forEach(player -> ReflectionUtils.sendPacket(player, nmsPacket));
+        players.stream()
+                .filter(p -> p.getWorld().equals(location.getWorld()))
+                .forEach(p -> ReflectionUtils.sendPacket(p, nmsPacket));
     }
     
 }
