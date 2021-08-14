@@ -34,7 +34,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.awt.*;
 
 /**
- * A implementation of the {@link ParticleColor} class that supports normal RGB values.
+ * An implementation of the {@link ParticleColor} class that supports normal RGB values.
  * <p>
  * If you want to define a custom size for {@link ParticleEffect#REDSTONE} or the second
  * color for {@link ParticleEffect#DUST_COLOR_TRANSITION}, use {@link DustData} and
@@ -138,7 +138,7 @@ public class RegularColor extends ParticleColor {
     
     /**
      * Generates a random {@link RegularColor} instance. If the highSaturation parameter
-     * is set to true, a random hue from the HSV spectrum will be used. Otherwise 3 random
+     * is set to true, a random hue from the HSV spectrum will be used. Otherwise, 3 random
      * integers ranging from 0 to 255 for the RGB values will be generated.
      *
      * @param highSaturation determines if the colors should have a high saturation.
@@ -154,7 +154,7 @@ public class RegularColor extends ParticleColor {
     /**
      * Constructs a {@link RegularColor} using the HSV color spectrum.
      *
-     * @param hue the hue the the specific color has.
+     * @param hue the hue the specific color has.
      * @return a {@link RegularColor} instance with the given HSV value as its {@link Color}.
      * @see Color#HSBtoRGB(float, float, float)
      */

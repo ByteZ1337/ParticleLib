@@ -36,7 +36,7 @@ import static xyz.xenondevs.particle.ParticleConstants.BLOCK_REGISTRY;
 import static xyz.xenondevs.particle.ParticleConstants.REGISTRY_GET_METHOD;
 
 /**
- * A implementation of the {@link ParticleTexture} object to support block texture particles.
+ * An implementation of the {@link ParticleTexture} object to support block texture particles.
  *
  * @author ByteZ
  * @see PropertyType#REQUIRES_BLOCK
@@ -65,7 +65,7 @@ public final class BlockTexture extends ParticleTexture {
     
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
-     * minecraft version was released before 1.13 a int array should be returned. If the
+     * minecraft version was released before 1.13 an int array should be returned. If the
      * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.
@@ -89,9 +89,7 @@ public final class BlockTexture extends ParticleTexture {
     /**
      * Gets the nms block data of the given bukkit {@link Material}.
      *
-     * @param material the {@link Material}
-     *                 whose data should be
-     *                 getted.
+     * @param material the {@link Material} whose data should be got.
      * @return the block data of the specified {@link Material} or {@code null} when an error occurs.
      */
     public Object getBlockData(Material material) { // FIXME

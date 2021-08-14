@@ -37,7 +37,7 @@ import java.util.Random;
 public final class MathUtils {
     
     /**
-     * A easy to access {@link Random} implementation for random number
+     * An easy to access {@link Random} implementation for random number
      * generation. This specific field is mostly used by the random
      * methods of the {@link ParticleData} types.
      */

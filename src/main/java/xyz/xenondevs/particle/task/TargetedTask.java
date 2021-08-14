@@ -35,7 +35,7 @@ import java.util.Objects;
  * a provided {@link Collection} of {@link Player Players}.
  * <p>
  * Please Note that players that leave the server aren't
- * automatically removed from the targets collection.
+ * automatically removed from the targets' collection.
  *
  * @author ByteZ
  * @see ParticleTask

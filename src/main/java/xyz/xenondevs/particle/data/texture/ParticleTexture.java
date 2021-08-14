@@ -29,7 +29,7 @@ import xyz.xenondevs.particle.PropertyType;
 import xyz.xenondevs.particle.data.ParticleData;
 
 /**
- * A implementation of {@link ParticleData} to support particles that require a texture
+ * An implementation of {@link ParticleData} to support particles that require a texture
  * to function properly.
  *
  * @author ByteZ
@@ -79,7 +79,7 @@ public class ParticleTexture extends ParticleData {
     
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
-     * minecraft version was released before 1.13 a int array should be returned. If the
+     * minecraft version was released before 1.13 an int array should be returned. If the
      * version was released after 1.12 a nms "ParticleParam" has to be returned.
      *
      * @return the nms data.

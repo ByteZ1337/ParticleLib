@@ -31,7 +31,7 @@ import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
 /**
- * A implementation of the {@link ParticleTexture} object to support item texture particles.
+ * An implementation of the {@link ParticleTexture} object to support item texture particles.
  *
  * @author ByteZ
  * @see PropertyType#REQUIRES_ITEM
@@ -58,7 +58,7 @@ public final class ItemTexture extends ParticleTexture {
     
     /**
      * Converts the current {@link ParticleData} instance into nms data. If the current
-     * minecraft version was released before 1.13 a int array should be returned. If the
+     * minecraft version was released before 1.13 an int array should be returned. If the
      * version was released after 1.12 a nms ParticleParam has to be returned.
      *
      * @return the nms data.

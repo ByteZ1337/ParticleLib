@@ -53,7 +53,7 @@ public enum PropertyType {
      * Specifies that the color of the given particle can be set. Before 1.13 the
      * RGB values of the color is simply set as the offsetX, offsetY and offsetZ of
      * the particle packet. But that has changed since 1.13. Redstone particles
-     * now have a custom ParticleParam called "ParticleParamRedstone". However other
+     * now have a custom ParticleParam called "ParticleParamRedstone". However, other
      * particles like spell_mob/effect_entity are still handled the old way.
      */
     COLORABLE,
@@ -63,7 +63,7 @@ public enum PropertyType {
      * could easily be set in the constructor of the packet. However, because of
      * the major 1.13 particle changes this data can no longer be set in a simple
      * int array. There is now a custom object to set the data of such
-     * particles. The class of this object is ParticleParamBlock and it
+     * particles. The class of this object is ParticleParamBlock, and it
      * implements the ParticleParam interface, which is now needed in the constructor.
      */
     REQUIRES_BLOCK,
@@ -73,7 +73,7 @@ public enum PropertyType {
      * easily be set in the constructor of the packet. However, because of the
      * major 1.13 particle changes this data can no longer be set in a simple int
      * array. There is now a custom object to set the data of such particles. The
-     * class of this object is ParticleParamItem  and it implements the ParticleParam
+     * class of this object is ParticleParamItem, and it implements the ParticleParam
      * interface, which is now needed in the constructor.
      */
     REQUIRES_ITEM,

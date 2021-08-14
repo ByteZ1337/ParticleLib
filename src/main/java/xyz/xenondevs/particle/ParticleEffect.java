@@ -189,7 +189,7 @@ public enum ParticleEffect {
     BLOCK_CRACK(version -> version < 8 ? "NONE" : (version < 13 ? "BLOCK_CRACK" : "block"), REQUIRES_BLOCK),
     /**
      * In vanilla, this particle is displayed when an entity hits the ground
-     * after falling. It's also displayed when a armorstand is broken.
+     * after falling. It's also displayed when an armorstand is broken.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -304,8 +304,7 @@ public enum ParticleEffect {
      */
     CRIT_MAGIC(version -> version < 8 ? "NONE" : (version < 13 ? "CRIT_MAGIC" : "enchanted_hit"), DIRECTIONAL),
     /**
-     * In vanilla, this particle is displayed by magma blocks
-     * under water.
+     * In vanilla, this particle is displayed by magma blocks underwater.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -657,8 +656,8 @@ public enum ParticleEffect {
     HEART(version -> version < 8 ? "NONE" : (version < 13 ? "HEART" : "heart")),
     /**
      * In vanilla, this particle is displayed when a tool is
-     * broken, a egg or a splash potion hits an entity or a block, It is
-     * also displayed when a player eats or a eye of ender breaks.
+     * broken, an egg or a splash potion hits an entity or a block, It is
+     * also displayed when a player eats or an eye of ender breaks.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -749,8 +748,8 @@ public enum ParticleEffect {
     /**
      * In vanilla, this particle is randomly displayed by nether
      * portal, endermen, ender chests, dragon eggs, endermites and end
-     * gateway portals. It is also displayed when a ender pearl hits
-     * a block or an entity, when a eye of ender beaks or when the player eats
+     * gateway portals. It is also displayed when an ender pearl hits
+     * a block or an entity, when an eye of ender beaks or when the player eats
      * a chorus fruit.
      * <p>
      * <b>Information</b>:
@@ -909,7 +908,7 @@ public enum ParticleEffect {
     SOUL_FIRE_FLAME(version -> version < 16 ? "NONE" : "soul_fire_flame", DIRECTIONAL),
     /**
      * In vanilla, this particle is displayed when a splash potion or
-     * a experience bottle hits a block or an entity. It's also displayed by
+     * an experience bottle hits a block or an entity. It's also displayed by
      * evokers.
      * <p>
      * <b>Information</b>:
@@ -921,7 +920,7 @@ public enum ParticleEffect {
      */
     SPELL(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL" : "effect")),
     /**
-     * In vanilla, this particle is displayed when a instant splash
+     * In vanilla, this particle is displayed when an instant splash
      * potion (e.g. instant health) hits a block or an entity.
      * <p>
      * <b>Information</b>:
@@ -933,8 +932,8 @@ public enum ParticleEffect {
      */
     SPELL_INSTANT(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_INSTANT" : "instant_effect")),
     /**
-     * In vanilla, this particle is displayed when a entity has
-     * a active potion effect with the "ShowParticles" tag set to 1.
+     * In vanilla, this particle is displayed when an entity has
+     * an active potion effect with the "ShowParticles" tag set to 1.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -945,8 +944,8 @@ public enum ParticleEffect {
      */
     SPELL_MOB(version -> version < 8 ? "NONE" : (version < 13 ? "SPELL_MOB" : "entity_effect"), COLORABLE),
     /**
-     * In vanilla, this particle is displayed when a entity has
-     * a active potion effect from a nearby beacon.
+     * In vanilla, this particle is displayed when an entity has
+     * an active potion effect from a nearby beacon.
      * <p>
      * <b>Information</b>:
      * <ul>
@@ -1108,7 +1107,7 @@ public enum ParticleEffect {
      */
     WARPED_SPORE(version -> version < 16 ? "NONE" : "warped_spore"),
     /**
-     * In vanilla, this particle is displayed when a Entity is
+     * In vanilla, this particle is displayed when an Entity is
      * swimming in water, a projectile flies into the water or a fish
      * bites onto the bait.
      * <p>
@@ -1130,7 +1129,7 @@ public enum ParticleEffect {
      */
     WATER_DROP(version -> version > 8 && version < 13 ? "WATER_DROP" : "NONE"),
     /**
-     * In vanilla, this particle is displayed when a Entity is
+     * In vanilla, this particle is displayed when an Entity is
      * swimming in water, wolves shaking  off after swimming or boats.
      * <p>
      * <b>Information</b>:
@@ -1262,7 +1261,7 @@ public enum ParticleEffect {
     /**
      * Checks if the current {@link ParticleEffect} instance supports the given {@link ParticleData}.
      *
-     * @param data the {@link ParticleData} that should that should be checked.
+     * @param data the {@link ParticleData} that should be checked.
      * @return {@code true} if the current instance supports the given {@link ParticleData}.
      */
     public boolean isCorrectData(ParticleData data) {
