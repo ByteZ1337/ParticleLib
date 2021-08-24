@@ -26,7 +26,9 @@ package xyz.xenondevs.particle.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitTask;
 import xyz.xenondevs.particle.ParticleConstants;
 
 import java.lang.reflect.Constructor;
@@ -73,7 +75,7 @@ public final class ReflectionUtils {
     /**
      * The current {@link Plugin} using ParticleLib.
      */
-    public static Plugin plugin;
+    private static Plugin plugin;
     
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
@@ -84,6 +86,31 @@ public final class ReflectionUtils {
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         plugin = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
         PLAYER_CONNECTION_CACHE = new PlayerConnectionCache();
+    }
+    
+    /**
+     * Gets the plugin ParticleLib uses to register
+     * event {@link Listener Listeners} and start
+     * {@link BukkitTask tasks}.
+     *
+     * @return the plugin ParticleLib should use
+     */
+    public static Plugin getPlugin() {
+        return plugin;
+    }
+    
+    /**
+     * Sets the plugin ParticleLib uses to register
+     * event {@link Listener Listeners} and start
+     * {@link BukkitTask tasks}.
+     *
+     * @param plugin the plugin ParticleLib should use
+     */
+    public static void setPlugin(Plugin plugin) {
+        boolean wasNull = ReflectionUtils.plugin == null;
+        ReflectionUtils.plugin = plugin;
+        if (wasNull)
+            PLAYER_CONNECTION_CACHE.registerListener();
     }
     
     /**

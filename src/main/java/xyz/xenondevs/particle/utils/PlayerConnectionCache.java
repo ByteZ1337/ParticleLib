@@ -51,7 +51,16 @@ public final class PlayerConnectionCache implements Listener {
      * as an event listener. The plugin is retrieved from the PluginClassLoader.
      */
     public PlayerConnectionCache() {
-        Bukkit.getServer().getPluginManager().registerEvents(this, ReflectionUtils.plugin);
+        if (ReflectionUtils.getPlugin() != null)
+            registerListener();
+    }
+    
+    /**
+     * Registers the current {@link PlayerConnectionCache} instance as an
+     * event {@link Listener}.
+     */
+    public void registerListener() {
+        Bukkit.getServer().getPluginManager().registerEvents(this, ReflectionUtils.getPlugin());
     }
     
     /**
