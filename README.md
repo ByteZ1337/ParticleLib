@@ -69,7 +69,7 @@ dependencies {
 
 ## Usage
 
-<b>For more advanced usage explanations check out the [Wiki](https://github.com/ByteZ1337/ParticleLib/wiki) or the [Javadoc](https://xenondevs.xyz/particledoc/). </b>
+<b>For more advanced usage explanations check out the [Wiki](https://github.com/ByteZ1337/ParticleLib/wiki). </b>
 
 ### Simple
 
