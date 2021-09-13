@@ -1211,9 +1211,9 @@ public enum ParticleEffect {
     static {
         //noinspection ConstantConditions
         NMS_EFFECTS = Collections.unmodifiableMap(
-                VALUES.stream()
-                        .filter(effect -> !"NONE".equals(effect.getFieldName()))
-                        .collect(Collectors.toMap(Function.identity(), ParticleEffect::getNMSObject))
+            VALUES.stream()
+                .filter(effect -> !"NONE".equals(effect.getFieldName()))
+                .collect(Collectors.toMap(Function.identity(), ParticleEffect::getNMSObject))
         );
     }
     
@@ -1566,8 +1566,8 @@ public enum ParticleEffect {
         ParticlePacket packet = new ParticlePacket(this, offsetX, offsetY, offsetZ, speed, amount, data);
         Object nmsPacket = packet.createPacket(location);
         players.stream()
-                .filter(p -> p.getWorld().equals(location.getWorld()))
-                .forEach(p -> ReflectionUtils.sendPacket(p, nmsPacket));
+            .filter(p -> p.getWorld().equals(location.getWorld()))
+            .forEach(p -> ReflectionUtils.sendPacket(p, nmsPacket));
     }
     
 }

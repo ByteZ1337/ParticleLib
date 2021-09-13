@@ -256,11 +256,11 @@ public final class ParticlePacket {
                 if (nmsData == null)
                     return null;
                 if ((data instanceof DustData && version >= 13)
-                        || (data instanceof VibrationData && version >= 17)
-                        || (data instanceof RegularColor && (version >= 17 && effect.hasProperty(PropertyType.DUST))))
+                    || (data instanceof VibrationData && version >= 17)
+                    || (data instanceof RegularColor && (version >= 17 && effect.hasProperty(PropertyType.DUST))))
                     return createGenericParticlePacket(location, nmsData);
                 if ((data instanceof BlockTexture && effect.hasProperty(PropertyType.REQUIRES_BLOCK))
-                        || (data instanceof ItemTexture && effect.hasProperty(PropertyType.REQUIRES_ITEM)))
+                    || (data instanceof ItemTexture && effect.hasProperty(PropertyType.REQUIRES_ITEM)))
                     return createTexturedParticlePacket(location, nmsData);
                 if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE)) {
                     return createColoredParticlePacket(location, nmsData);
@@ -268,9 +268,9 @@ public final class ParticlePacket {
                     return null;
             } else if (!effect.hasProperty(PropertyType.REQUIRES_BLOCK) && !effect.hasProperty(PropertyType.REQUIRES_ITEM))
                 return createPacket(effect.getNMSObject(),
-                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                        getOffsetX(), getOffsetY(), getOffsetZ(),
-                        getSpeed(), getAmount(), new int[0]);
+                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                    getOffsetX(), getOffsetY(), getOffsetZ(),
+                    getSpeed(), getAmount(), new int[0]);
         } catch (Exception ignored) {
         }
         return null;
@@ -287,9 +287,9 @@ public final class ParticlePacket {
      */
     private Object createGenericParticlePacket(Location location, Object param) {
         return createPacket(param,
-                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                getOffsetX(), getOffsetY(), getOffsetZ(),
-                getSpeed(), getAmount(), new int[0]
+            (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+            getOffsetX(), getOffsetY(), getOffsetZ(),
+            getSpeed(), getAmount(), new int[0]
         );
     }
     
@@ -309,9 +309,9 @@ public final class ParticlePacket {
         ParticleEffect effect = getParticle();
         int version = ReflectionUtils.MINECRAFT_VERSION;
         return createPacket(version < 13 ? effect.getNMSObject() : param,
-                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                getOffsetX(), getOffsetY(), getOffsetZ(),
-                getSpeed(), getAmount(), version < 13 ? (int[]) param : new int[0]
+            (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+            getOffsetX(), getOffsetY(), getOffsetZ(),
+            getSpeed(), getAmount(), version < 13 ? (int[]) param : new int[0]
         );
     }
     
@@ -331,23 +331,23 @@ public final class ParticlePacket {
         ParticleData data = getParticleData();
         if (data instanceof NoteColor && effect.equals(NOTE)) {
             return createPacket(effect.getNMSObject(),
-                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                    ((NoteColor) data).getRed(), 0f, 0f,
-                    getSpeed(), getAmount(), new int[0]
+                (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                ((NoteColor) data).getRed(), 0f, 0f,
+                getSpeed(), getAmount(), new int[0]
             );
         } else if (data instanceof RegularColor) {
             RegularColor color = ((RegularColor) data);
             if (ReflectionUtils.MINECRAFT_VERSION < 13 || !effect.equals(REDSTONE)) {
                 return createPacket(effect.getNMSObject(),
-                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                        (effect.equals(REDSTONE) && color.getRed() == 0 ? Float.MIN_NORMAL : color.getRed()), color.getGreen(), color.getBlue(),
-                        1f, 0, new int[0]
+                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                    (effect.equals(REDSTONE) && color.getRed() == 0 ? Float.MIN_NORMAL : color.getRed()), color.getGreen(), color.getBlue(),
+                    1f, 0, new int[0]
                 );
             } else {
                 return createPacket(param,
-                        (float) location.getX(), (float) location.getY(), (float) location.getZ(),
-                        getOffsetX(), getOffsetY(), getOffsetZ(),
-                        getSpeed(), getAmount(), new int[0]
+                    (float) location.getX(), (float) location.getY(), (float) location.getZ(),
+                    getOffsetX(), getOffsetY(), getOffsetZ(),
+                    getSpeed(), getAmount(), new int[0]
                 );
             }
         } else return null;

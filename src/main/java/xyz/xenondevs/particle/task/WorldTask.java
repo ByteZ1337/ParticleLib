@@ -51,7 +51,7 @@ public final class WorldTask extends ParticleTask {
      *
      * @param packets   {@link List} of packets
      * @param tickDelay The delay of ticks between each execution
-     * @param world  The {@link World} in which the particles should be displayed.
+     * @param world     The {@link World} in which the particles should be displayed.
      */
     public WorldTask(List<Object> packets, int tickDelay, World world) {
         super(packets, tickDelay);

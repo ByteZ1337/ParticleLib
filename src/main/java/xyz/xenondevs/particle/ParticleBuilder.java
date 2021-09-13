@@ -47,10 +47,9 @@ import java.util.function.Predicate;
 public class ParticleBuilder {
     
     /**
-     * The {@link ParticleEffect} which should be displayed by the client.
+     * The {@link ParticleEffect} that should be displayed by the client.
      */
     private final ParticleEffect particle;
-    
     /**
      * The {@link Location} of the particle.
      */
@@ -276,7 +275,7 @@ public class ParticleBuilder {
     public void display() {
         Object packet = toPacket();
         Objects.requireNonNull(location.getWorld()).getPlayers()
-                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
+            .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
     /**
@@ -297,9 +296,9 @@ public class ParticleBuilder {
     public void display(Predicate<Player> filter) {
         Object packet = toPacket();
         Bukkit.getOnlinePlayers()
-                .stream()
-                .filter(p -> filter.test(p) && p.getWorld().equals(location.getWorld()))
-                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
+            .stream()
+            .filter(p -> filter.test(p) && p.getWorld().equals(location.getWorld()))
+            .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
     /**
@@ -310,8 +309,8 @@ public class ParticleBuilder {
     public void display(Collection<? extends Player> players) {
         Object packet = toPacket();
         players.stream()
-                .filter(p -> p.getWorld().equals(location.getWorld()))
-                .forEach(p -> ReflectionUtils.sendPacket(p, packet));
+            .filter(p -> p.getWorld().equals(location.getWorld()))
+            .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
     
 }

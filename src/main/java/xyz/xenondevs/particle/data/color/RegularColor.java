@@ -114,8 +114,8 @@ public class RegularColor extends ParticleColor {
         try {
             if (getEffect() == ParticleEffect.REDSTONE)
                 return ReflectionUtils.MINECRAFT_VERSION < 17
-                        ? ParticleConstants.PARTICLE_PARAM_REDSTONE_CONSTRUCTOR.newInstance(getRed(), getGreen(), getBlue(), 1f)
-                        : ParticleConstants.PARTICLE_PARAM_REDSTONE_CONSTRUCTOR.newInstance(ReflectionUtils.createVector3fa(getRed(), getGreen(), getBlue()), 1f);
+                    ? ParticleConstants.PARTICLE_PARAM_REDSTONE_CONSTRUCTOR.newInstance(getRed(), getGreen(), getBlue(), 1f)
+                    : ParticleConstants.PARTICLE_PARAM_REDSTONE_CONSTRUCTOR.newInstance(ReflectionUtils.createVector3fa(getRed(), getGreen(), getBlue()), 1f);
             if (ReflectionUtils.MINECRAFT_VERSION < 17)
                 return null;
             Object colorVector = ReflectionUtils.createVector3fa(getRed(), getGreen(), getBlue());
