@@ -24,6 +24,8 @@
 
 package xyz.xenondevs.particle;
 
+import xyz.xenondevs.particle.data.color.DustColorTransitionData;
+import xyz.xenondevs.particle.data.color.DustData;
 import xyz.xenondevs.particle.data.color.RegularColor;
 
 /**
@@ -89,6 +91,8 @@ public enum PropertyType {
      * A dust particle accepts a custom color and a custom size (between 0-4). Please note that
      * this {@link PropertyType} is not supported on pre 1.13 servers.
      *
+     * @see DustData
+     * @see DustColorTransitionData
      * @see RegularColor
      * @see ParticleEffect#REDSTONE
      * @see ParticleEffect#DUST_COLOR_TRANSITION

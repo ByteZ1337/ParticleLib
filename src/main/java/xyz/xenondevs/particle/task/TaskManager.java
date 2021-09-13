@@ -25,6 +25,7 @@
 package xyz.xenondevs.particle.task;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import xyz.xenondevs.particle.utils.ParticleUtils;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
@@ -99,6 +100,20 @@ public final class TaskManager {
      */
     public static int startGlobalTask(List<Object> packets, int tickDelay) {
         return getTaskManager().startTask(new GlobalTask(packets, tickDelay));
+    }
+    
+    /**
+     * Starts a new {@link WorldTask}.
+     *
+     * @param packets   {@link List} of packets
+     * @param tickDelay The delay of ticks between each execution
+     * @param world     The target {@link World}
+     * @return the id of the BukkitTask which can be cancelled using {@link TaskManager#stopTask(int)}
+     * @see WorldTask
+     * @see TaskManager#stopTask(int)
+     */
+    public static int startWorldTask(List<Object> packets, int tickDelay, World world) {
+        return getTaskManager().startTask(new WorldTask(packets, tickDelay, world));
     }
     
     /**

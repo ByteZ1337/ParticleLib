@@ -55,7 +55,6 @@ public final class MathUtils {
         return minimum + (int) (RANDOM.nextDouble() * ((maximum - minimum) + 1));
     }
     
-    
     /**
      * Checks if a specific {@link Integer} is in the given range.
      * If not the respective bound of the range is returned.

@@ -278,6 +278,7 @@ public final class ParticlePacket {
     
     /**
      * Creates a new packet for particles that don't need any extra checks.
+     * <p>
      * <b>Note: This method does not check if the given particle and
      * data match!</b>
      *

@@ -32,7 +32,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.awt.*;
 
 /**
- * The DustData class hols information on the colors
+ * The DustData class holds information on the colors
  * and size of various dust particles. The standard
  * implementation below supports a custom color and
  * size. If you're looking for Transitioning colors
