@@ -49,6 +49,7 @@ import java.util.Objects;
  * @see SingularTask
  * @see FilteredTask
  * @see SuppliedTask
+ * @see WorldTask
  */
 public abstract class ParticleTask {
     
