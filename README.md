@@ -35,7 +35,7 @@ Join the [Discord](https://discord.gg/EpVMXtXB2t) if you have any questions. **D
 
 * Multiversion support from 1.8 - 1.17.1 <sup>(All in one Jar)</sup>
 * Colored particles
-* Moving particles with velocities
+* Particles with custom velocities
 * Particles with textures
 * Support for every particle in minecraft
 * An easy and fluent API to easily spawn particles with custom data
