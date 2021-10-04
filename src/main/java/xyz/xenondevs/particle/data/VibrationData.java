@@ -25,6 +25,7 @@
 package xyz.xenondevs.particle.data;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import xyz.xenondevs.particle.ParticleConstants;
 import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
@@ -55,9 +56,13 @@ public final class VibrationData extends ParticleData {
     /**
      * The destination {@link Location} of the particle. (Will be mapped to the block location)
      */
-    private final Location destination;
+    private final Location blockDestination;
     /**
-     * The amount of ticks it will take the particle to fly from the {@link #start} to the {@link #destination}
+     * The destination {@link Entity} of the particle.
+     */
+    private final Entity entitydestination;
+    /**
+     * The amount of ticks it will take the particle to fly from the {@link #start} to the destination
      */
     private final int ticks;
     
@@ -66,11 +71,26 @@ public final class VibrationData extends ParticleData {
      *
      * @param start       the start {@link Location} of the particle.
      * @param destination the destination {@link Location} of the particle.
-     * @param ticks       the amount of ticks it will take the particle to reach the {@link #destination}
+     * @param ticks       the amount of ticks it will take the particle to reach the {@link #blockDestination}
      */
     public VibrationData(Location start, Location destination, int ticks) {
         this.start = Objects.requireNonNull(start);
-        this.destination = Objects.requireNonNull(destination);
+        this.blockDestination = Objects.requireNonNull(destination);
+        this.entitydestination = null;
+        this.ticks = ticks;
+    }
+    
+    /**
+     * Creates a new {@link VibrationData} instance.
+     *
+     * @param start       the start {@link Location} of the particle.
+     * @param destination the destination {@link Entity} of the particle.
+     * @param ticks       the amount of ticks it will take the particle to reach the {@link #blockDestination}
+     */
+    public VibrationData(Location start, Entity destination, int ticks) {
+        this.start = Objects.requireNonNull(start);
+        this.entitydestination = Objects.requireNonNull(destination);
+        this.blockDestination = null;
         this.ticks = ticks;
     }
     
@@ -88,8 +108,17 @@ public final class VibrationData extends ParticleData {
      *
      * @return the destination {@link Location} of the particle.
      */
-    public Location getDestination() {
-        return destination;
+    public Location getBlockDestination() {
+        return blockDestination;
+    }
+    
+    /**
+     * Gets the destination {@link Entity} of the particle.
+     *
+     * @return the destination {@link Entity} of the particle.
+     */
+    public Entity getEntityDestination() {
+        return entitydestination;
     }
     
     /**
@@ -115,10 +144,16 @@ public final class VibrationData extends ParticleData {
     public Object toNMSData() {
         if (ReflectionUtils.MINECRAFT_VERSION < 17 || getEffect() != ParticleEffect.VIBRATION)
             return null;
+        boolean isBlockDest = blockDestination != null;
         Object start = ReflectionUtils.createBlockPosition(getStart());
-        Object dest = ReflectionUtils.createBlockPosition(getDestination());
         try {
-            Object source = ParticleConstants.BLOCK_POSITION_SOURCE_CONSTRUCTOR.newInstance(dest);
+            Object source;
+            if (isBlockDest) {
+                Object dest = ReflectionUtils.createBlockPosition(getBlockDestination());
+                source = ParticleConstants.BLOCK_POSITION_SOURCE_CONSTRUCTOR.newInstance(dest);
+            } else
+                source = ParticleConstants.ENTITY_POSITION_SOURCE_CONSTRUCTOR.newInstance(getEntityDestination().getEntityId());
+            
             Object path = ParticleConstants.VIBRATION_PATH_CONSTRUCTOR.newInstance(start, source, getTicks());
             return ParticleConstants.PARTICLE_PARAM_VIBRATION_CONSTRUCTOR.newInstance(path);
         } catch (Exception ex) {

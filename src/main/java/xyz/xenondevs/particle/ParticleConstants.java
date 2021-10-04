@@ -95,6 +95,10 @@ public final class ParticleConstants {
      */
     public static final Class BLOCK_POSITION_SOURCE_CLASS;
     /**
+     * Represents the EntityPositionSource class.
+     */
+    public static final Class ENTITY_POSITION_SOURCE_CLASS;
+    /**
      * Represents the VibrationPath class.
      */
     public static final Class VIBRATION_PATH_CLASS;
@@ -200,6 +204,10 @@ public final class ParticleConstants {
      */
     public static final Constructor BLOCK_POSITION_SOURCE_CONSTRUCTOR;
     /**
+     * Represents the EntityPositionSource constructor.
+     */
+    public static final Constructor ENTITY_POSITION_SOURCE_CONSTRUCTOR;
+    /**
      * Represents the VibrationPath constructor.
      */
     public static final Constructor VIBRATION_PATH_CONSTRUCTOR;
@@ -254,6 +262,7 @@ public final class ParticleConstants {
         BLOCK_DATA_INTERFACE = getNMSClass(version < 17 ? "IBlockData" : "world.level.block.state.IBlockData");
         BLOCKS_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "Blocks" : "world.level.block.Blocks");
         BLOCK_POSITION_SOURCE_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.BlockPositionSource");
+        ENTITY_POSITION_SOURCE_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.EntityPositionSource");
         VIBRATION_PATH_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.vibrations.VibrationPath");
         ENTITY_PLAYER_CLASS = getNMSClass(version < 17 ? "EntityPlayer" : "server.level.EntityPlayer");
         PLAYER_CONNECTION_CLASS = getNMSClass(version < 17 ? "PlayerConnection" : "server.network.PlayerConnection");
@@ -288,6 +297,7 @@ public final class ParticleConstants {
         VECTOR_3FA_CONSTRUCTOR = getConstructorOrNull(VECTOR_3FA_CLASS, float.class, float.class, float.class);
         BLOCK_POSITION_CONSTRUCTOR = getConstructorOrNull(BLOCK_POSITION_CLASS, double.class, double.class, double.class);
         BLOCK_POSITION_SOURCE_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(BLOCK_POSITION_SOURCE_CLASS, BLOCK_POSITION_CLASS);
+        ENTITY_POSITION_SOURCE_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(ENTITY_POSITION_SOURCE_CLASS, int.class);
         VIBRATION_PATH_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(VIBRATION_PATH_CLASS, BLOCK_POSITION_CLASS, getNMSClass("world.level.gameevent.PositionSource"), int.class);
         
         if (version < 13)
