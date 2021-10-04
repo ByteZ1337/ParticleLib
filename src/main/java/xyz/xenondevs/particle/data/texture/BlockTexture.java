@@ -92,7 +92,7 @@ public final class BlockTexture extends ParticleTexture {
      * @param material the {@link Material} whose data should be got.
      * @return the block data of the specified {@link Material} or {@code null} when an error occurs.
      */
-    public Object getBlockData(Material material) { // FIXME
+    public Object getBlockData(Material material) {
         try {
             Object block;
             if (ReflectionUtils.MINECRAFT_VERSION < 17) {
