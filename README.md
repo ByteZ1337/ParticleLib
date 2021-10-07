@@ -103,7 +103,7 @@ original location.
 **Example:**
 
 ```java
-new ParticleBuilder(ParticleEffect.FLAME,player.getLocation())
+new ParticleBuilder(ParticleEffect.FLAME, player.getLocation())
         .setOffsetY(1f)
         .setSpeed(0.1f)
         .display();
