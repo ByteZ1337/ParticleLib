@@ -725,7 +725,7 @@ public enum ParticleEffect {
      * <p>
      * <b>Information</b>:
      * <ul>
-     * <li>Appearance: four yellow stars.</li>
+     * <li>Appearance: 1.17: four yellow stars. Since 1.18: A lightbulb</li>
      * <li>Speed value: Doesn't influence the particle.</li>
      * </ul>
      */

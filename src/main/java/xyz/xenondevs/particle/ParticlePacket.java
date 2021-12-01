@@ -25,6 +25,7 @@
 package xyz.xenondevs.particle;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import xyz.xenondevs.particle.data.ParticleData;
 import xyz.xenondevs.particle.data.VibrationData;
@@ -39,8 +40,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.lang.reflect.Constructor;
 
 import static xyz.xenondevs.particle.ParticleConstants.PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR;
-import static xyz.xenondevs.particle.ParticleEffect.NOTE;
-import static xyz.xenondevs.particle.ParticleEffect.REDSTONE;
+import static xyz.xenondevs.particle.ParticleEffect.*;
 
 
 /**
@@ -135,12 +135,25 @@ public final class ParticlePacket {
      * @see ParticleData
      */
     public ParticlePacket(ParticleEffect particle, float offsetX, float offsetY, float offsetZ, float speed, int amount, ParticleData particleData) {
-        this.particle = particle;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.offsetZ = offsetZ;
         this.speed = speed;
         this.amount = amount;
+        if (ReflectionUtils.MINECRAFT_VERSION > 17) {
+            if (particle == BARRIER) {
+                this.particle = BLOCK_MARKER;
+                this.particleData = new BlockTexture(Material.BARRIER);
+                this.particleData.setEffect(BLOCK_MARKER);
+                return;
+            } else if (particle == LIGHT) {
+                this.particle = BLOCK_MARKER;
+                this.particleData = new BlockTexture(Material.LIGHT);
+                this.particleData.setEffect(BLOCK_MARKER);
+                return;
+            }
+        }
+        this.particle = particle;
         this.particleData = particleData;
     }
     
@@ -162,13 +175,7 @@ public final class ParticlePacket {
      * @see #amount
      */
     public ParticlePacket(ParticleEffect particle, float offsetX, float offsetY, float offsetZ, float speed, int amount) {
-        this.particle = particle;
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
-        this.offsetZ = offsetZ;
-        this.speed = speed;
-        this.amount = amount;
-        this.particleData = null;
+        this(particle, offsetX, offsetY, offsetZ, speed, amount, null);
     }
     
     /**
