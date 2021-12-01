@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  <b>A spigot library supporting all particles from <code>1.8</code> to <code>1.17.1</code></b><br><br>
+  <b>A spigot library supporting all particles from <code>1.8</code> to <code>1.18</code></b><br><br>
   <a href="https://app.codacy.com/manual/ByteZ1337/ParticleLib?utm_source=github.com&utm_medium=referral&utm_content=ByteZ1337/ParticleLib&utm_campaign=Badge_Grade_Dashboard">
     <img src="https://api.codacy.com/project/badge/Grade/166f125b74014326831ca21c1d7df65b" alt="codacy"/>
   </a>
@@ -33,7 +33,7 @@ Join the [Discord](https://discord.gg/EpVMXtXB2t) if you have any questions. **D
 
 ## Features
 
-* Multiversion support from 1.8 - 1.17.1 <sup>(All in one Jar)</sup>
+* Multiversion support from 1.8 - 1.18 <sup>(All in one Jar)</sup>
 * Colored particles
 * Particles with custom velocities
 * Particles with textures
@@ -52,7 +52,7 @@ The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/P
     <dependency>
         <groupId>xyz.xenondevs</groupId>
         <artifactId>particle</artifactId>
-        <version>1.6.6</version>
+        <version>1.7</version>
     </dependency>
 </dependencies>
 ```
@@ -61,7 +61,7 @@ The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/P
 
 ```groovy
 dependencies {
-    implementation 'xyz.xenondevs:particle:1.6.6'
+    implementation 'xyz.xenondevs:particle:1.7'
 }
 ```
 
