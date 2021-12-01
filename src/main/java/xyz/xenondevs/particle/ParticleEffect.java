@@ -173,7 +173,7 @@ public enum ParticleEffect {
      * <li>Speed value: Doesn't influence the particle.</li>
      * </ul>
      */
-    BARRIER(version -> version < 8 ? "NONE" : (version < 13 ? "BARRIER" : "barrier")),
+    BARRIER(version -> version < 8 || version > 17 ? "NONE" : (version < 13 ? "BARRIER" : "barrier")),
     /**
      * In vanilla, this particle is displayed when a player breaks
      * a block or sprints. It's also displayed by iron golems while
@@ -711,7 +711,7 @@ public enum ParticleEffect {
      * <li>Speed value: Doesn't influence the particle.</li>
      * </ul>
      */
-    LIGHT(version -> version < 17 ? "NONE" : "light"),
+    LIGHT(version -> version != 17 ? "NONE" : "light"),
     /**
      * In vanilla, this particle is displayed by elder guardians.
      * <p>

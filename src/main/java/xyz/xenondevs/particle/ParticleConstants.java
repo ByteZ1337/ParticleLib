@@ -276,10 +276,10 @@ public final class ParticleConstants {
         PARTICLE_PARAM_VIBRATION_CLASS = version < 17 ? null : getNMSClass("core.particles.VibrationParticleOption");
         PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
         // Methods
-        REGISTRY_GET_METHOD = version < 13 ? null : getMethodOrNull(REGISTRY_CLASS, "get", MINECRAFT_KEY_CLASS);
-        PLAYER_CONNECTION_SEND_PACKET_METHOD = getMethodOrNull(PLAYER_CONNECTION_CLASS, "sendPacket", PACKET_CLASS);
+        REGISTRY_GET_METHOD = version < 13 ? null : getMethodOrNull(REGISTRY_CLASS, version < 18 ? "get" : "a", MINECRAFT_KEY_CLASS);
+        PLAYER_CONNECTION_SEND_PACKET_METHOD = getMethodOrNull(PLAYER_CONNECTION_CLASS, version < 18 ? "sendPacket" : "a", PACKET_CLASS);
         CRAFT_PLAYER_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_PLAYER_CLASS, "getHandle");
-        BLOCK_GET_BLOCK_DATA_METHOD = getMethodOrNull(BLOCK_CLASS, "getBlockData");
+        BLOCK_GET_BLOCK_DATA_METHOD = getMethodOrNull(BLOCK_CLASS, version < 18 ? "getBlockData" : "n");
         CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
         // Fields
         ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getFieldOrNull(ENTITY_PLAYER_CLASS, version < 17 ? "playerConnection" : "b", false);
@@ -312,8 +312,15 @@ public final class ParticleConstants {
         PARTICLE_PARAM_ITEM_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_ITEM_CLASS, PARTICLE_CLASS, ITEM_STACK_CLASS);
         PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, VIBRATION_PATH_CLASS);
         // Constants
-        PARTICLE_TYPE_REGISTRY = version < 13 ? null : readField(getFieldOrNull(REGISTRY_CLASS, version < 17 ? "PARTICLE_TYPE" : "ab", false), null);
-        BLOCK_REGISTRY = version < 17 ? null : readField(getFieldOrNull(REGISTRY_CLASS, "W", false), null);
+        if (version < 13)
+            PARTICLE_TYPE_REGISTRY = null;
+        else if (version < 17)
+            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "PARTICLE_TYPE", false), null);
+        else if (version < 18)
+            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ab", false), null);
+        else
+            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ac", false), null);
+        BLOCK_REGISTRY = version < 17 ? null : readField(getFieldOrNull(REGISTRY_CLASS, version < 18 ? "W" : "X", false), null);
     }
     
 }
