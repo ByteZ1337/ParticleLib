@@ -57,6 +57,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #BLOCK_CRACK}</li>
  * <li>{@link #BLOCK_DUST}</li>
  * <li>{@link #BUBBLE_COLUMN_UP}</li>
+ * <li>{@link #BLOCK_MARKER}</li>
  * <li>{@link #BUBBLE_POP}</li>
  * <li>{@link #CAMPFIRE_COSY_SMOKE}</li>
  * <li>{@link #CAMPFIRE_SIGNAL_SMOKE}</li>
@@ -164,6 +165,8 @@ public enum ParticleEffect {
      */
     ASH(version -> version < 16 ? "NONE" : "ash"),
     /**
+     * <b>REPLACED BY {@link #BLOCK_MARKER} SINCE 1.18</b>
+     * <p>
      * In vanilla, this particle is displayed by barrier blocks
      * when a player holds a barrier item in the main or off hand.
      * <p>
@@ -212,6 +215,19 @@ public enum ParticleEffect {
      * </ul>
      */
     BUBBLE_COLUMN_UP(version -> version < 13 ? "NONE" : "bubble_column_up", DIRECTIONAL),
+    /**
+     * In vanilla, this particle is displayed by barrier blocks when a player
+     * holds a barrier item in the main or off hand or by the light block.
+     * <p>
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Texture of the provided block.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: This particle needs a block texture in order to work.</li>
+     * </ul>
+     */
+    BLOCK_MARKER(version -> version < 18 ? "NONE" : "block_marker", REQUIRES_BLOCK),
     /**
      * In vanilla, this particle is displayed at the top of
      * bubble columns.
@@ -703,6 +719,8 @@ public enum ParticleEffect {
      */
     LAVA(version -> version < 8 ? "NONE" : (version < 13 ? "LAVA" : "lava")),
     /**
+     * <b>REPLACED BY {@link #BLOCK_MARKER} SINCE 1.18</b>
+     * <p>
      * In vanilla, this particle is displayed by the light block.
      * <p>
      * <b>Information</b>:
