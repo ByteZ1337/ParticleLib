@@ -47,7 +47,7 @@ public final class WorldTask extends ParticleTask {
     private final World world;
     
     /**
-     * Creates a new {@link SuppliedTask}.
+     * Creates a new {@link WorldTask}.
      *
      * @param packets   {@link List} of packets
      * @param tickDelay The delay of ticks between each execution
