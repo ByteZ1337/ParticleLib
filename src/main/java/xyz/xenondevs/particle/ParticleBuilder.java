@@ -191,8 +191,8 @@ public class ParticleBuilder {
      */
     public ParticleBuilder setOffset(Vector offset) {
         this.offsetX = (float) offset.getX();
-        this.offsetY = (float) offset.getX();
-        this.offsetZ = (float) offset.getX();
+        this.offsetY = (float) offset.getY();
+        this.offsetZ = (float) offset.getZ();
         return this;
     }
     
