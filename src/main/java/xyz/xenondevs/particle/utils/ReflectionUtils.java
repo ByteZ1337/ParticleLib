@@ -70,16 +70,16 @@ public final class ReflectionUtils {
     public static final double MINECRAFT_VERSION; // TODO switch to version object
     
     /* ---------------- ClassLoader reflection ---------------- */
-    // These can't be inParticleConstants because it indirectly depends on ReflectionUtils
+    // These can't be in ParticleConstants because it indirectly depends on ReflectionUtils
     
     /**
      * Represents the PluginClassLoader class.
      */
-    private static Class<?> PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
+    private static final Class<?> PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
     /**
      * Represents the PluginClassLoader#plugin field.
      */
-    private static Field PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
+    private static final Field PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
     
     /* ---------------- PlayerConnection caching ---------------- */
     
@@ -514,6 +514,7 @@ public final class ReflectionUtils {
      * Gets the {@link InputStream} of a resource.
      *
      * @param resource the name of the resource
+     * @return the {@link InputStream} of the resource
      */
     public static InputStream getResourceStreamSafe(String resource) {
         ZipEntry entry = zipFile.getEntry(resource);

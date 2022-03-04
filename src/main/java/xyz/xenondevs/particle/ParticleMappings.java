@@ -38,12 +38,17 @@ import java.util.Objects;
 
 import static xyz.xenondevs.particle.utils.ReflectionUtils.*;
 
+/**
+ * Maps classes, methods and fields to their respective names for different versions of Minecraft.
+ */
 public class ParticleMappings {
     
+    /**
+     * {@link Map} containing all mappings needed by ParticleLib.
+     */
     private static final Map<String, String> mappings = new HashMap<>();
     
     static {
-        //noinspection UnnecessaryLocalVariable - More efficient than always accessing the field
         double version = ReflectionUtils.MINECRAFT_VERSION;
         try (InputStreamReader reader = new InputStreamReader(Objects.requireNonNull(ReflectionUtils.getResourceStreamSafe("mappings.json")))) {
             JsonArray array = version < 18
@@ -59,6 +64,15 @@ public class ParticleMappings {
         }
     }
     
+    // private static void processMapping(JsonObject object, double version) {
+    
+    /**
+     * Processes a mapping {@link JsonObject} and adds it to {@link #mappings} if
+     * it exists in the current version of Minecraft.
+     *
+     * @param object  the mapping {@link JsonObject}
+     * @param version the current version of Minecraft
+     */
     private static void processMapping(JsonObject object, double version) {
         if (version < object.get("min").getAsDouble() || version > object.get("max").getAsDouble())
             return;
@@ -76,18 +90,40 @@ public class ParticleMappings {
             mappings.put(name, bestMatch);
     }
     
+    /**
+     * Gets the mapped {@link Class} for the given name.
+     *
+     * @param name the name of the class
+     * @return the mapped {@link Class}
+     */
     public static Class<?> getMappedClass(String name) {
         if (!mappings.containsKey(name))
             return null;
         return getNMSClass(mappings.get(name));
     }
-    
+
+    /**
+     * Gets the mapped {@link Method} for the given name.
+     *
+     * @param targetClass    the class to get the method from
+     * @param name           the name of the method
+     * @param parameterTypes the parameter types of the method
+     * @return the mapped {@link Method}
+     */
     public static Method getMappedMethod(Class<?> targetClass, String name, Class<?>... parameterTypes) {
         if (!mappings.containsKey(name))
             return null;
         return getMethodOrNull(targetClass, mappings.get(name), parameterTypes);
     }
-    
+
+    /**
+     * Gets the mapped {@link Field} for the given name.
+     *
+     * @param targetClass the class to get the field from
+     * @param name        the name of the field
+     * @param declared    whether to get the declared field or not
+     * @return the mapped {@link Field}
+     */
     public static Field getMappedField(Class targetClass, String name, boolean declared) {
         if (!mappings.containsKey(name))
             return null;
