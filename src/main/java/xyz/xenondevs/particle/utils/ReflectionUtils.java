@@ -31,12 +31,16 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
 import xyz.xenondevs.particle.ParticleConstants;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.URISyntaxException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 import static xyz.xenondevs.particle.ParticleConstants.BLOCK_POSITION_CONSTRUCTOR;
-import static xyz.xenondevs.particle.ParticleConstants.PLUGIN_CLASS_LOADER_PLUGIN_FIELD;
 
 /**
  * @author ByteZ
@@ -60,22 +64,41 @@ public final class ReflectionUtils {
      */
     private static final String CRAFT_BUKKIT_PACKAGE_PATH;
     
-    /* ---------------- PlayerConnection caching ---------------- */
-    
     /**
      * The current Minecraft version as an int.
      */
     public static final double MINECRAFT_VERSION; // TODO switch to version object
+    
+    /* ---------------- ClassLoader reflection ---------------- */
+    // These can't be inParticleConstants because it indirectly depends on ReflectionUtils
+    
+    /**
+     * Represents the PluginClassLoader class.
+     */
+    private static Class<?> PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
+    /**
+     * Represents the PluginClassLoader#plugin field.
+     */
+    private static Field PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
+    
+    /* ---------------- PlayerConnection caching ---------------- */
     
     /**
      * A cache for playerconnections.
      */
     public static final PlayerConnectionCache PLAYER_CONNECTION_CACHE;
     
+    /* ---------------- Library info ---------------- */
+    
     /**
      * The current {@link Plugin} using ParticleLib.
      */
     private static Plugin plugin;
+    
+    /**
+     * ZipFile containing ParticleLib.
+     */
+    private static final ZipFile zipFile;
     
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
@@ -86,6 +109,11 @@ public final class ReflectionUtils {
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         plugin = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
         PLAYER_CONNECTION_CACHE = new PlayerConnectionCache();
+        try {
+            zipFile = new ZipFile(ReflectionUtils.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+        } catch (IOException | URISyntaxException ex) {
+            throw new IllegalStateException("Error while finding zip file", ex);
+        }
     }
     
     /**
@@ -479,6 +507,22 @@ public final class ReflectionUtils {
             Object connection = PLAYER_CONNECTION_CACHE.getConnection(player);
             ParticleConstants.PLAYER_CONNECTION_SEND_PACKET_METHOD.invoke(connection, packet);
         } catch (Exception ignored) {
+        }
+    }
+    
+    /**
+     * Gets the {@link InputStream} of a resource.
+     *
+     * @param resource the name of the resource
+     */
+    public static InputStream getResourceStreamSafe(String resource) {
+        ZipEntry entry = zipFile.getEntry(resource);
+        if (entry == null)
+            return null;
+        try {
+            return zipFile.getInputStream(entry);
+        } catch (IOException ex) {
+            return null;
         }
     }
     

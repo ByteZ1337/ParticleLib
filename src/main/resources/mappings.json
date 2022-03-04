@@ -1,0 +1,410 @@
+[
+  {
+    "name": "ItemStack",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "ItemStack"
+      },
+      {
+        "from": 17,
+        "value": "world.item.ItemStack"
+      }
+    ]
+  },
+  {
+    "name": "Packet",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "Packet"
+      },
+      {
+        "from": 17,
+        "value": "network.protocol.Packet"
+      }
+    ]
+  },
+  {
+    "name": "PacketPlayOutWorldParticles",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "PacketPlayOutWorldParticles"
+      },
+      {
+        "from": 17,
+        "value": "network.protocol.game.PacketPlayOutWorldParticles"
+      }
+    ]
+  },
+  {
+    "name": "EnumParticle",
+    "min": 8,
+    "max": 12.2,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "EnumParticle"
+      }
+    ]
+  },
+  {
+    "name": "Particle",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "Particle"
+      },
+      {
+        "from": 17,
+        "value": "core.particles.Particle"
+      }
+    ]
+  },
+  {
+    "name": "MinecraftKey",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "MinecraftKey"
+      },
+      {
+        "from": 17,
+        "value": "resources.MinecraftKey"
+      }
+    ]
+  },
+  {
+    "name": "IRegistry",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "IRegistry"
+      },
+      {
+        "from": 17,
+        "value": "core.IRegistry"
+      }
+    ]
+  },
+  {
+    "name": "Block",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "Block"
+      },
+      {
+        "from": 17,
+        "value": "world.level.block.Block"
+      }
+    ]
+  },
+  {
+    "name": "BlockPosition",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "BlockPosition"
+      },
+      {
+        "from": 17,
+        "value": "core.BlockPosition"
+      }
+    ]
+  },
+  {
+    "name": "IBlockData",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "IBlockData"
+      },
+      {
+        "from": 17,
+        "value": "world.level.block.state.IBlockData"
+      }
+    ]
+  },
+  {
+    "name": "Blocks",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "Blocks"
+      },
+      {
+        "from": 17,
+        "value": "world.level.block.Blocks"
+      }
+    ]
+  },
+  {
+    "name": "BlockPositionSource",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "world.level.gameevent.BlockPositionSource"
+      }
+    ]
+  },
+  {
+    "name": "EntityPositionSource",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "world.level.gameevent.EntityPositionSource"
+      }
+    ]
+  },
+  {
+    "name": "EntityPlayer",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "EntityPlayer"
+      },
+      {
+        "from": 17,
+        "value": "server.level.EntityPlayer"
+      }
+    ]
+  },
+  {
+    "name": "PlayerConnection",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "PlayerConnection"
+      },
+      {
+        "from": 17,
+        "value": "server.network.PlayerConnection"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParam",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "ParticleParam"
+      },
+      {
+        "from": 17,
+        "value": "core.particles.ParticleParam"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamRedstone",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "ParticleParamRedstone"
+      },
+      {
+        "from": 17,
+        "value": "core.particles.ParticleParamRedstone"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamDustColorTransition",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "core.particles.DustColorTransitionOptions"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamBlock",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "ParticleParamBlock"
+      },
+      {
+        "from": 17,
+        "value": "core.particles.ParticleParamBlock"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamItem",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "ParticleParamItem"
+      },
+      {
+        "from": 17,
+        "value": "core.particles.ParticleParamItem"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamVibration",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "core.particles.VibrationParticleOption"
+      }
+    ]
+  },
+  {
+    "name": "Registry.get",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "get"
+      },
+      {
+        "from": 18,
+        "value": "a"
+      }
+    ]
+  },
+  {
+    "name": "PlayerConnection.sendPacket",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "sendPacket"
+      },
+      {
+        "from": 18,
+        "value": "a"
+      }
+    ]
+  },
+  {
+    "name": "Block.getBlockData",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "getBlockData"
+      },
+      {
+        "from": 18,
+        "value": "n"
+      }
+    ]
+  },
+  {
+    "name": "EntityPlayer.playerConnection",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "playerConnection"
+      },
+      {
+        "from": 17,
+        "value": "b"
+      }
+    ]
+  },
+  {
+    "name": "VibrationPath",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "world.level.gameevent.vibrations.VibrationPath"
+      }
+    ]
+  },
+  {
+    "name": "Registry.ParticleTypeRegistry",
+    "min": 13,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 13,
+        "value": "PARTICLE_TYPE"
+      },
+      {
+        "from": 17,
+        "value": "ab"
+      },
+      {
+        "from": 18,
+        "value": "ac"
+      },
+      {
+        "from": 18.2,
+        "value": "Z"
+      }
+    ]
+  },
+  {
+    "name": "Registry.BlockRegistry",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "W"
+      },
+      {
+        "from": 18,
+        "value": "X"
+      },
+      {
+        "from": 18.2,
+        "value": "U"
+      }
+    ]
+  }
+]

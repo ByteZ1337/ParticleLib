@@ -30,6 +30,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import static xyz.xenondevs.particle.ParticleMappings.*;
 import static xyz.xenondevs.particle.utils.ReflectionUtils.*;
 
 /**
@@ -142,10 +143,6 @@ public final class ParticleConstants {
      * Represents the VibrationParticleOption class.
      */
     public static final Class PARTICLE_PARAM_VIBRATION_CLASS;
-    /**
-     * Represents the PluginClassLoader class.
-     */
-    public static final Class PLUGIN_CLASS_LOADER_CLASS;
     
     /* ---------------- Methods ---------------- */
     
@@ -176,10 +173,6 @@ public final class ParticleConstants {
      * Represents the EntityPlayer#playerConnection field.
      */
     public static final Field ENTITY_PLAYER_PLAYER_CONNECTION_FIELD;
-    /**
-     * Represents the PluginClassLoader#plugin field.
-     */
-    public static final Field PLUGIN_CLASS_LOADER_PLUGIN_FIELD;
     
     /* ---------------- Constructor ---------------- */
     
@@ -248,44 +241,45 @@ public final class ParticleConstants {
     
     static {
         double version = MINECRAFT_VERSION;
+        
         // Classes
-        ITEM_STACK_CLASS = getNMSClass(version < 17 ? "ItemStack" : "world.item.ItemStack");
-        PACKET_CLASS = getNMSClass(version < 17 ? "Packet" : "network.protocol.Packet");
-        PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS = getNMSClass(version < 17 ? "PacketPlayOutWorldParticles" : "network.protocol.game.PacketPlayOutWorldParticles");
-        PARTICLE_ENUM = version < 13 ? getNMSClass("EnumParticle") : null;
-        PARTICLE_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "Particle" : "core.particles.Particle");
-        MINECRAFT_KEY_CLASS = getNMSClass(version < 17 ? "MinecraftKey" : "resources.MinecraftKey");
+        ITEM_STACK_CLASS = getMappedClass("ItemStack");
+        PACKET_CLASS = getMappedClass("Packet");
+        PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS = getMappedClass("PacketPlayOutWorldParticles");
+        PARTICLE_ENUM = getMappedClass("EnumParticle");
+        PARTICLE_CLASS = getMappedClass("Particle");
+        MINECRAFT_KEY_CLASS = getMappedClass("MinecraftKey");
         VECTOR_3FA_CLASS = version < 17 ? getNMSClass("Vector3f") : getClassSafe("com.mojang.math.Vector3fa");
-        REGISTRY_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "IRegistry" : "core.IRegistry");
-        BLOCK_CLASS = getNMSClass(version < 17 ? "Block" : "world.level.block.Block");
-        BLOCK_POSITION_CLASS = getNMSClass(version < 17 ? "BlockPosition" : "core.BlockPosition");
-        BLOCK_DATA_INTERFACE = getNMSClass(version < 17 ? "IBlockData" : "world.level.block.state.IBlockData");
-        BLOCKS_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "Blocks" : "world.level.block.Blocks");
-        BLOCK_POSITION_SOURCE_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.BlockPositionSource");
-        ENTITY_POSITION_SOURCE_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.EntityPositionSource");
-        VIBRATION_PATH_CLASS = version < 17 ? null : getNMSClass("world.level.gameevent.vibrations.VibrationPath");
-        ENTITY_PLAYER_CLASS = getNMSClass(version < 17 ? "EntityPlayer" : "server.level.EntityPlayer");
-        PLAYER_CONNECTION_CLASS = getNMSClass(version < 17 ? "PlayerConnection" : "server.network.PlayerConnection");
+        REGISTRY_CLASS = getMappedClass("IRegistry");
+        BLOCK_CLASS = getMappedClass("Block");
+        BLOCK_POSITION_CLASS = getMappedClass("BlockPosition");
+        BLOCK_DATA_INTERFACE = getMappedClass("IBlockData");
+        BLOCKS_CLASS = getMappedClass("Blocks");
+        BLOCK_POSITION_SOURCE_CLASS = getMappedClass("BlockPositionSource");
+        ENTITY_POSITION_SOURCE_CLASS = getMappedClass("EntityPositionSource");
+        VIBRATION_PATH_CLASS = getMappedClass("VibrationPath");
+        ENTITY_PLAYER_CLASS = getMappedClass("EntityPlayer");
+        PLAYER_CONNECTION_CLASS = getMappedClass("PlayerConnection");
         CRAFT_PLAYER_CLASS = getCraftBukkitClass("entity.CraftPlayer");
         CRAFT_ITEM_STACK_CLASS = getCraftBukkitClass("inventory.CraftItemStack");
-        PARTICLE_PARAM_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParam" : "core.particles.ParticleParam");
-        PARTICLE_PARAM_REDSTONE_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamRedstone" : "core.particles.ParticleParamRedstone");
-        PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS = version < 17 ? null : getNMSClass("core.particles.DustColorTransitionOptions");
-        PARTICLE_PARAM_BLOCK_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamBlock" : "core.particles.ParticleParamBlock");
-        PARTICLE_PARAM_ITEM_CLASS = version < 13 ? null : getNMSClass(version < 17 ? "ParticleParamItem" : "core.particles.ParticleParamItem");
-        PARTICLE_PARAM_VIBRATION_CLASS = version < 17 ? null : getNMSClass("core.particles.VibrationParticleOption");
-        PLUGIN_CLASS_LOADER_CLASS = getClassSafe("org.bukkit.plugin.java.PluginClassLoader");
-        // Methods
-        REGISTRY_GET_METHOD = version < 13 ? null : getMethodOrNull(REGISTRY_CLASS, version < 18 ? "get" : "a", MINECRAFT_KEY_CLASS);
-        PLAYER_CONNECTION_SEND_PACKET_METHOD = getMethodOrNull(PLAYER_CONNECTION_CLASS, version < 18 ? "sendPacket" : "a", PACKET_CLASS);
-        CRAFT_PLAYER_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_PLAYER_CLASS, "getHandle");
-        BLOCK_GET_BLOCK_DATA_METHOD = getMethodOrNull(BLOCK_CLASS, version < 18 ? "getBlockData" : "n");
-        CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
-        // Fields
-        ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getFieldOrNull(ENTITY_PLAYER_CLASS, version < 17 ? "playerConnection" : "b", false);
-        PLUGIN_CLASS_LOADER_PLUGIN_FIELD = getFieldOrNull(PLUGIN_CLASS_LOADER_CLASS, "plugin", true);
-        // Constructors
+        PARTICLE_PARAM_CLASS = getMappedClass("ParticleParam");
+        PARTICLE_PARAM_REDSTONE_CLASS = getMappedClass("ParticleParamRedstone");
+        PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS = getMappedClass("ParticleParamDustColorTransition");
+        PARTICLE_PARAM_BLOCK_CLASS = getMappedClass("ParticleParamBlock");
+        PARTICLE_PARAM_ITEM_CLASS = getMappedClass("ParticleParamItem");
+        PARTICLE_PARAM_VIBRATION_CLASS = getMappedClass("ParticleParamVibration");
         
+        // Methods
+        REGISTRY_GET_METHOD = getMappedMethod(REGISTRY_CLASS, "Registry.get", MINECRAFT_KEY_CLASS);
+        PLAYER_CONNECTION_SEND_PACKET_METHOD = getMappedMethod(PLAYER_CONNECTION_CLASS, "PlayerConnection.sendPacket", PACKET_CLASS);
+        CRAFT_PLAYER_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_PLAYER_CLASS, "getHandle");
+        BLOCK_GET_BLOCK_DATA_METHOD = getMappedMethod(BLOCK_CLASS, "Block.getBlockData");
+        CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
+        
+        // Fields
+        ENTITY_PLAYER_PLAYER_CONNECTION_FIELD = getMappedField(ENTITY_PLAYER_CLASS, "EntityPlayer.playerConnection", false);
+        
+        // Constructors
         if (version < 13)
             PACKET_PLAY_OUT_WORLD_PARTICLES_CONSTRUCTOR = getConstructorOrNull(PACKET_PLAY_OUT_WORLD_PARTICLES_CLASS, PARTICLE_ENUM, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
         else if (version < 15)
@@ -311,26 +305,10 @@ public final class ParticleConstants {
         PARTICLE_PARAM_BLOCK_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_BLOCK_CLASS, PARTICLE_CLASS, BLOCK_DATA_INTERFACE);
         PARTICLE_PARAM_ITEM_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_ITEM_CLASS, PARTICLE_CLASS, ITEM_STACK_CLASS);
         PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, VIBRATION_PATH_CLASS);
-        // Constants
-        if (version < 13)
-            PARTICLE_TYPE_REGISTRY = null;
-        else if (version < 17)
-            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "PARTICLE_TYPE", false), null);
-        else if (version < 18)
-            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ab", false), null);
-        else if (version < 18.2)
-            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ac", false), null);
-        else
-            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "Z", false), null);
         
-        if (version < 17)
-            BLOCK_REGISTRY = null;
-        else if (version < 18)
-            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "W", false), null);
-        else if (version < 18.2)
-            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "X", false), null);
-        else
-            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "U", false), null);
+        // Constants
+        PARTICLE_TYPE_REGISTRY = readField(getMappedField(REGISTRY_CLASS, "Registry.ParticleTypeRegistry", false), null);
+        BLOCK_REGISTRY = readField(getMappedField(REGISTRY_CLASS, "Registry.BlockRegistry", false), null);
     }
     
 }
