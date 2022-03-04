@@ -253,7 +253,7 @@ public final class ParticlePacket {
         try {
             ParticleEffect effect = getParticle();
             ParticleData data = getParticleData();
-            int version = ReflectionUtils.MINECRAFT_VERSION;
+            double version = ReflectionUtils.MINECRAFT_VERSION;
             if (effect == null || effect.getFieldName().equals("NONE"))
                 return null;
             if (data != null) {
@@ -315,7 +315,7 @@ public final class ParticlePacket {
      */
     private Object createTexturedParticlePacket(Location location, Object param) {
         ParticleEffect effect = getParticle();
-        int version = ReflectionUtils.MINECRAFT_VERSION;
+        double version = ReflectionUtils.MINECRAFT_VERSION;
         return createPacket(version < 13 ? effect.getNMSObject() : param,
             (float) location.getX(), (float) location.getY(), (float) location.getZ(),
             getOffsetX(), getOffsetY(), getOffsetZ(),

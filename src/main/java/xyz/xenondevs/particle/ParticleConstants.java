@@ -247,7 +247,7 @@ public final class ParticleConstants {
     /* ---------------- INIT ---------------- */
     
     static {
-        int version = MINECRAFT_VERSION;
+        double version = MINECRAFT_VERSION;
         // Classes
         ITEM_STACK_CLASS = getNMSClass(version < 17 ? "ItemStack" : "world.item.ItemStack");
         PACKET_CLASS = getNMSClass(version < 17 ? "Packet" : "network.protocol.Packet");
@@ -318,9 +318,19 @@ public final class ParticleConstants {
             PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "PARTICLE_TYPE", false), null);
         else if (version < 18)
             PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ab", false), null);
-        else
+        else if (version < 18.2)
             PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "ac", false), null);
-        BLOCK_REGISTRY = version < 17 ? null : readField(getFieldOrNull(REGISTRY_CLASS, version < 18 ? "W" : "X", false), null);
+        else
+            PARTICLE_TYPE_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "Z", false), null);
+        
+        if (version < 17)
+            BLOCK_REGISTRY = null;
+        else if (version < 18)
+            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "W", false), null);
+        else if (version < 18.2)
+            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "X", false), null);
+        else
+            BLOCK_REGISTRY = readField(getFieldOrNull(REGISTRY_CLASS, "U", false), null);
     }
     
 }

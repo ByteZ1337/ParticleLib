@@ -65,7 +65,7 @@ public final class ReflectionUtils {
     /**
      * The current Minecraft version as an int.
      */
-    public static final int MINECRAFT_VERSION;
+    public static final double MINECRAFT_VERSION; // TODO switch to version object
     
     /**
      * A cache for playerconnections.
@@ -80,8 +80,8 @@ public final class ReflectionUtils {
     static {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
         String version = serverPath.substring(serverPath.lastIndexOf(".") + 1);
-        String packageVersion = serverPath.substring(serverPath.lastIndexOf(".") + 2);
-        MINECRAFT_VERSION = Integer.parseInt(packageVersion.substring(0, packageVersion.lastIndexOf("_")).replace("_", ".").substring(2));
+        String bukkitVersion = Bukkit.getBukkitVersion();
+        MINECRAFT_VERSION = Double.parseDouble(bukkitVersion.substring(2, bukkitVersion.indexOf("-")));
         NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft" + (MINECRAFT_VERSION < 17 ? ".server." + version : "");
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         plugin = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());

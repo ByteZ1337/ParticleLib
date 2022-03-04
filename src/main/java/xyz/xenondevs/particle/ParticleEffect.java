@@ -38,6 +38,7 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.awt.*;
 import java.util.List;
 import java.util.*;
+import java.util.function.DoubleFunction;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
@@ -1209,7 +1210,7 @@ public enum ParticleEffect {
     /**
      * An {@link IntFunction} to get the name of the particle by checking the version.
      */
-    private final IntFunction<String> fieldNameMapper;
+    private final DoubleFunction<String> fieldNameMapper;
     /**
      * A list of {@link PropertyType properties}
      * the current particle instance supports.
@@ -1251,7 +1252,7 @@ public enum ParticleEffect {
      *                        respective particle.
      * @param properties      A list of {@link PropertyType properties} supported by this particle.
      */
-    ParticleEffect(IntFunction<String> fieldNameMapper, PropertyType... properties) {
+    ParticleEffect(DoubleFunction<String> fieldNameMapper, PropertyType... properties) {
         this.fieldNameMapper = fieldNameMapper;
         this.properties = properties;
     }
