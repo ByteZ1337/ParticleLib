@@ -51,6 +51,7 @@ public class ParticleMappings {
     static {
         double version = ReflectionUtils.MINECRAFT_VERSION;
         try (InputStreamReader reader = new InputStreamReader(Objects.requireNonNull(ReflectionUtils.getResourceStreamSafe("mappings.json")))) {
+            //noinspection deprecation - Outdated gson is used in pre 1.18 versions
             JsonArray array = version < 18
                 ? new JsonParser().parse(reader).getAsJsonArray()
                 : JsonParser.parseReader(reader).getAsJsonArray();
