@@ -137,7 +137,7 @@ To see if a particle is colorable check if it has the ``COLORABLE`` PropertyType
 **Regular Example:**
 
 ```java
-new ParticleBuilder(ParticleEffect.REDSTONE,location)
+new ParticleBuilder(ParticleEffect.REDSTONE, location)
         .setParticleData(new RegularColor(255,255,0))
         .display()
 ```
@@ -150,7 +150,7 @@ to use ``java.awt.Color`` instead.
 **Note Example:**
 
 ```java
-new ParticleBuilder(ParticleEffect.NOTE,location)
+new ParticleBuilder(ParticleEffect.NOTE, location)
         .setParticleData(new NoteColor(1))
         .display()
 ```
@@ -175,7 +175,7 @@ PropertyType.
 <b>Block texture example:</b>
 
 ```java
-new ParticleBuilder(ParticleEffect.FALLING_DUST,location)
+new ParticleBuilder(ParticleEffect.FALLING_DUST, location)
         .setParticleData(new BlockTexture(Material.STONE))
         .display()
 ```
@@ -185,8 +185,8 @@ This code will spawn a ``Falling Dust`` particle with a stone texture.
 <b>Item texture example:</b>
 
 ```java
-ItemStack item=new ItemStack(Material.DIAMOND_AXE);
-        new ParticleBuilder(ParticleEffect.ITEM_CRACK,location)
+ItemStack item = new ItemStack(Material.DIAMOND_AXE);
+new ParticleBuilder(ParticleEffect.ITEM_CRACK, location)
         .setParticleData(new ItemTexture(item))
         .display();
 ```
