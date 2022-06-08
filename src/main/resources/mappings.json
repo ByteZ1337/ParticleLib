@@ -161,6 +161,17 @@
     ]
   },
   {
+    "name": "PositionSource",
+    "min": 17,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 17,
+        "value": "world.level.gameevent.PositionSource"
+      }
+    ]
+  },
+  {
     "name": "BlockPositionSource",
     "min": 17,
     "max": 99,
@@ -179,6 +190,21 @@
       {
         "from": 17,
         "value": "world.level.gameevent.EntityPositionSource"
+      }
+    ]
+  },
+  {
+    "name": "Entity",
+    "min": 8,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 8,
+        "value": "Entity"
+      },
+      {
+        "from": 17,
+        "value": "world.entity.Entity"
       }
     ]
   },
@@ -295,6 +321,28 @@
     ]
   },
   {
+    "name": "ParticleParamShriek",
+    "min": 19,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 19,
+        "value": "core.particles.ShriekParticleOption"
+      }
+    ]
+  },
+  {
+    "name": "ParticleParamSculkCharge",
+    "min": 19,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 19,
+        "value": "core.particles.SculkChargeParticleOptions"
+      }
+    ]
+  },
+  {
     "name": "Registry.get",
     "min": 13,
     "max": 99,
@@ -336,6 +384,10 @@
       {
         "from": 18,
         "value": "n"
+      },
+      {
+        "from": 19,
+        "value": "m"
       }
     ]
   },
@@ -357,7 +409,7 @@
   {
     "name": "VibrationPath",
     "min": 17,
-    "max": 99,
+    "max": 18.2,
     "mappings": [
       {
         "from": 17,
@@ -385,6 +437,10 @@
       {
         "from": 18.2,
         "value": "Z"
+      },
+      {
+        "from": 19,
+        "value": "aa"
       }
     ]
   },
@@ -404,6 +460,10 @@
       {
         "from": 18.2,
         "value": "U"
+      },
+      {
+        "from": 19,
+        "value": "V"
       }
     ]
   }

@@ -25,6 +25,7 @@ package xyz.xenondevs.particle.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
@@ -104,7 +105,8 @@ public final class ReflectionUtils {
         String serverPath = Bukkit.getServer().getClass().getPackage().getName();
         String version = serverPath.substring(serverPath.lastIndexOf(".") + 1);
         String bukkitVersion = Bukkit.getBukkitVersion();
-        MINECRAFT_VERSION = Double.parseDouble(bukkitVersion.substring(2, bukkitVersion.indexOf("-")));
+        int dashIndex = bukkitVersion.indexOf("-");
+        MINECRAFT_VERSION = Double.parseDouble(bukkitVersion.substring(2, dashIndex > -1 ? bukkitVersion.indexOf("-") : bukkitVersion.length()));
         NET_MINECRAFT_SERVER_PACKAGE_PATH = "net.minecraft" + (MINECRAFT_VERSION < 17 ? ".server." + version : "");
         CRAFT_BUKKIT_PACKAGE_PATH = "org.bukkit.craftbukkit." + version;
         plugin = readDeclaredField(PLUGIN_CLASS_LOADER_PLUGIN_FIELD, ReflectionUtils.class.getClassLoader());
@@ -461,6 +463,22 @@ public final class ReflectionUtils {
     public static Object createBlockPosition(Location location) {
         try {
             return BLOCK_POSITION_CONSTRUCTOR.newInstance(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
+    /**
+     * Gets the Entity instance of a CraftEntity
+     *
+     * @param entity the CraftEntity
+     * @return the Entity instance of the defined CraftEntity or {@code null} if either the given parameter is invalid or an error occurs.
+     */
+    public static Object getEntityHandle(Entity entity) {
+        if (entity == null || !ParticleConstants.CRAFT_ENTITY_CLASS.isAssignableFrom(entity.getClass()))
+            return null;
+        try {
+            return ParticleConstants.CRAFT_ENTITY_GET_HANDLE_METHOD.invoke(entity);
         } catch (Exception ex) {
             return null;
         }

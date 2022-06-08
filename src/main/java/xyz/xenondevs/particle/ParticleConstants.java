@@ -92,6 +92,10 @@ public final class ParticleConstants {
      */
     public static final Class BLOCKS_CLASS;
     /**
+     * Represents the PositionSource class.
+     */
+    public static final Class POSITION_SOURCE_CLASS;
+    /**
      * Represents the BlockPositionSource class.
      */
     public static final Class BLOCK_POSITION_SOURCE_CLASS;
@@ -104,6 +108,10 @@ public final class ParticleConstants {
      */
     public static final Class VIBRATION_PATH_CLASS;
     /**
+     * Represents the Entity class.
+     */
+    public static final Class ENTITY_CLASS;
+    /**
      * Represents the EntityPlayer class.
      */
     public static final Class ENTITY_PLAYER_CLASS;
@@ -111,6 +119,10 @@ public final class ParticleConstants {
      * Represents the PlayerConnection class.
      */
     public static final Class PLAYER_CONNECTION_CLASS;
+    /**
+     * Represents the CraftEntity class.
+     */
+    public static final Class CRAFT_ENTITY_CLASS;
     /**
      * Represents the CraftPlayer class.
      */
@@ -143,6 +155,14 @@ public final class ParticleConstants {
      * Represents the VibrationParticleOption class.
      */
     public static final Class PARTICLE_PARAM_VIBRATION_CLASS;
+    /**
+     * Represents the ParticleParamShriek class.
+     */
+    public static final Class PARTICLE_PARAM_SHRIEK_CLASS;
+    /**
+     * Represents the ParticleParamSculkCharge class.
+     */
+    public static final Class PARTICLE_PARAM_SCULK_CHARGE_CLASS;
     
     /* ---------------- Methods ---------------- */
     
@@ -154,6 +174,10 @@ public final class ParticleConstants {
      * Represents the PlayerConnection#sendPacket(); method.
      */
     public static final Method PLAYER_CONNECTION_SEND_PACKET_METHOD;
+    /**
+     * Represents the CraftEntity#getHandle(); method.
+     */
+    public static final Method CRAFT_ENTITY_GET_HANDLE_METHOD;
     /**
      * Represents the CraftPlayer#getHandle(); method.
      */
@@ -224,6 +248,14 @@ public final class ParticleConstants {
      * Represents the VibrationParticleOption constructor.
      */
     public static final Constructor PARTICLE_PARAM_VIBRATION_CONSTRUCTOR;
+    /**
+     * Represents the ParticleParamShriek constructor.
+     */
+    public static final Constructor PARTICLE_PARAM_SHRIEK_CONSTRUCTOR;
+    /**
+     * Represents the ParticleParamSculkCharge constructor.
+     */
+    public static final Constructor PARTICLE_PARAM_SCULK_CHARGE_CONSTRUCTOR;
     
     
     /* ---------------- Object constants ---------------- */
@@ -255,11 +287,14 @@ public final class ParticleConstants {
         BLOCK_POSITION_CLASS = getMappedClass("BlockPosition");
         BLOCK_DATA_INTERFACE = getMappedClass("IBlockData");
         BLOCKS_CLASS = getMappedClass("Blocks");
+        POSITION_SOURCE_CLASS = getMappedClass("PositionSource");
         BLOCK_POSITION_SOURCE_CLASS = getMappedClass("BlockPositionSource");
         ENTITY_POSITION_SOURCE_CLASS = getMappedClass("EntityPositionSource");
         VIBRATION_PATH_CLASS = getMappedClass("VibrationPath");
+        ENTITY_CLASS = getMappedClass("Entity");
         ENTITY_PLAYER_CLASS = getMappedClass("EntityPlayer");
         PLAYER_CONNECTION_CLASS = getMappedClass("PlayerConnection");
+        CRAFT_ENTITY_CLASS = getCraftBukkitClass("entity.CraftEntity");
         CRAFT_PLAYER_CLASS = getCraftBukkitClass("entity.CraftPlayer");
         CRAFT_ITEM_STACK_CLASS = getCraftBukkitClass("inventory.CraftItemStack");
         PARTICLE_PARAM_CLASS = getMappedClass("ParticleParam");
@@ -268,10 +303,13 @@ public final class ParticleConstants {
         PARTICLE_PARAM_BLOCK_CLASS = getMappedClass("ParticleParamBlock");
         PARTICLE_PARAM_ITEM_CLASS = getMappedClass("ParticleParamItem");
         PARTICLE_PARAM_VIBRATION_CLASS = getMappedClass("ParticleParamVibration");
+        PARTICLE_PARAM_SHRIEK_CLASS = getMappedClass("ParticleParamShriek");
+        PARTICLE_PARAM_SCULK_CHARGE_CLASS = getMappedClass("ParticleParamSculkCharge");
         
         // Methods
         REGISTRY_GET_METHOD = getMappedMethod(REGISTRY_CLASS, "Registry.get", MINECRAFT_KEY_CLASS);
         PLAYER_CONNECTION_SEND_PACKET_METHOD = getMappedMethod(PLAYER_CONNECTION_CLASS, "PlayerConnection.sendPacket", PACKET_CLASS);
+        CRAFT_ENTITY_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_ENTITY_CLASS, "getHandle");
         CRAFT_PLAYER_GET_HANDLE_METHOD = getMethodOrNull(CRAFT_PLAYER_CLASS, "getHandle");
         BLOCK_GET_BLOCK_DATA_METHOD = getMappedMethod(BLOCK_CLASS, "Block.getBlockData");
         CRAFT_ITEM_STACK_AS_NMS_COPY_METHOD = getMethodOrNull(CRAFT_ITEM_STACK_CLASS, "asNMSCopy", ItemStack.class);
@@ -291,8 +329,14 @@ public final class ParticleConstants {
         VECTOR_3FA_CONSTRUCTOR = getConstructorOrNull(VECTOR_3FA_CLASS, float.class, float.class, float.class);
         BLOCK_POSITION_CONSTRUCTOR = getConstructorOrNull(BLOCK_POSITION_CLASS, double.class, double.class, double.class);
         BLOCK_POSITION_SOURCE_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(BLOCK_POSITION_SOURCE_CLASS, BLOCK_POSITION_CLASS);
-        ENTITY_POSITION_SOURCE_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(ENTITY_POSITION_SOURCE_CLASS, int.class);
-        VIBRATION_PATH_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(VIBRATION_PATH_CLASS, BLOCK_POSITION_CLASS, getNMSClass("world.level.gameevent.PositionSource"), int.class);
+        if (version < 17)
+            ENTITY_POSITION_SOURCE_CONSTRUCTOR = null;
+        else if (version < 19)
+            ENTITY_POSITION_SOURCE_CONSTRUCTOR = getConstructorOrNull(ENTITY_POSITION_SOURCE_CLASS, int.class);
+        else
+            ENTITY_POSITION_SOURCE_CONSTRUCTOR = getConstructorOrNull(ENTITY_POSITION_SOURCE_CLASS, ENTITY_CLASS, float.class);
+        
+        VIBRATION_PATH_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(VIBRATION_PATH_CLASS, BLOCK_POSITION_CLASS, POSITION_SOURCE_CLASS, int.class);
         
         if (version < 13)
             PARTICLE_PARAM_REDSTONE_CONSTRUCTOR = null;
@@ -304,7 +348,14 @@ public final class ParticleConstants {
         PARTICLE_PARAM_DUST_COLOR_TRANSITION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_DUST_COLOR_TRANSITION_CLASS, VECTOR_3FA_CLASS, VECTOR_3FA_CLASS, float.class);
         PARTICLE_PARAM_BLOCK_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_BLOCK_CLASS, PARTICLE_CLASS, BLOCK_DATA_INTERFACE);
         PARTICLE_PARAM_ITEM_CONSTRUCTOR = version < 13 ? null : getConstructorOrNull(PARTICLE_PARAM_ITEM_CLASS, PARTICLE_CLASS, ITEM_STACK_CLASS);
-        PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = version < 17 ? null : getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, VIBRATION_PATH_CLASS);
+        if (version < 17)
+            PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = null;
+        else if (version < 19)
+            PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, VIBRATION_PATH_CLASS);
+        else
+            PARTICLE_PARAM_VIBRATION_CONSTRUCTOR = getConstructorOrNull(PARTICLE_PARAM_VIBRATION_CLASS, POSITION_SOURCE_CLASS, int.class);
+        PARTICLE_PARAM_SHRIEK_CONSTRUCTOR = version < 19 ? null : getConstructorOrNull(PARTICLE_PARAM_SHRIEK_CLASS, int.class);
+        PARTICLE_PARAM_SCULK_CHARGE_CONSTRUCTOR = version < 19 ? null : getConstructorOrNull(PARTICLE_PARAM_SCULK_CHARGE_CLASS, float.class);
         
         // Constants
         PARTICLE_TYPE_REGISTRY = readField(getMappedField(REGISTRY_CLASS, "Registry.ParticleTypeRegistry", false), null);

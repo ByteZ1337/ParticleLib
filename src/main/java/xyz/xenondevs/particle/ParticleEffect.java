@@ -110,6 +110,10 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #REDSTONE}</li>
  * <li>{@link #REVERSE_PORTAL}</li>
  * <li>{@link #SCRAPE}</li>
+ * <li>{@link #SCULK_CHARGE}</li>
+ * <li>{@link #SCULK_CHARGE_POP}</li>
+ * <li>{@link #SCULK_SOUL}</li>
+ * <li>{@link #SHRIEK}</li>
  * <li>{@link #SLIME}</li>
  * <li>{@link #SMOKE_LARGE}</li>
  * <li>{@link #SMOKE_NORMAL}</li>
@@ -117,6 +121,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #SNOWBALL}</li>
  * <li>{@link #SNOWFLAKE}</li>
  * <li>{@link #SNOW_SHOVEL}</li>
+ * <li>{@link #SONIC_BOOM}</li>
  * <li>{@link #SOUL}</li>
  * <li>{@link #SOUL_FIRE_FLAME}</li>
  * <li>{@link #SPELL}</li>
@@ -818,6 +823,10 @@ public enum ParticleEffect {
      * </ul>
      */
     SCRAPE(version -> version < 17 ? "NONE" : "scrape", DIRECTIONAL),
+    SCULK_CHARGE(version -> version < 19 ? "NONE" : "sculk_charge"),
+    SCULK_CHARGE_POP(version -> version < 19 ? "NONE" : "sculk_charge_pop", DIRECTIONAL),
+    SCULK_SOUL(version -> version < 19 ? "NONE" : "sculk_soul", DIRECTIONAL),
+    SHRIEK(version -> version < 19 ? "NONE" : "shriek"),
     /**
      * In vanilla, this particle is displayed by jumping slimes.
      * <p>
@@ -913,6 +922,7 @@ public enum ParticleEffect {
      * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
      * </ul>
      */
+    SONIC_BOOM(version -> version < 19 ? "NONE" : "sonic_boom"),
     SOUL(version -> version < 16 ? "NONE" : "soul", DIRECTIONAL),
     /**
      * In vanilla, this particle is displayed by soul torches

@@ -28,6 +28,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import xyz.xenondevs.particle.data.ParticleData;
+import xyz.xenondevs.particle.data.SculkChargeData;
+import xyz.xenondevs.particle.data.ShriekData;
 import xyz.xenondevs.particle.data.VibrationData;
 import xyz.xenondevs.particle.data.color.DustData;
 import xyz.xenondevs.particle.data.color.NoteColor;
@@ -264,15 +266,16 @@ public final class ParticlePacket {
                     return null;
                 if ((data instanceof DustData && version >= 13)
                     || (data instanceof VibrationData && version >= 17)
+                    || (data instanceof ShriekData && version >= 19)
+                    || (data instanceof SculkChargeData && version >= 19)
                     || (data instanceof RegularColor && (version >= 17 && effect.hasProperty(PropertyType.DUST))))
                     return createGenericParticlePacket(location, nmsData);
                 if ((data instanceof BlockTexture && effect.hasProperty(PropertyType.REQUIRES_BLOCK))
                     || (data instanceof ItemTexture && effect.hasProperty(PropertyType.REQUIRES_ITEM)))
                     return createTexturedParticlePacket(location, nmsData);
-                if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE)) {
+                if (data instanceof ParticleColor && effect.hasProperty(PropertyType.COLORABLE))
                     return createColoredParticlePacket(location, nmsData);
-                } else
-                    return null;
+                return null;
             } else if (!effect.hasProperty(PropertyType.REQUIRES_BLOCK) && !effect.hasProperty(PropertyType.REQUIRES_ITEM))
                 return createPacket(effect.getNMSObject(),
                     (float) location.getX(), (float) location.getY(), (float) location.getZ(),
