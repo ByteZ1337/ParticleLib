@@ -28,7 +28,7 @@ package xyz.xenondevs.particle.data;
 import xyz.xenondevs.particle.ParticleEffect;
 
 /**
- * An Object to easier hold data of a particle.
+ * A class to easier hold data of a particle.
  *
  * @author ByteZ
  * @since 10.06.2019

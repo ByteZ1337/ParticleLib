@@ -28,18 +28,46 @@ import xyz.xenondevs.particle.ParticleConstants;
 import xyz.xenondevs.particle.ParticleEffect;
 import xyz.xenondevs.particle.utils.ReflectionUtils;
 
-public class SculkChargeData extends ParticleData {
+/**
+ * This class holds the roll data needed, to display the {@link ParticleEffect#SCULK_CHARGE} particle. This roll data is
+ * a float ranging from 0 to 1.0. The particle will roll from 0 to 360 degrees.
+ *
+ * @see ParticleEffect#SCULK_CHARGE
+ * @author ByteZ
+ */
+public final class SculkChargeData extends ParticleData {
     
+    /**
+     * The roll data.
+     */
     private final float roll;
     
+    /**
+     * Constructs a new {@link SculkChargeData} instance.
+     *
+     * @param roll The roll data.
+     */
     public SculkChargeData(float roll) {
         this.roll = roll;
     }
     
+    /**
+     * Gets the roll data.
+     *
+     * @return The roll data.
+     */
     public float getRoll() {
         return roll;
     }
     
+    /**
+     * Creates a new SculkChargeParticleOptions instance with the data of the current {@link SculkChargeData} instance.
+     * <p>
+     * Please note that this class is not supported in any versions before 1.19 and could lead to errors
+     * if used in legacy versions.
+     *
+     * @return a new SculkChargeParticleOptions instance with the data of the current {@link SculkChargeData} instance.
+     */
     @Override
     public Object toNMSData() {
         if (ReflectionUtils.MINECRAFT_VERSION < 19 || getEffect() != ParticleEffect.SCULK_CHARGE)

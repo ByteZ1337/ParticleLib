@@ -33,16 +33,13 @@ import xyz.xenondevs.particle.utils.ReflectionUtils;
 import java.util.Objects;
 
 /**
- * This class holds all data that is needed
- * by the client to display a {@link ParticleEffect#VIBRATION}
- * particle. The required information is:
- * The start {@link Location}, The destination
- * and the amount of ticks it will take the
- * particle to fly this path.
+ * This class holds all data that is needed by the client to display a {@link ParticleEffect#VIBRATION}
+ * particle. The required information is: The start {@link Location} (<b>Only for pre 1.19 version</b>), The destination
+ * and the amount of ticks it will take the particle to fly this path.
  * <p>
- * Minecraft only supports full block coordinates
- * for the start and destination location. So any
- * particle will spawn at the center of a block.
+ * Minecraft only supports full block coordinates for the start and destination location. So any
+ * particle will spawn at the center of a block. (<b>Again, only for pre 1.19 versions. The client uses the normal spawn
+ * location of the particle since 1.19</b>)
  *
  * @author ByteZ
  * @see ParticleEffect#VIBRATION
@@ -69,7 +66,7 @@ public final class VibrationData extends ParticleData {
     /**
      * Creates a new {@link VibrationData} instance.
      *
-     * @param start       the start {@link Location} of the particle.
+     * @param start       the start {@link Location} of the particle. (<b>Not needed since 1.19</b>)</b>
      * @param destination the destination {@link Location} of the particle.
      * @param ticks       the amount of ticks it will take the particle to reach the {@link #blockDestination}
      */
@@ -96,7 +93,7 @@ public final class VibrationData extends ParticleData {
     /**
      * Creates a new {@link VibrationData} instance.
      *
-     * @param start       the start {@link Location} of the particle.
+     * @param start       the start {@link Location} of the particle. (<b>Not needed since 1.19</b>)
      * @param destination the destination {@link Entity} of the particle.
      * @param ticks       the amount of ticks it will take the particle to reach the {@link #blockDestination}
      */

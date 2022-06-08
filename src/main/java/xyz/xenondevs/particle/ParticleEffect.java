@@ -29,6 +29,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 import xyz.xenondevs.particle.data.ParticleData;
+import xyz.xenondevs.particle.data.SculkChargeData;
+import xyz.xenondevs.particle.data.ShriekData;
 import xyz.xenondevs.particle.data.VibrationData;
 import xyz.xenondevs.particle.data.color.*;
 import xyz.xenondevs.particle.data.texture.BlockTexture;
@@ -823,9 +825,46 @@ public enum ParticleEffect {
      * </ul>
      */
     SCRAPE(version -> version < 17 ? "NONE" : "scrape", DIRECTIONAL),
-    SCULK_CHARGE(version -> version < 19 ? "NONE" : "sculk_charge"),
+    /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: Blue dust turning into a circle.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: You can use the {@link SculkChargeData} class to change the roll of this particle.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
+    SCULK_CHARGE(version -> version < 19 ? "NONE" : "sculk_charge", DIRECTIONAL),
+    /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A blue circle popping.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
     SCULK_CHARGE_POP(version -> version < 19 ? "NONE" : "sculk_charge_pop", DIRECTIONAL),
+    /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A blue soul.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
     SCULK_SOUL(version -> version < 19 ? "NONE" : "sculk_soul", DIRECTIONAL),
+    /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A blue circle flying up.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * <li>Extra: You can set the delay before the particle appears using the {@link ShriekData} class.</li>
+     * </ul>
+     */
     SHRIEK(version -> version < 19 ? "NONE" : "shriek"),
     /**
      * In vanilla, this particle is displayed by jumping slimes.
@@ -912,6 +951,15 @@ public enum ParticleEffect {
      */
     SNOW_SHOVEL(version -> version < 8 ? "NONE" : (version < 13 ? "SNOW_SHOVEL" : "poof"), DIRECTIONAL),
     /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A blue explosion.</li>
+     * <li>Speed value: Doesn't influence the particle.</li>
+     * </ul>
+     */
+    SONIC_BOOM(version -> version < 19 ? "NONE" : "sonic_boom"),
+    /**
      * In vanilla, this particle is displayed when a player walks
      * on soulsand with the soul speed enchantment.
      * <p>
@@ -922,7 +970,6 @@ public enum ParticleEffect {
      * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
      * </ul>
      */
-    SONIC_BOOM(version -> version < 19 ? "NONE" : "sonic_boom"),
     SOUL(version -> version < 16 ? "NONE" : "soul", DIRECTIONAL),
     /**
      * In vanilla, this particle is displayed by soul torches
