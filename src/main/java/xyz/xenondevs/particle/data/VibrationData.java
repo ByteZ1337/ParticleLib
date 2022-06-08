@@ -66,7 +66,7 @@ public final class VibrationData extends ParticleData {
     /**
      * Creates a new {@link VibrationData} instance.
      *
-     * @param start       the start {@link Location} of the particle. (<b>Not needed since 1.19</b>)</b>
+     * @param start       the start {@link Location} of the particle. (<b>Not needed since 1.19</b>)
      * @param destination the destination {@link Location} of the particle.
      * @param ticks       the amount of ticks it will take the particle to reach the {@link #blockDestination}
      */
