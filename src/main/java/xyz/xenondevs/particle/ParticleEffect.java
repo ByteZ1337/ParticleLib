@@ -117,6 +117,7 @@ import static xyz.xenondevs.particle.PropertyType.*;
  * <li>{@link #SCULK_SOUL}</li>
  * <li>{@link #SHRIEK}</li>
  * <li>{@link #SLIME}</li>
+ * <li>{@link #SMALL_FLAME}</li>
  * <li>{@link #SMOKE_LARGE}</li>
  * <li>{@link #SMOKE_NORMAL}</li>
  * <li>{@link #SNEEZE}</li>
@@ -878,6 +879,16 @@ public enum ParticleEffect {
      * </ul>
      */
     SLIME(version -> version < 8 ? "NONE" : (version < 13 ? "SLIME" : "item_slime")),
+    /**
+     * <p>
+     * <b>Information</b>:
+     * <ul>
+     * <li>Appearance: A small flame.</li>
+     * <li>Speed value: Influences the velocity at which the particle flies off.</li>
+     * <li>Extra: The velocity of this particle can be set. The amount has to be 0.</li>
+     * </ul>
+     */
+    SMALL_FLAME(version -> version < 17 ? "NONE" : "small_flame", DIRECTIONAL),
     /**
      * In vanilla, this particle is randomly displayed by fire, furnace
      * minecarts and blazes. It's also displayed when trying to place water
