@@ -45,7 +45,7 @@ import java.util.function.Predicate;
  * @since 24/01/2020
  */
 public class ParticleBuilder {
-    
+
     /**
      * The {@link ParticleEffect} that should be displayed by the client.
      */
@@ -112,7 +112,7 @@ public class ParticleBuilder {
      * information the client needs to display the particle correctly.
      */
     private ParticleData particleData = null;
-    
+
     /**
      * Initializes a new {@link ParticleBuilder}
      *
@@ -123,7 +123,7 @@ public class ParticleBuilder {
         this.particle = particle;
         this.location = location;
     }
-    
+
     /**
      * Initializes a new {@link ParticleBuilder}
      *
@@ -133,8 +133,15 @@ public class ParticleBuilder {
         this.particle = particle;
         this.location = null;
     }
-    
-    
+
+
+    /**
+     * The {@link ParticleEffect} that should be displayed by the client.
+     */
+    public ParticleEffect getParticle() {
+        return particle;
+    }
+
     /**
      * Sets the {@link Location} of the particle.
      *
@@ -145,7 +152,14 @@ public class ParticleBuilder {
         this.location = location;
         return this;
     }
-    
+
+    /**
+     * The {@link Location} of the particle.
+     */
+    public Location getLocation() {
+        return location;
+    }
+
     /**
      * Sets the X offset.
      *
@@ -156,7 +170,24 @@ public class ParticleBuilder {
         this.offsetX = offsetX;
         return this;
     }
-    
+
+    /**
+     * This field has three uses:
+     * <p>
+     * The offsetX defines in which x oriented range the particles can
+     * spawn.
+     * <p>
+     * It represents the x velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL} property should have.
+     * <p>
+     * It sets the red value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
+     * the colors of redstone.
+     */
+    public float getOffsetX() {
+        return offsetX;
+    }
+
     /**
      * Sets the Y offset.
      *
@@ -167,7 +198,7 @@ public class ParticleBuilder {
         this.offsetY = offsetY;
         return this;
     }
-    
+
     /**
      * Sets the offset.
      *
@@ -182,7 +213,24 @@ public class ParticleBuilder {
         this.offsetZ = offsetZ;
         return this;
     }
-    
+
+    /**
+     * This field has three uses:
+     * <p>
+     * The offsetY defines in which y oriented range the particles can
+     * spawn.
+     * <p>
+     * It represents the y velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL}  property should have.
+     * <p>
+     * It sets the green value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
+     * the colors of redstone.
+     */
+    public float getOffsetY() {
+        return offsetY;
+    }
+
     /**
      * Sets the offset.
      *
@@ -195,7 +243,7 @@ public class ParticleBuilder {
         this.offsetZ = (float) offset.getZ();
         return this;
     }
-    
+
     /**
      * Sets the Z offset.
      *
@@ -206,7 +254,24 @@ public class ParticleBuilder {
         this.offsetZ = offsetZ;
         return this;
     }
-    
+
+    /**
+     * This field has three uses:
+     * <p>
+     * The offsetZ defines in which z oriented range the particles can
+     * spawn.
+     * <p>
+     * It represents the z velocity a particle with the
+     * {@link PropertyType#DIRECTIONAL} property should have.
+     * <p>
+     * It sets the blue value of a {@link PropertyType#COLORABLE}
+     * particle. However, since 1.13 a ParticleParam has to be used to set
+     * the colors of redstone.
+     */
+    public float getOffsetZ() {
+        return offsetZ;
+    }
+
     /**
      * Sets the speed.
      *
@@ -217,7 +282,16 @@ public class ParticleBuilder {
         this.speed = speed;
         return this;
     }
-    
+
+    /**
+     * Normally this field is used to multiply the velocity of a
+     * particle by the given speed. There are however some special cases
+     * where this value is used for something different. (e.g. {@link ParticleEffect#NOTE}).
+     */
+    public float getSpeed() {
+        return speed;
+    }
+
     /**
      * Sets the amount.
      *
@@ -228,7 +302,15 @@ public class ParticleBuilder {
         this.amount = amount;
         return this;
     }
-    
+
+    /**
+     * The amount of particles that should be spawned. For the extra data defined
+     * in offsetX, offsetY and offsetZ to work the amount has to be set to {@code 0}.
+     */
+    public int getAmount() {
+        return amount;
+    }
+
     /**
      * Sets the particleData.
      *
@@ -239,7 +321,15 @@ public class ParticleBuilder {
         this.particleData = particleData;
         return this;
     }
-    
+
+    /**
+     * The data of the particle which should be displayed. This data contains additional
+     * information the client needs to display the particle correctly.
+     */
+    public ParticleData getParticleData() {
+        return particleData;
+    }
+
     /**
      * Sets the color of the particle. Note that particle
      * needs the {@link PropertyType#COLORABLE} PropertyType
@@ -253,7 +343,7 @@ public class ParticleBuilder {
             this.particleData = new RegularColor(color);
         return this;
     }
-    
+
     /**
      * Creates a new {@link ParticlePacket} wit the given values.
      *
@@ -268,7 +358,7 @@ public class ParticleBuilder {
         ParticlePacket packet = new ParticlePacket(this.particle, this.offsetX, this.offsetY, this.offsetZ, this.speed, this.amount, this.particleData);
         return packet.createPacket(this.location);
     }
-    
+
     /**
      * Displays the given particle to all players.
      */
@@ -277,7 +367,7 @@ public class ParticleBuilder {
         Objects.requireNonNull(location.getWorld()).getPlayers()
             .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
-    
+
     /**
      * Displays the given particle to the players in the array.
      *
@@ -286,7 +376,7 @@ public class ParticleBuilder {
     public void display(Player... players) {
         this.display(Arrays.asList(players));
     }
-    
+
     /**
      * Display the given particle to online player that match the given filter.
      *
@@ -300,7 +390,7 @@ public class ParticleBuilder {
             .filter(p -> filter.test(p) && p.getWorld().equals(location.getWorld()))
             .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
-    
+
     /**
      * Displays the given particle to all players in the {@link Collection}
      *
@@ -312,5 +402,5 @@ public class ParticleBuilder {
             .filter(p -> p.getWorld().equals(location.getWorld()))
             .forEach(p -> ReflectionUtils.sendPacket(p, packet));
     }
-    
+
 }
