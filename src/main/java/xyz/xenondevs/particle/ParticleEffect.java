@@ -1279,11 +1279,12 @@ public enum ParticleEffect {
      * An {@link IntFunction} to get the name of the particle by checking the version.
      */
     private final DoubleFunction<String> fieldNameMapper;
+    
     /**
      * A list of {@link PropertyType properties}
      * the current particle instance supports.
      */
-    private final PropertyType[] properties;
+    private final List<PropertyType> properties;
     
     /**
      * An array with all {@link ParticleEffect ParticleEffects}.
@@ -1322,7 +1323,7 @@ public enum ParticleEffect {
      */
     ParticleEffect(DoubleFunction<String> fieldNameMapper, PropertyType... properties) {
         this.fieldNameMapper = fieldNameMapper;
-        this.properties = properties;
+        this.properties = Collections.unmodifiableList(Arrays.asList(properties));
     }
     
     /**
@@ -1336,13 +1337,21 @@ public enum ParticleEffect {
     }
     
     /**
+     * Gets a list of properties the current particle instance supports.
+     * @return a list of supported {@link PropertyType properties}
+     */
+    public List<PropertyType> getProperties() {
+        return properties;
+    }
+    
+    /**
      * Checks if the current {@link ParticleEffect} instance has a specific {@link PropertyType}.
      *
      * @param propertyType the {@link PropertyType} that should be searched.
      * @return {@code true} if the current {@link ParticleEffect} instance supports the given {@link PropertyType}.
      */
     public boolean hasProperty(PropertyType propertyType) {
-        return propertyType != null && Arrays.asList(properties).contains(propertyType);
+        return propertyType != null && properties.contains(propertyType);
     }
     
     /**
