@@ -226,7 +226,7 @@ public enum ParticleEffect {
     BUBBLE_COLUMN_UP(version -> version < 13 ? "NONE" : "bubble_column_up", DIRECTIONAL),
     /**
      * In vanilla, this particle is displayed by barrier blocks when a player
-     * holds a barrier item in the main or off hand or by the light block.
+     * holds a barrier item in the main- or off-hand or by the light block.
      * <p>
      * <p>
      * <b>Information</b>:
