@@ -285,7 +285,7 @@ public final class ParticleConstants {
         PARTICLE_ENUM = getMappedClass("EnumParticle");
         PARTICLE_CLASS = getMappedClass("Particle");
         MINECRAFT_KEY_CLASS = getMappedClass("MinecraftKey");
-        VECTOR_3FA_CLASS = version < 17 ? getNMSClass("Vector3f") : getClassSafe("com.mojang.math.Vector3fa");
+        VECTOR_3FA_CLASS = version < 17 ? getNMSClass("Vector3f") : (version < 19.3 ? getClassSafe("com.mojang.math.Vector3fa") : getClassSafe("org.joml.Vector3f"));
         REGISTRY_CLASS = getMappedClass("IRegistry");
         BUILT_IN_REGISTRIES_CLASS = getMappedClass("BuiltInRegistries");
         BLOCK_CLASS = getMappedClass("Block");
