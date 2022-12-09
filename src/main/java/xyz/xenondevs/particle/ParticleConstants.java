@@ -76,6 +76,10 @@ public final class ParticleConstants {
      */
     public static final Class REGISTRY_CLASS;
     /**
+     * Represents the BuiltInRegistries class.
+     */
+    public static final Class BUILT_IN_REGISTRIES_CLASS;
+    /**
      * Represents the Block class.
      */
     public static final Class BLOCK_CLASS;
@@ -283,6 +287,7 @@ public final class ParticleConstants {
         MINECRAFT_KEY_CLASS = getMappedClass("MinecraftKey");
         VECTOR_3FA_CLASS = version < 17 ? getNMSClass("Vector3f") : getClassSafe("com.mojang.math.Vector3fa");
         REGISTRY_CLASS = getMappedClass("IRegistry");
+        BUILT_IN_REGISTRIES_CLASS = getMappedClass("BuiltInRegistries");
         BLOCK_CLASS = getMappedClass("Block");
         BLOCK_POSITION_CLASS = getMappedClass("BlockPosition");
         BLOCK_DATA_INTERFACE = getMappedClass("IBlockData");
@@ -358,8 +363,16 @@ public final class ParticleConstants {
         PARTICLE_PARAM_SCULK_CHARGE_CONSTRUCTOR = version < 19 ? null : getConstructorOrNull(PARTICLE_PARAM_SCULK_CHARGE_CLASS, float.class);
         
         // Constants
-        PARTICLE_TYPE_REGISTRY = readField(getMappedField(REGISTRY_CLASS, "Registry.ParticleTypeRegistry", false), null);
-        BLOCK_REGISTRY = readField(getMappedField(REGISTRY_CLASS, "Registry.BlockRegistry", false), null);
+        PARTICLE_TYPE_REGISTRY = readField(
+            version < 19.3
+                ? getMappedField(REGISTRY_CLASS, "Registry.ParticleTypeRegistry", false)
+                : getMappedField(BUILT_IN_REGISTRIES_CLASS, "BuiltInRegistries.ParticleTypeRegistry", false),
+            null);
+        BLOCK_REGISTRY = readField(
+            version < 19.3
+                ? getMappedField(REGISTRY_CLASS, "Registry.BlockRegistry", false)
+                : getMappedField(BUILT_IN_REGISTRIES_CLASS, "BuiltInRegistries.BlockRegistry", false),
+            null);
     }
     
 }

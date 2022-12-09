@@ -388,6 +388,10 @@
       {
         "from": 19,
         "value": "m"
+      },
+      {
+        "from": 19.3,
+        "value": "n"
       }
     ]
   },
@@ -420,7 +424,7 @@
   {
     "name": "Registry.ParticleTypeRegistry",
     "min": 13,
-    "max": 99,
+    "max": 19.2,
     "mappings": [
       {
         "from": 13,
@@ -447,7 +451,7 @@
   {
     "name": "Registry.BlockRegistry",
     "min": 17,
-    "max": 99,
+    "max": 19.2,
     "mappings": [
       {
         "from": 17,
@@ -464,6 +468,39 @@
       {
         "from": 19,
         "value": "V"
+      }
+    ]
+  },
+  {
+    "name": "BuiltInRegistries",
+    "min": 19.3,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 19.3,
+        "value": "core.registries.BuiltInRegistries"
+      }
+    ]
+  },
+  {
+    "name": "BuiltInRegistries.ParticleTypeRegistry",
+    "min": 19.3,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 19.3,
+        "value": "k"
+      }
+    ]
+  },
+  {
+    "name": "BuiltInRegistries.BlockRegistry",
+    "min": 19.3,
+    "max": 99,
+    "mappings": [
+      {
+        "from": 19.3,
+        "value": "f"
       }
     ]
   }
