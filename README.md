@@ -20,7 +20,7 @@
   <a href="https://github.com/ByteZ1337/ParticleLib/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/ByteZ1337/ParticleLib" alt="license"/>
   </a>
-  <img src="https://img.shields.io/github/workflow/status/ByteZ1337/ParticleLib/Java%20CI%20with%20Maven" alt="build"/><br><br>
+  <img src="https://img.shields.io/github/actions/workflow/status/ByteZ1337/ParticleLib/maven.yml?branch=master" alt="build"/><br><br>
   <a href="#support">Support</a> •
   <a href="#features">Features</a> •
   <a href="#download">Download</a> •
