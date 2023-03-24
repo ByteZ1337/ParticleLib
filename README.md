@@ -1,3 +1,5 @@
+# NO LONGER MAINTAINED. ANY VERSION AFTER 1.19.4 WILL NOT BE SUPPORTED! USE BUKKIT'S PARTICLE API OR [NMS-UTILS (NOT MULTIVERSION)](https://github.com/xenondevs/NMS-Utilities) INSTEAD
+
 <h1 align="center">
   <img width=250 height=250 src="https://raw.githubusercontent.com/ByteZ1337/ParticleLib/0703161cf8b3402541c895885fbd0083ac688394/.github/img/logo.svg" />
   <br>ParticleLib<br>
